@@ -1,11 +1,28 @@
-# Commerce Visual - Robots.txt
+# Commerce Visual — robots.txt
+# Todos os buscadores e assistentes de IA podem ler o site.
 User-agent: *
 Allow: /
 
-# Bloquear rotas de teste/API se houver
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
+# Assistentes de IA (liberados explicitamente)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
 
-# Link para o sitemap do site
 Sitemap: https://www.commercevisual.com.br/sitemap.xml

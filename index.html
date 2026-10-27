@@ -4,28 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Título Principal -->
-    <title>Commerce Visual | Sites de Alta Conversão, SaaS & Design em BH</title>
+    <!-- ===================== SEO principal ===================== -->
+    <title>Commerce Visual | Criação de Sites, Lojas Virtuais e Sistemas</title>
+    <meta name="description" content="Commerce Visual: criação de sites profissionais, lojas virtuais, sistemas sob medida e segurança digital para pequenas empresas. Atendimento 100% online para todo o Brasil, Estados Unidos e Europa." />
+    <link rel="canonical" href="https://www.commercevisual.com.br/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Commerce Visual" />
+    <meta name="theme-color" content="#fde725" />
     <link rel="icon" type="image/jpeg" href="/cv.jpeg" />
 
-    <!-- Meta Description Principal -->
-    <meta
-      name="description"
-      content="Agência especialista em criação de sites, landing pages de alta conversão e desenvolvimento de sistemas web em Belo Horizonte. Solicite seu orçamento!"
-    />
-    <meta name="keywords" content="criação de sites bh, landing page belo horizonte, desenvolvimento de sistemas, agência web bh, landing page alta conversão" />
-
-    <!-- Meta Open Graph (para pré-visualização quando compartilhar no WhatsApp/Redes Sociais) -->
-    <meta property="og:title" content="Seu próximo cliente começa com uma experiência melhor | Commerce Visual" />
-    <meta property="og:description" content="Agência especialista em criação de sites, landing pages de alta conversão e desenvolvimento de sistemas web em Belo Horizonte. Solicite seu orçamento!" />
+    <!-- Pré-visualização em WhatsApp, Instagram, Facebook e LinkedIn -->
+    <meta property="og:site_name" content="Commerce Visual" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Commerce Visual | Seu negócio sem limites" />
+    <meta property="og:description" content="Commerce Visual: criação de sites profissionais, lojas virtuais, sistemas sob medida e segurança digital para pequenas empresas. Atendimento 100% online para todo o Brasil, Estados Unidos e Europa." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.commercevisual.com.br" />
+    <meta property="og:url" content="https://www.commercevisual.com.br/" />
     <meta property="og:image" content="https://www.commercevisual.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Commerce Visual | Seu negócio sem limites" />
+    <meta name="twitter:description" content="Commerce Visual: criação de sites profissionais, lojas virtuais, sistemas sob medida e segurança digital para pequenas empresas. Atendimento 100% online para todo o Brasil, Estados Unidos e Europa." />
+    <meta name="twitter:image" content="https://www.commercevisual.com.br/og-image.png" />
 
-    <!-- Outras tags e fontes -->
+    <!-- Resumo do site para assistentes de IA (ChatGPT, Claude, Perplexity, Gemini) -->
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="Resumo do site para IA" />
+
+    <!-- Dados estruturados: ajudam Google e IAs a entender quem é a empresa -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://www.commercevisual.com.br/#empresa", "name": "Commerce Visual", "alternateName": "CommerceVisual", "url": "https://www.commercevisual.com.br/", "logo": "https://www.commercevisual.com.br/cv/logo.webp", "image": "https://www.commercevisual.com.br/og-image.png", "description": "Criação de sites profissionais, lojas virtuais, sistemas sob medida e soluções de segurança digital para pequenas empresas, com atendimento 100% online para Brasil, Estados Unidos e Europa.", "email": "commercevisual@hotmail.com", "telephone": "+55-41-9758-0656", "taxID": "68.961.224/0001-01", "areaServed": [{"@type": "Country", "name": "Brasil"}, {"@type": "Country", "name": "Estados Unidos"}, {"@type": "Place", "name": "Europa"}], "availableLanguage": ["pt-BR", "en"], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "sameAs": ["https://www.instagram.com/commercevisual/"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Serviços", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sites profissionais", "url": "https://www.commercevisual.com.br/sites-profissionais"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lojas virtuais", "url": "https://www.commercevisual.com.br/lojas-virtuais"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistemas sob medida", "url": "https://www.commercevisual.com.br/sistemas-sob-medida"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Segurança digital", "url": "https://www.commercevisual.com.br/seguranca-digital"}}]}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.commercevisual.com.br/#site", "name": "Commerce Visual", "url": "https://www.commercevisual.com.br/", "inLanguage": "pt-BR", "publisher": {"@id": "https://www.commercevisual.com.br/#empresa"}}</script>
+
+    <!-- Fontes e imagens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap" />
+    <link rel="preload" as="image" href="/cv/hero-desktop.webp" media="(min-width: 761px)" />
+    <link rel="preload" as="image" href="/cv/hero-mobile.webp" media="(max-width: 760px)" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Conteúdo em texto para robôs que não executam JavaScript (vários robôs de IA).
+        O React substitui este bloco assim que a página carrega; o visitante vê o design normal.
+      -->
+      <main style="font-family:Montserrat,system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#0b2a8a;background:#fde725">
+        <h1>Commerce Visual — Seu negócio sem limites</h1>
+        <p>Criação de sites e sistemas. Ideias criativas e soluções digitais feitas para o seu negócio, com atendimento 100% online para todo o Brasil, Estados Unidos e Europa.</p>
+        <h2>Serviços</h2>
+        <ul>
+          <li><a href="/sites-profissionais">Sites profissionais</a>: presença digital com a sua identidade.</li>
+          <li><a href="/lojas-virtuais">Lojas virtuais</a>: seu catálogo em uma experiência de compra.</li>
+          <li><a href="/sistemas-sob-medida">Sistemas sob medida</a>: soluções para a rotina do seu negócio.</li>
+          <li><a href="/seguranca-digital">Segurança digital</a>: proteção para o site e os dados da empresa.</li>
+          <li>Design responsivo e manutenção e suporte.</li>
+        </ul>
+        <p><a href="/quanto-custa-um-site">Quanto custa um site</a> · <a href="/site-para-clinica-de-estetica">Site para clínica de estética</a> · <a href="/loja-virtual-para-confeitaria">Loja virtual para confeitaria</a> · <a href="/sistema-de-agendamento-para-barbearia">Agendamento para barbearia</a></p>
+        <h2>Contato</h2>
+        <p>WhatsApp <a href="https://wa.me/554197580656">+55 (41) 9758-0656</a> · E-mail <a href="mailto:commercevisual@hotmail.com">commercevisual@hotmail.com</a> · Instagram <a href="https://www.instagram.com/commercevisual/">@commercevisual</a> · Segunda a sexta, 9h às 18h (horário de Brasília).</p>
+        <p>CNPJ 68.961.224/0001-01 · <a href="/politica-de-privacidade">Política de Privacidade</a> · <a href="/termos-de-uso">Termos de Uso</a></p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

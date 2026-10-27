@@ -1,0 +1,629 @@
+<!-- =====================================================================
+     TERMOS DE USO — COMMERCE VISUAL
+     Publicar em: /termos-de-uso  (salve como termos-de-uso/index.html)
+     Este arquivo já inclui o rodapé e o banner de cookies do site.
+     Para atualizar a data, mude o texto dentro de <time> nos DOIS lugares
+     marcados com "DATA DA ÚLTIMA ATUALIZAÇÃO".
+     ===================================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Termos de Uso | Commerce Visual</title>
+  <meta name="description" content="Regras de uso do site e condições gerais de contratação dos serviços da Commerce Visual.">
+  <link rel="canonical" href="https://www.commercevisual.com.br/termos-de-uso">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+
+<style>
+  /* ---------- 1. Cores e fontes da página ---------- */
+  :root {
+    --pp-bg: #f6f8ff;          /* fundo da leitura (azul bem claro) */
+    --pp-card: #ffffff;
+    --pp-ink: #0b1640;         /* texto principal */
+    --pp-muted: #46527a;       /* texto secundário */
+    --pp-blue: #0040ff;        /* azul da marca */
+    --pp-navy: #06112e;        /* azul-marinho (topo e rodapé) */
+    --pp-yellow: #ffdf00;      /* amarelo da marca */
+    --pp-orange: #ff861a;      /* detalhes em laranja */
+    --pp-line: #dfe5f5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body {
+    margin: 0;
+    background: var(--pp-bg);
+    color: var(--pp-ink);
+    font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  a { color: var(--pp-blue); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--pp-orange); outline-offset: 3px; border-radius: 4px; }
+
+  /* link "pular para o conteúdo" (acessibilidade) */
+  .pp-skip { position: absolute; left: -9999px; top: 12px; background: var(--pp-yellow); color: var(--pp-navy); padding: 10px 16px; border-radius: 8px; font-weight: 700; z-index: 100; }
+  .pp-skip:focus { left: 12px; }
+
+  /* ---------- 2. Topo ---------- */
+  .pp-header {
+    background:
+      radial-gradient(circle at 85% 20%, rgba(255, 223, 0, .18), transparent 40%),
+      radial-gradient(circle at 10% 100%, rgba(61, 107, 255, .35), transparent 45%),
+      var(--pp-navy);
+    color: #fff;
+    position: relative;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .pp-header::after { /* faixa da marca */
+    content: ""; position: absolute; inset: auto 0 0; height: 5px;
+    background: linear-gradient(90deg, var(--pp-yellow), var(--pp-orange) 50%, var(--pp-blue));
+  }
+  .pp-wrap {
+    max-width: 760px; margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .pp-topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; }
+  .pp-logo { color: #fff; text-decoration: none; font-weight: 900; text-transform: uppercase; line-height: .95; font-size: 22px; letter-spacing: -.02em; }
+  .pp-logo span { display: block; color: var(--pp-yellow); }
+  .pp-back { color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; border: 2px solid rgba(255,255,255,.4); padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+  .pp-back:hover { border-color: var(--pp-yellow); color: var(--pp-yellow); }
+  .pp-hero { padding-block: 36px 60px; }
+  .pp-lang {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255, 223, 0, .14); color: var(--pp-yellow);
+    border: 1px solid rgba(255, 223, 0, .4);
+    font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin: 0 0 22px;
+  }
+  .pp-hero h1 { margin: 0 0 14px; font-size: clamp(36px, 7vw, 56px); line-height: 1.05; font-weight: 900; letter-spacing: -.03em; text-wrap: balance; }
+  .pp-hero p { margin: 0; color: #c9d4f2; font-size: 16px; }
+  .pp-hero strong { color: #fff; }
+
+  /* ---------- 3. Resumo rápido ---------- */
+  .pp-summary {
+    margin: -30px 0 32px; position: relative;
+    background: var(--pp-card); border: 1px solid var(--pp-line); border-left: 5px solid var(--pp-yellow);
+    border-radius: 18px; padding: 22px 26px; box-shadow: 0 14px 34px rgba(6, 17, 46, .08);
+  }
+  .pp-summary h2 { margin: 0 0 10px; font-size: 17px; }
+  .pp-summary ul { margin: 0; padding-left: 20px; font-size: 15px; color: var(--pp-muted); }
+
+  /* ---------- 4. Sumário ---------- */
+  .pp-toc { background: var(--pp-card); border: 1px solid var(--pp-line); border-radius: 18px; padding: 24px 26px; margin-bottom: 48px; }
+  .pp-toc h2 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--pp-muted); }
+  .pp-toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; font-size: 15px; }
+  .pp-toc li { break-inside: avoid; margin-bottom: 6px; }
+  .pp-toc a { text-decoration: none; font-weight: 600; }
+  .pp-toc a:hover { text-decoration: underline; }
+
+  /* ---------- 5. Conteúdo ---------- */
+  main section { padding-bottom: 12px; }
+  main h2 {
+    font-size: clamp(22px, 4vw, 27px); line-height: 1.25; font-weight: 800;
+    margin: 44px 0 14px; letter-spacing: -.01em; color: var(--pp-navy);
+    display: flex; gap: 14px; align-items: baseline;
+  }
+  main h2 .pp-n { /* número da seção (as seções são numeradas no sumário) */
+    flex: none; display: inline-grid; place-items: center;
+    width: 38px; height: 38px; border-radius: 12px;
+    background: var(--pp-yellow); color: var(--pp-navy); font-size: 16px; font-weight: 900;
+    transform: translateY(-3px);
+  }
+  main h3 { font-size: 18px; margin: 26px 0 8px; color: var(--pp-navy); }
+  main p, main li { color: var(--pp-ink); }
+  main ul { padding-left: 22px; }
+  main li { margin-bottom: 6px; }
+  main li::marker { color: var(--pp-orange); }
+
+  /* tabelas (bases legais, cookies, prazos) */
+  .pp-table-wrap { overflow-x: auto; margin: 16px 0 8px; border: 1px solid var(--pp-line); border-radius: 14px; background: var(--pp-card); }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.5; min-width: 560px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--pp-line); }
+  th { background: #eef2ff; color: var(--pp-navy); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  tr:last-child td { border-bottom: 0; }
+
+  /* destaque (ex.: segurança, "não vendemos dados") */
+  .pp-callout {
+    background: var(--pp-navy); color: #dbe3fb; border-radius: 18px;
+    padding: 22px 24px; margin: 18px 0; position: relative; overflow: hidden;
+  }
+  .pp-callout::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--pp-yellow); }
+  .pp-callout strong { color: var(--pp-yellow); }
+  .pp-callout p, .pp-callout li { color: #dbe3fb; }
+  .pp-callout ul { margin: 10px 0 0; }
+
+  .pp-contact { background: var(--pp-card); border: 1px solid var(--pp-line); border-radius: 18px; padding: 20px 24px; }
+  .pp-contact p { margin: 4px 0; }
+  .pp-updated { margin: 40px 0 70px; font-size: 14px; color: var(--pp-muted); border-top: 1px solid var(--pp-line); padding-top: 18px; }
+
+  /* ---------- 6. Botão "Voltar ao topo" ---------- */
+  .pp-top {
+    position: fixed; z-index: 50;
+    right: max(20px, env(safe-area-inset-right, 0px));
+    bottom: calc(96px + env(safe-area-inset-bottom, 0px)); /* acima do botão do WhatsApp */
+    width: 48px; height: 48px; border-radius: 14px; border: 0; cursor: pointer;
+    background: var(--pp-blue); color: #fff; box-shadow: 0 10px 24px rgba(0, 64, 255, .35);
+    display: grid; place-items: center;
+    opacity: 0; visibility: hidden; transform: translateY(10px);
+    transition: opacity .25s, transform .25s, visibility .25s;
+  }
+  .pp-top.on { opacity: 1; visibility: visible; transform: none; }
+  .pp-top:hover { background: #0030c4; }
+  .pp-top svg { width: 22px; height: 22px; }
+
+  /* ---------- 7. Responsivo ---------- */
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .pp-toc ol { columns: 1; }
+    .pp-summary, .pp-toc { padding: 20px; }
+    .pp-back { font-size: 13px; padding: 7px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .pp-top { transition: none; } }
+  @media print { .pp-top, .cvc, .cvc-overlay, .pp-back { display: none !important; } }
+
+  /* =================================================================
+     IDENTIDADE COMMERCE VISUAL — amarelo, azul elétrico, laranja,
+     logo 3D e mascote (igual à página inicial e ao rodapé)
+     ================================================================= */
+  :root {
+    --pp-bg: #fffbe8;          /* creme claro para leitura longa */
+    --pp-ink: #0b2a8a;         /* texto em azul da marca */
+    --pp-muted: #3d4f8f;
+    --pp-blue: #0040ff;
+    --pp-blue-d: #0030c4;
+    --pp-yellow: #fde725;
+    --pp-line: #f3e3a0;
+  }
+  .ppv, body { --pp-display: 'Fredoka', 'Montserrat', system-ui, sans-serif; }
+
+  /* Topo amarelo com tubos azuis e mascote */
+  .pp-header {
+    background: radial-gradient(circle at 30% 20%, #fff6b0, #fde725 45%, #fbdc10);
+    color: var(--pp-ink); overflow: hidden;
+  }
+  .pp-header::after { /* bolinha azul + fim do topo */
+    content: ""; position: absolute; right: 4%; top: 22%; inset-inline-start: auto; inset-block-end: auto;
+    width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #9db3ff, #0040ff 60%, #0020a0);
+  }
+  .pp-header .pp-wrap { position: relative; z-index: 1; }
+  .pp-logo img { display: block; width: 190px; height: auto; }
+  .pp-back { color: #fff; background: var(--pp-blue); border: 0; padding: 10px 20px; font-weight: 700; box-shadow: 0 8px 18px rgba(0,64,255,.3); }
+  .pp-back:hover { background: var(--pp-blue-d); color: #fff; }
+  .pp-hero { position: relative; padding-block: 30px 70px; padding-right: 200px; }
+  .pp-lang { background: #fff; color: var(--pp-blue); border: 2px solid var(--pp-blue); }
+  .pp-hero h1 {
+    font-family: var(--pp-display); font-weight: 700; color: var(--pp-blue); text-transform: uppercase;
+    text-shadow: 0 3px 0 #4f7bff, 0 7px 0 var(--pp-blue-d), 0 12px 20px rgba(0,48,196,.3);
+    letter-spacing: 0;
+  }
+  .pp-hero p { color: var(--pp-ink); font-weight: 500; }
+  .pp-hero strong { color: var(--pp-blue); }
+  .pp-mascote { position: absolute; right: -10px; bottom: 26px; width: 190px; height: auto; transform: rotate(-6deg); filter: drop-shadow(0 14px 14px rgba(150,110,0,.3)); }
+
+  /* Cards de leitura */
+  .pp-summary { border: 2px solid var(--pp-yellow); border-left-width: 2px; border-radius: 22px; box-shadow: 0 14px 30px rgba(200,160,0,.18); }
+  .pp-summary h2, .pp-toc h2 { font-family: var(--pp-display); color: var(--pp-blue); font-weight: 700; }
+  .pp-toc { border: 2px solid var(--pp-line); border-radius: 22px; }
+  .pp-toc h2 { font-size: 15px; letter-spacing: .08em; }
+  .pp-toc a { color: var(--pp-ink); }
+  .pp-toc a:hover { color: var(--pp-blue); }
+  .pp-toc li::marker { color: var(--pp-blue); font-weight: 800; }
+
+  main h2 { font-family: var(--pp-display); font-weight: 700; color: var(--pp-blue); }
+  main h2 .pp-n { background: var(--pp-blue); color: #fff; border-radius: 50%; box-shadow: 0 4px 0 var(--pp-blue-d); font-family: var(--pp-display); }
+  main h3 { color: var(--pp-blue); }
+  main li::marker { color: var(--pp-blue); }
+
+  .pp-table-wrap { border: 2px solid var(--pp-line); border-radius: 18px; }
+  th { background: var(--pp-yellow); color: var(--pp-ink); }
+  td { border-color: var(--pp-line); }
+
+  .pp-callout { background: var(--pp-blue); color: #fff; border-radius: 22px; box-shadow: 0 12px 26px rgba(0,64,255,.25); }
+  .pp-callout::before { background: var(--pp-yellow); width: 6px; }
+  .pp-callout p, .pp-callout li { color: #eaf0ff; }
+  .pp-callout strong { color: var(--pp-yellow); }
+  .pp-callout a { color: var(--pp-yellow); }
+  .pp-contact { border: 2px solid var(--pp-line); border-radius: 20px; }
+  .pp-updated { border-color: var(--pp-line); }
+
+  @media (max-width: 600px) {
+    .pp-hero { padding-right: 0; padding-bottom: 170px; }
+    .pp-mascote { width: 120px; right: 4px; bottom: 44px; }
+    .pp-logo img { width: 140px; }
+    .pp-header::after { display: none; } /* bolinha escondida no celular para não cobrir o aviso de idioma */
+  }
+</style>
+</head>
+
+<body>
+<a class="pp-skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================ TOPO ============================ -->
+<header class="pp-header" id="topo">
+  <div class="pp-wrap">
+    <div class="pp-topbar">
+      <a class="pp-logo" href="/" aria-label="Commerce Visual — página inicial"><img src="/cv/logo.webp" alt="Commerce Visual" width="520" height="165"></a>
+      <a class="pp-back" href="/">← Voltar ao site</a>
+    </div>
+    <div class="pp-hero">
+      <img class="pp-mascote" src="/cv/mascote.webp" alt="" aria-hidden="true" width="900" height="845">
+      <p class="pp-lang" lang="en">English version available upon request</p>
+      <h1>Termos de Uso</h1>
+      <!-- DATA DA ÚLTIMA ATUALIZAÇÃO (1/2) -->
+      <p>Última atualização: <strong><time datetime="2026-10-27">27 de outubro de 2026</time></strong></p>
+    </div>
+  </div>
+</header>
+
+<div class="pp-wrap">
+
+  <!-- Resumo rápido -->
+  <aside class="pp-summary" aria-labelledby="resumo-titulo">
+    <h2 id="resumo-titulo">Resumo em poucas linhas</h2>
+    <ul>
+      <li>Estes termos regulam o uso do site e as regras gerais de contratação.</li>
+      <li>Escopo, valor e prazo de cada projeto ficam na proposta e no contrato de cada cliente.</li>
+      <li>O projeto passa a ser seu depois do pagamento total.</li>
+      <li>Usamos boas práticas de segurança, mas nenhum sistema é 100% imune.</li>
+    </ul>
+  </aside>
+
+  <!-- Sumário -->
+  <nav class="pp-toc" aria-labelledby="sumario-titulo">
+    <h2 id="sumario-titulo">Sumário</h2>
+    <ol>
+      <li><a href="#aceitacao">Aceitação dos termos</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#uso-do-site">Uso do site</a></li>
+      <li><a href="#propriedade-intelectual">Propriedade intelectual</a></li>
+      <li><a href="#contratacao">Como funciona a contratação</a></li>
+      <li><a href="#responsabilidades-cliente">Responsabilidades do cliente</a></li>
+      <li><a href="#prazos">Prazos e atrasos</a></li>
+      <li><a href="#revisoes">Revisões e alterações de escopo</a></li>
+      <li><a href="#pagamentos">Pagamentos, cancelamento e reembolso</a></li>
+      <li><a href="#propriedade-projeto">Propriedade do projeto entregue</a></li>
+      <li><a href="#terceiros">Hospedagem, domínio e terceiros</a></li>
+      <li><a href="#seguranca">Segurança digital</a></li>
+      <li><a href="#suporte">Manutenção e suporte</a></li>
+      <li><a href="#limitacao">Limitação de responsabilidade</a></li>
+      <li><a href="#links">Links para sites de terceiros</a></li>
+      <li><a href="#privacidade">Privacidade</a></li>
+      <li><a href="#internacionais">Clientes internacionais</a></li>
+      <li><a href="#alteracoes">Alterações destes termos</a></li>
+      <li><a href="#lei-foro">Lei aplicável e foro</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ol>
+  </nav>
+
+  <main id="conteudo">
+
+    <section id="aceitacao" aria-labelledby="h-1">
+      <h2 id="h-1"><span class="pp-n">1</span>Aceitação dos termos</h2>
+      <p>Ao acessar e usar o site <a href="https://www.commercevisual.com.br">commercevisual.com.br</a>, você concorda com estes Termos de Uso. Se não concordar, pedimos que não use o site.</p>
+      <div class="pp-callout">
+        <p><strong>Importante:</strong> estes termos tratam do <strong>uso do site</strong> e das <strong>regras gerais de contratação</strong>. Os detalhes de cada projeto, como escopo, valor, prazo, forma de pagamento e número de revisões, ficam na <strong>proposta</strong> e no <strong>contrato</strong> individual de cada cliente. Se houver diferença entre estes termos e o contrato, vale o que está no contrato.</p>
+      </div>
+    </section>
+
+    <section id="quem-somos" aria-labelledby="h-2">
+      <h2 id="h-2"><span class="pp-n">2</span>Quem somos</h2>
+      <div class="pp-contact">
+        <p><strong>Commerce Visual</strong> — Microempreendedor Individual (MEI)</p>
+        <p>CNPJ: 68.961.224/0001-01</p>
+        <p>Atividade: criação de sites, lojas virtuais, sistemas sob medida e soluções de segurança digital</p>
+        <p>Atendimento 100% online para Brasil, Estados Unidos e Europa</p>
+        <p>E-mail: <a href="mailto:commercevisual@hotmail.com">commercevisual@hotmail.com</a> · WhatsApp: <a href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer">+55 (41) 9758-0656</a></p>
+      </div>
+    </section>
+
+    <section id="uso-do-site" aria-labelledby="h-3">
+      <h2 id="h-3"><span class="pp-n">3</span>Uso do site</h2>
+      <h3>O que você pode fazer</h3>
+      <ul>
+        <li>Navegar e conhecer nossos serviços e projetos.</li>
+        <li>Entrar em contato para tirar dúvidas ou pedir orçamento.</li>
+        <li>Compartilhar links das nossas páginas.</li>
+      </ul>
+      <h3>O que é proibido</h3>
+      <ul>
+        <li>Tentar invadir, testar vulnerabilidades ou acessar áreas restritas do site, do servidor ou de sistemas ligados a ele sem autorização por escrito.</li>
+        <li>Copiar, reproduzir ou revender textos, imagens, layout ou código do site.</li>
+        <li>Usar robôs, <em>scrapers</em> ou ferramentas automáticas para coletar dados do site.</li>
+        <li>Enviar vírus, códigos maliciosos, spam ou conteúdo ilegal pelos nossos canais.</li>
+        <li>Sobrecarregar o site de propósito ou atrapalhar o seu funcionamento.</li>
+        <li>Se passar por outra pessoa ou empresa ao falar com a gente.</li>
+      </ul>
+      <p>O descumprimento dessas regras pode levar ao bloqueio do acesso e às medidas legais cabíveis, incluindo as previstas na Lei nº 12.737/2012 (invasão de dispositivo informático) e no Marco Civil da Internet (Lei nº 12.965/2014).</p>
+    </section>
+
+    <section id="propriedade-intelectual" aria-labelledby="h-4">
+      <h2 id="h-4"><span class="pp-n">4</span>Propriedade intelectual</h2>
+      <p>A marca <strong>Commerce Visual</strong>, o logo, o mascote, os textos, as imagens, as ilustrações, o layout e o código deste site pertencem à Commerce Visual ou são usados com autorização. Eles são protegidos pela Lei de Direitos Autorais (Lei nº 9.610/1998), pela Lei de Software (Lei nº 9.609/1998) e pela Lei da Propriedade Industrial (Lei nº 9.279/1996).</p>
+      <p>Nenhum conteúdo pode ser usado, copiado ou modificado sem autorização prévia por escrito. Os projetos de clientes exibidos no portfólio pertencem aos respectivos clientes e aparecem com autorização.</p>
+    </section>
+
+    <section id="contratacao" aria-labelledby="h-5">
+      <h2 id="h-5"><span class="pp-n">5</span>Como funciona a contratação dos serviços</h2>
+      <ul>
+        <li><strong>Orçamento sem compromisso:</strong> você conta sua ideia e preparamos um orçamento, sem custo e sem obrigação de contratar.</li>
+        <li><strong>Proposta por escrito:</strong> enviamos uma proposta com escopo, prazo, valor, forma de pagamento e número de revisões.</li>
+        <li><strong>Início do projeto:</strong> o trabalho começa depois do aceite da proposta (e, quando houver, da assinatura do contrato) e do pagamento da entrada.</li>
+        <li><strong>Nota fiscal:</strong> emitimos nota fiscal pelos serviços prestados, conforme a legislação aplicável ao MEI.</li>
+      </ul>
+      <p>Valores e condições de propostas valem pelo prazo indicado em cada proposta.</p>
+    </section>
+
+    <section id="responsabilidades-cliente" aria-labelledby="h-6">
+      <h2 id="h-6"><span class="pp-n">6</span>Responsabilidades do cliente</h2>
+      <ul>
+        <li>Enviar no prazo combinado os conteúdos, textos, imagens, logos, informações e acessos necessários ao projeto.</li>
+        <li>Garantir que tem o direito de usar todo o material enviado (fotos, textos, marcas, fontes etc.). O cliente responde por qualquer reclamação de terceiros sobre esse material.</li>
+        <li>Revisar as entregas e dar retorno dentro do prazo combinado.</li>
+        <li>Manter seus dados de contato atualizados.</li>
+        <li>Usar o site ou sistema entregue de acordo com a lei, incluindo a LGPD quando tratar dados dos seus próprios clientes.</li>
+      </ul>
+    </section>
+
+    <section id="prazos" aria-labelledby="h-7">
+      <h2 id="h-7"><span class="pp-n">7</span>Prazos e atrasos</h2>
+      <p>Os prazos de cada projeto estão na proposta e no contrato e são contados a partir do início do projeto (seção 5).</p>
+      <p>Quando o atraso acontece porque o cliente não enviou materiais, acessos ou aprovações no tempo combinado, o prazo de entrega é <strong>estendido pelo mesmo período do atraso</strong>. Se o projeto ficar parado por falta de retorno do cliente pelo período definido no contrato, ele pode ser pausado e retomado conforme a nossa agenda.</p>
+      <p>Se o atraso for nosso, avisaremos o cliente o quanto antes, com o novo prazo e o motivo.</p>
+    </section>
+
+    <section id="revisoes" aria-labelledby="h-8">
+      <h2 id="h-8"><span class="pp-n">8</span>Revisões e alterações de escopo</h2>
+      <p>O número de rodadas de revisão incluídas está definido na proposta. Revisões são ajustes no que já foi combinado, como trocar cores, textos ou posições de elementos.</p>
+      <p>Pedidos que vão além do escopo aprovado, como novas páginas, novas funcionalidades ou mudança de layout depois da aprovação, são <strong>orçados à parte</strong> e podem alterar o prazo.</p>
+    </section>
+
+    <section id="pagamentos" aria-labelledby="h-9">
+      <h2 id="h-9"><span class="pp-n">9</span>Pagamentos, cancelamento e reembolso</h2>
+      <h3>Pagamentos</h3>
+      <p>Valores, parcelas, vencimentos e formas de pagamento estão na proposta e no contrato. Atrasos de pagamento podem gerar multa, juros e a pausa do projeto até a regularização, conforme o contrato.</p>
+      <h3>Direito de arrependimento</h3>
+      <p>Se você contrata como <strong>consumidor</strong> (pessoa física ou empresa destinatária final do serviço, nos termos do Código de Defesa do Consumidor), pode desistir da contratação em até <strong>7 dias</strong> contados da contratação, com devolução integral dos valores pagos, conforme o art. 49 do CDC, já que a contratação é feita fora de estabelecimento comercial (online).</p>
+      <h3>Cancelamento depois desse prazo</h3>
+      <p>Depois dos 7 dias, ou quando o direito de arrependimento não se aplica, o cancelamento segue as regras do contrato. Em regra, os valores correspondentes ao trabalho já realizado não são reembolsados, e o que já foi produzido e pago é entregue ao cliente.</p>
+    </section>
+
+    <section id="propriedade-projeto" aria-labelledby="h-10">
+      <h2 id="h-10"><span class="pp-n">10</span>Propriedade do projeto entregue</h2>
+      <ul>
+        <li><strong>Transferência de direitos:</strong> depois do <strong>pagamento total</strong>, os direitos patrimoniais sobre o projeto feito especialmente para o cliente (layout, textos criados para ele e código específico do projeto) passam para o cliente, nos limites do contrato.</li>
+        <li><strong>Componentes de terceiros:</strong> plugins, temas, bibliotecas de código aberto, fontes e bancos de imagens continuam sujeitos às licenças dos seus próprios donos.</li>
+        <li><strong>Ferramentas próprias:</strong> trechos de código, métodos e ferramentas genéricas que a Commerce Visual já usava antes ou usa em vários projetos continuam sendo dela. O cliente recebe licença de uso para o seu projeto.</li>
+        <li><strong>Portfólio:</strong> a Commerce Visual pode exibir o projeto em seu site, redes sociais e portfólio, <strong>salvo se houver acordo de confidencialidade</strong> ou pedido por escrito do cliente. Nunca divulgamos dados sigilosos, senhas ou informações internas.</li>
+      </ul>
+    </section>
+
+    <section id="terceiros" aria-labelledby="h-11">
+      <h2 id="h-11"><span class="pp-n">11</span>Hospedagem, domínio e serviços de terceiros</h2>
+      <p>Muitos projetos dependem de serviços de outras empresas, como hospedagem (por exemplo, Hostinger), registro de domínio, provedores de e-mail, plugins, plataformas de pagamento e APIs.</p>
+      <ul>
+        <li>Esses serviços têm seus próprios termos, preços e políticas, e podem mudar, ficar fora do ar ou ser descontinuados.</li>
+        <li>A Commerce Visual <strong>não responde por falhas, interrupções, perda de dados ou mudanças</strong> causadas por esses serviços, mas ajuda o cliente a buscar uma solução quando houver suporte contratado.</li>
+        <li>Sempre que possível, o domínio e a hospedagem ficam registrados <strong>em nome do cliente</strong>. Os custos desses serviços são do cliente, salvo se a proposta disser outra coisa.</li>
+      </ul>
+    </section>
+
+    <section id="seguranca" aria-labelledby="h-12">
+      <h2 id="h-12"><span class="pp-n">12</span>Segurança digital</h2>
+      <div class="pp-callout">
+        <p><strong>O que fazemos:</strong> aplicamos boas práticas de segurança em todos os projetos, como HTTPS/SSL, senhas fortes, controle de acesso, atualizações e, quando contratados, backups e monitoramento.</p>
+        <p><strong>O que é preciso saber:</strong> nenhum sistema é 100% imune a ataques, falhas ou novas vulnerabilidades. Não conseguimos garantir que um site ou sistema nunca será invadido.</p>
+      </div>
+      <h3>Responsabilidades do cliente</h3>
+      <ul>
+        <li>Guardar com cuidado suas senhas e acessos e não compartilhá-los com terceiros.</li>
+        <li>Trocar as senhas recebidas na entrega do projeto e ativar a autenticação em dois fatores quando disponível.</li>
+        <li>Avisar a gente quando alguém com acesso sair da empresa ou quando suspeitar de uso indevido.</li>
+        <li>Manter o site ou sistema atualizado, ou contratar manutenção para isso.</li>
+      </ul>
+      <p>Testes de segurança (como testes de invasão) só são feitos com <strong>autorização por escrito</strong> do dono do sistema e dentro do escopo combinado.</p>
+    </section>
+
+    <section id="suporte" aria-labelledby="h-13">
+      <h2 id="h-13"><span class="pp-n">13</span>Manutenção e suporte</h2>
+      <p>Manutenção, atualizações, backups e suporte técnico depois da entrega <strong>só são prestados quando contratados</strong>, conforme o plano escolhido. O que não estiver no plano, ou pedidos feitos sem plano ativo, são orçados à parte.</p>
+      <p>Correções de erros no que foi entregue seguem o período de garantia definido no contrato.</p>
+    </section>
+
+    <section id="limitacao" aria-labelledby="h-14">
+      <h2 id="h-14"><span class="pp-n">14</span>Limitação de responsabilidade</h2>
+      <p>Nos limites permitidos pela lei, a Commerce Visual não responde por:</p>
+      <ul>
+        <li>resultados comerciais específicos, como volume de vendas, posição no Google ou número de clientes, que dependem de muitos fatores fora do nosso controle;</li>
+        <li>danos causados por uso inadequado do site ou sistema, alterações feitas por terceiros ou pelo cliente, ou falta de manutenção;</li>
+        <li>falhas de serviços de terceiros (seção 11) ou ataques que ocorram apesar das boas práticas aplicadas (seção 12);</li>
+        <li>conteúdo enviado pelo cliente.</li>
+      </ul>
+      <p>Quando houver responsabilidade, ela fica limitada ao valor pago pelo serviço relacionado ao problema, exceto em casos de dolo ou culpa grave e nos casos em que o Código de Defesa do Consumidor não permite essa limitação.</p>
+    </section>
+
+    <section id="links" aria-labelledby="h-15">
+      <h2 id="h-15"><span class="pp-n">15</span>Links para sites de terceiros</h2>
+      <p>O site pode ter links para outros sites, como redes sociais e projetos de clientes. Não controlamos esses sites e não respondemos pelo conteúdo, pela segurança ou pelas políticas deles. Recomendamos ler os termos e a política de privacidade de cada um.</p>
+    </section>
+
+    <section id="privacidade" aria-labelledby="h-16">
+      <h2 id="h-16"><span class="pp-n">16</span>Privacidade</h2>
+      <p>O tratamento de dados pessoais feito pela Commerce Visual segue a LGPD e está explicado na nossa <a href="/politica-de-privacidade">Política de Privacidade</a>. Você pode mudar suas escolhas de cookies a qualquer momento pelo link <a href="#" data-cvc-open>Preferências de cookies</a>.</p>
+    </section>
+
+    <section id="internacionais" aria-labelledby="h-17">
+      <h2 id="h-17"><span class="pp-n">17</span>Clientes internacionais</h2>
+      <p>Os serviços são prestados <strong>a partir do Brasil</strong>, de forma 100% online, para clientes no Brasil, nos Estados Unidos e na Europa.</p>
+      <ul>
+        <li>Valores, <strong>moeda</strong>, forma de pagamento e eventuais taxas de câmbio e transferência são definidos na proposta.</li>
+        <li>Impostos e taxas cobrados no país do cliente são de responsabilidade do cliente, salvo acordo diferente.</li>
+        <li>O atendimento pode ser feito em português ou inglês. Em caso de dúvida entre versões traduzidas de documentos, prevalece a versão em português, salvo acordo diferente no contrato.</li>
+        <li>Clientes de fora do Brasil também podem ter direitos garantidos pela lei do seu país que não podem ser afastados por contrato. Estes termos não tiram esses direitos.</li>
+      </ul>
+    </section>
+
+    <section id="alteracoes" aria-labelledby="h-18">
+      <h2 id="h-18"><span class="pp-n">18</span>Alterações destes termos</h2>
+      <p>Podemos atualizar estes termos a qualquer momento. A data da última atualização fica no topo e no fim desta página. Mudanças não afetam contratos já assinados, que continuam seguindo as condições combinadas.</p>
+    </section>
+
+    <section id="lei-foro" aria-labelledby="h-19">
+      <h2 id="h-19"><span class="pp-n">19</span>Lei aplicável e foro</h2>
+      <p>Estes termos são regidos pela <strong>legislação brasileira</strong>, em especial o Código Civil (Lei nº 10.406/2002), o Código de Defesa do Consumidor (Lei nº 8.078/1990), o Marco Civil da Internet (Lei nº 12.965/2014) e a LGPD (Lei nº 13.709/2018).</p>
+      <!-- ATENÇÃO: troque [CIDADE/UF] pela cidade da sede da Commerce Visual (a do cadastro do MEI). -->
+      <p>Fica eleito o foro da comarca de <strong>[CIDADE/UF]</strong>, sede da empresa, para resolver qualquer questão ligada a estes termos. Se você for <strong>consumidor</strong>, pode escolher o foro do seu domicílio, como garante o art. 101, I, do Código de Defesa do Consumidor.</p>
+      <p>Antes de qualquer medida judicial, pedimos que fale com a gente: a maioria das questões se resolve rapidamente por conversa.</p>
+    </section>
+
+    <section id="contato" aria-labelledby="h-20">
+      <h2 id="h-20"><span class="pp-n">20</span>Contato</h2>
+      <address class="pp-contact" style="font-style:normal">
+        <p><strong>Commerce Visual</strong> — CNPJ 68.961.224/0001-01</p>
+        <p>E-mail: <a href="mailto:commercevisual@hotmail.com">commercevisual@hotmail.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer">+55 (41) 9758-0656</a></p>
+        <p>Site: <a href="https://www.commercevisual.com.br">commercevisual.com.br</a></p>
+      </address>
+      <!-- DATA DA ÚLTIMA ATUALIZAÇÃO (2/2) -->
+      <p class="pp-updated">Última atualização: <time datetime="2026-10-27">27 de outubro de 2026</time>.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- =====================================================================
+     RODAPÉ — COMMERCE VISUAL (idêntico ao design aprovado)
+     Arte única em /cv/rodape.webp (as 3 partes do design unidas, sem cortes e compactada).
+     Os links são áreas clicáveis invisíveis posicionadas em % sobre a arte.
+     O texto real fica escondido em .cvf-sr para Google e leitores de tela.
+     No celular (até 760px) aparece a versão .cvf-m, feita em código,
+     que usa /cv/logo.webp e /cv/mascote.webp.
+     ===================================================================== -->
+<style>
+  .cvf { position: relative; background: #fdea1c; line-height: 0; }
+  /* largura máxima: o rodapé não fica gigante em telas grandes */
+  .cvf-art { position: relative; max-width: 1240px; margin: 0 auto; }
+  .cvf-art > img { display: block; width: 100%; height: auto; }
+  .cvf-hs { position: absolute; display: block; border-radius: 16px; transition: background .2s; }
+  .cvf-hs:hover { background: rgba(255, 255, 255, .22); }
+  .cvf-hs:focus-visible { outline: 3px solid #ff861a; outline-offset: 2px; }
+  .cvf-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- Versão celular (feita em código, mesmo visual) ---------- */
+  .cvf-m { display: none; }
+  @media (max-width: 760px) {
+    .cvf-art { display: none; }
+    .cvf { line-height: 1.45; }
+    .cvf-m {
+      display: block; position: relative; overflow: hidden;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif; color: #0b2a8a;
+      background: radial-gradient(circle at 70% 10%, #fff3a0, #fde725 45%, #fbdf12);
+      padding: 28px max(20px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+    }
+    /* tubos e bolinhas decorativas */
+    .cvf-m::after { content: ""; position: absolute; right: -40px; top: 300px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #8aa6ff, #0040ff 60%, #0020a0); }
+    .cvf-m > * { position: relative; z-index: 1; }
+    .cvf-m-logo { width: 62%; max-width: 260px; height: auto; display: block; }
+    .cvf-m-slogan { margin: 12px 0 16px; font-size: 16px; font-weight: 500; max-width: 24ch; }
+    .cvf-m-btn { display: inline-flex; align-items: center; gap: 10px; background: #0040ff; color: #fff; font-weight: 800; font-size: 15px; text-decoration: none; padding: 12px 22px; border-radius: 999px; box-shadow: 0 8px 18px rgba(0, 64, 255, .35); }
+    .cvf-m-btn svg { width: 20px; height: 20px; }
+    .cvf-m-mascote { display: block; width: 46%; max-width: 200px; height: auto; margin: 18px auto 6px; filter: drop-shadow(0 16px 14px rgba(150, 110, 0, .25)); }
+    .cvf-m-sep { height: 1px; background: rgba(11, 42, 138, .18); margin: 14px 0 22px; }
+    .cvf-m h3 { margin: 0 0 12px; font-size: 15px; font-weight: 800; color: #0040ff; text-transform: uppercase; }
+    .cvf-m h3::after { content: ""; display: block; width: 30px; height: 4px; border-radius: 4px; background: #0040ff; margin-top: 6px; }
+    .cvf-m ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 8px; }
+    .cvf-m ul a { color: #0b2a8a; text-decoration: none; font-size: 15px; }
+    .cvf-m address { font-style: normal; display: grid; gap: 12px; margin-bottom: 22px; }
+    .cvf-m-item { display: flex; gap: 12px; align-items: flex-start; color: #0b2a8a; text-decoration: none; font-size: 13px; overflow-wrap: anywhere; }
+    .cvf-m-item small { display: block; font-size: 12px; font-weight: 500; }
+    .cvf-m-item strong { font-weight: 700; color: #0035d9; }
+    .cvf-m-ic { flex: none; width: 36px; height: 36px; border-radius: 10px; background: #fff6c2; color: #0040ff; display: grid; place-items: center; }
+    .cvf-m-ic svg { width: 18px; height: 18px; }
+    .cvf-m-bottom { border-top: 1px solid rgba(11, 42, 138, .18); padding-top: 14px; font-size: 12px; display: grid; gap: 10px; }
+    .cvf-m-bottom p { margin: 0; }
+    .cvf-m-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .cvf-m-ssl { display: inline-flex; align-items: center; gap: 6px; background: #0040ff; color: #fff; font-weight: 700; padding: 7px 14px; border-radius: 999px; }
+    .cvf-m-ssl svg { width: 14px; height: 14px; }
+    .cvf-m a:focus-visible { outline: 3px solid #ff861a; outline-offset: 3px; border-radius: 6px; }
+  }
+</style>
+
+<footer class="cvf">
+  <div class="cvf-sr">
+    <p>Commerce Visual — Sites, sistemas e segurança digital para o seu negócio.</p>
+    <address>WhatsApp +55 (41) 9758-0656 · commercevisual@hotmail.com · Instagram @commercevisual · Atendimento 100% online para todo o Brasil, Estados Unidos e Europa · Segunda a sexta, 9h às 18h (horário de Brasília)</address>
+    <p>© <span id="cvf-year">2026</span> Commerce Visual. Todos os direitos reservados. CNPJ: 68.961.224/0001-01. Site seguro (SSL).</p>
+  </div>
+  <div class="cvf-art">
+    <img src="/cv/rodape.webp" alt="" width="2170" height="1587" loading="lazy">
+    <nav aria-label="Rodapé">
+      <a class="cvf-hs" href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" style="left:4.33%;top:26.91%;width:24.84%;height:6.93%"></a>
+      <a class="cvf-hs" href="/sites-profissionais" aria-label="Sites profissionais" style="left:58.39%;top:12.29%;width:21.15%;height:4.47%"></a>
+      <a class="cvf-hs" href="/lojas-virtuais" aria-label="Lojas virtuais" style="left:58.39%;top:17.90%;width:21.15%;height:4.35%"></a>
+      <a class="cvf-hs" href="/sistemas-sob-medida" aria-label="Sistemas sob medida" style="left:58.39%;top:23.25%;width:21.15%;height:4.22%"></a>
+      <a class="cvf-hs" href="/seguranca-digital" aria-label="Segurança digital" style="left:58.39%;top:28.61%;width:21.15%;height:4.22%"></a>
+      <a class="cvf-hs" href="/#servicos" aria-label="Manutenção e suporte" style="left:58.39%;top:34.09%;width:21.15%;height:4.35%"></a>
+      <a class="cvf-hs" href="/#como-funciona" aria-label="Sobre" style="left:10.28%;top:52.99%;width:5.21%;height:3.09%"></a>
+      <a class="cvf-hs" href="/#servicos" aria-label="Projetos" style="left:10.28%;top:57.28%;width:6.73%;height:3.02%"></a>
+      <a class="cvf-hs" href="/politica-de-privacidade" aria-label="Política de Privacidade" style="left:10.28%;top:61.50%;width:17.47%;height:3.21%"></a>
+      <a class="cvf-hs" href="/termos-de-uso" aria-label="Termos de Uso" style="left:10.28%;top:65.85%;width:11.75%;height:3.15%"></a>
+      <a class="cvf-hs" href="/politica-de-privacidade#cookies" aria-label="Preferências de cookies" style="left:10.28%;top:70.07%;width:17.97%;height:3.28%"></a>
+      <a class="cvf-hs" href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: +55 (41) 9758-0656" style="left:49.26%;top:51.61%;width:19.26%;height:5.29%"></a>
+      <a class="cvf-hs" href="mailto:commercevisual@hotmail.com" aria-label="E-mail: commercevisual@hotmail.com" style="left:49.26%;top:57.97%;width:27.28%;height:5.23%"></a>
+      <a class="cvf-hs" href="https://www.instagram.com/commercevisual/" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @commercevisual" style="left:49.26%;top:64.21%;width:18.02%;height:5.55%"></a>
+    </nav>
+  </div>
+
+  <!-- Versão celular (aparece só até 760px) -->
+  <div class="cvf-m">
+    <img class="cvf-m-logo" src="/cv/logo.webp" alt="Commerce Visual" width="520" height="165" loading="lazy">
+    <p class="cvf-m-slogan">Sites, sistemas e segurança digital para o seu negócio.</p>
+    <a class="cvf-m-btn" href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.36A9.9 9.9 0 1 0 12.04 2Zm4.5 11.96c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.03 4.75 4.75 0 0 0 1 2.52 10.9 10.9 0 0 0 4.17 3.68c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg> Fale com a gente</a>
+    <img class="cvf-m-mascote" src="/cv/mascote.webp" alt="" width="900" height="845" loading="lazy">
+    <div class="cvf-m-sep"></div>
+
+    <h3>Empresa</h3>
+    <ul>
+      <li><a href="/#como-funciona">Sobre</a></li>
+      <li><a href="/#servicos">Projetos</a></li>
+      <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
+      <li><a href="/termos-de-uso">Termos de Uso</a></li>
+      <li><a href="/politica-de-privacidade#cookies">Preferências de cookies</a></li>
+    </ul>
+
+    <h3>Contato</h3>
+    <address>
+      <a class="cvf-m-item" href="https://wa.me/554197580656" target="_blank" rel="noopener noreferrer"><span class="cvf-m-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.36A9.9 9.9 0 1 0 12.04 2Zm4.5 11.96c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.03 4.75 4.75 0 0 0 1 2.52 10.9 10.9 0 0 0 4.17 3.68c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg></span><span><small>WhatsApp</small><strong>+55 (41) 9758-0656</strong></span></a>
+      <a class="cvf-m-item" href="mailto:commercevisual@hotmail.com"><span class="cvf-m-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-mail</small><strong>commercevisual@hotmail.com</strong></span></a>
+      <a class="cvf-m-item" href="https://www.instagram.com/commercevisual/" target="_blank" rel="noopener noreferrer"><span class="cvf-m-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><span><small>Instagram</small><strong>@commercevisual</strong></span></a>
+      <p class="cvf-m-item" style="margin:0"><span class="cvf-m-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11.5a7 7 0 0 1 14 0C19 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Área de atendimento</small><strong>Atendimento 100% online para todo o Brasil, Estados Unidos e Europa.</strong></span></p>
+      <p class="cvf-m-item" style="margin:0"><span class="cvf-m-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Horário</small><strong>Segunda a sexta, 9h às 18h (horário de Brasília)</strong></span></p>
+    </address>
+
+    <div class="cvf-m-bottom">
+      <p>© <span class="cvf-ano">2026</span> Commerce Visual. Todos os direitos reservados.</p>
+      <div class="cvf-m-row">
+        <span>CNPJ: 68.961.224/0001-01</span>
+        <span class="cvf-m-ssl"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Site seguro (SSL)</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var ano = new Date().getFullYear();
+  document.getElementById('cvf-year').textContent = ano;
+  document.querySelectorAll('.cvf-ano').forEach(function (el) { el.textContent = ano; });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

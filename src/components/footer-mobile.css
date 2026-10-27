@@ -1,0 +1,37 @@
+/* Rodapé — versão celular (até 760px). A arte do desktop fica escondida nessa largura. */
+  /* ---------- Versão celular (feita em código, mesmo visual) ---------- */
+  .cvf-m { display: none; }
+  @media (max-width: 760px) {
+    .cvf-desk { display: none; }
+    .cvf-m {
+      display: block; position: relative; overflow: hidden;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif; color: #0b2a8a;
+      background: radial-gradient(circle at 70% 10%, #fff3a0, #fde725 45%, #fbdf12);
+      padding: 28px max(20px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+    }
+    /* tubos e bolinhas decorativas */
+    .cvf-m::after { content: ""; position: absolute; right: -40px; top: 300px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #8aa6ff, #0040ff 60%, #0020a0); }
+    .cvf-m > * { position: relative; z-index: 1; }
+    .cvf-m-logo { width: 62%; max-width: 260px; height: auto; display: block; }
+    .cvf-m-slogan { margin: 12px 0 16px; font-size: 16px; font-weight: 500; max-width: 24ch; }
+    .cvf-m-btn { display: inline-flex; align-items: center; gap: 10px; background: #0040ff; color: #fff; font-weight: 800; font-size: 15px; text-decoration: none; padding: 12px 22px; border-radius: 999px; box-shadow: 0 8px 18px rgba(0, 64, 255, .35); }
+    .cvf-m-btn svg { width: 20px; height: 20px; }
+    .cvf-m-mascote { display: block; width: 46%; max-width: 200px; height: auto; margin: 18px auto 6px; filter: drop-shadow(0 16px 14px rgba(150, 110, 0, .25)); }
+    .cvf-m-sep { height: 1px; background: rgba(11, 42, 138, .18); margin: 14px 0 22px; }
+    .cvf-m h3 { margin: 0 0 12px; font-size: 15px; font-weight: 800; color: #0040ff; text-transform: uppercase; }
+    .cvf-m h3::after { content: ""; display: block; width: 30px; height: 4px; border-radius: 4px; background: #0040ff; margin-top: 6px; }
+    .cvf-m ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 8px; }
+    .cvf-m ul a { color: #0b2a8a; text-decoration: none; font-size: 15px; }
+    .cvf-m address { font-style: normal; display: grid; gap: 12px; margin-bottom: 22px; }
+    .cvf-m-item { display: flex; gap: 12px; align-items: flex-start; color: #0b2a8a; text-decoration: none; font-size: 13px; overflow-wrap: anywhere; }
+    .cvf-m-item small { display: block; font-size: 12px; font-weight: 500; }
+    .cvf-m-item strong { font-weight: 700; color: #0035d9; }
+    .cvf-m-ic { flex: none; width: 36px; height: 36px; border-radius: 10px; background: #fff6c2; color: #0040ff; display: grid; place-items: center; }
+    .cvf-m-ic svg { width: 18px; height: 18px; }
+    .cvf-m-bottom { border-top: 1px solid rgba(11, 42, 138, .18); padding-top: 14px; font-size: 12px; display: grid; gap: 10px; }
+    .cvf-m-bottom p { margin: 0; }
+    .cvf-m-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .cvf-m-ssl { display: inline-flex; align-items: center; gap: 6px; background: #0040ff; color: #fff; font-weight: 700; padding: 7px 14px; border-radius: 999px; }
+    .cvf-m-ssl svg { width: 14px; height: 14px; }
+    .cvf-m a:focus-visible { outline: 3px solid #ff861a; outline-offset: 3px; border-radius: 6px; }
+  }
