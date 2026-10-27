@@ -18,11 +18,10 @@ const LINKS: Hotspot[] = [
     { label: "Sistemas sob medida", href: "/sistemas-sob-medida", x1: 1267, y1: 369, x2: 1726, y2: 436 },
     { label: "Segurança digital", href: "/seguranca-digital", x1: 1267, y1: 454, x2: 1726, y2: 521 },
     { label: "Manutenção e suporte", href: "#servicos", x1: 1267, y1: 541, x2: 1726, y2: 610 },
-    { label: "Sobre", href: "#como-funciona", x1: 223, y1: 841, x2: 336, y2: 890 },
-    { label: "Projetos", href: "#servicos", x1: 223, y1: 909, x2: 369, y2: 957 },
-    { label: "Política de Privacidade", href: "/politica-de-privacidade", x1: 223, y1: 976, x2: 602, y2: 1027 },
-    { label: "Termos de Uso", href: "/termos-de-uso", x1: 223, y1: 1045, x2: 478, y2: 1095 },
-    { label: "Preferências de cookies", href: "/politica-de-privacidade#cookies", x1: 223, y1: 1112, x2: 613, y2: 1164 },
+    { label: "Projetos", href: "#servicos", x1: 223, y1: 841, x2: 369, y2: 889 },
+    { label: "Política de Privacidade", href: "/politica-de-privacidade", x1: 223, y1: 908, x2: 602, y2: 959 },
+    { label: "Termos de Uso", href: "/termos-de-uso", x1: 223, y1: 977, x2: 478, y2: 1027 },
+    { label: "Preferências de cookies", href: "/politica-de-privacidade#cookies", x1: 223, y1: 1044, x2: 613, y2: 1096 },
     { label: "WhatsApp: +55 (41) 9758-0656", href: WPP, x1: 1069, y1: 819, x2: 1487, y2: 903 },
     { label: "E-mail: commercevisual@hotmail.com", href: "mailto:commercevisual@hotmail.com", x1: 1069, y1: 920, x2: 1661, y2: 1003 },
     { label: "Instagram: @commercevisual", href: "https://www.instagram.com/commercevisual/", x1: 1069, y1: 1019, x2: 1460, y2: 1107 },
@@ -81,7 +80,6 @@ export const Footer: React.FC = () => (
 
       <h3>Empresa</h3>
       <ul>
-        <li><a href="#como-funciona">Sobre</a></li>
         <li><a href="#servicos">Projetos</a></li>
         <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
         <li><a href="/termos-de-uso">Termos de Uso</a></li>

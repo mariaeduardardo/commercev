@@ -81,7 +81,6 @@ const MenuCelular: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     { href: '#inicio', label: 'Início', d: <><path d="M3 11 12 4l9 7" /><path d="M5 10v10h14V10" /></>, atual: true },
     { href: '#servicos', label: 'Serviços', d: <><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></> },
     { href: '#servicos', label: 'Projetos', d: <path d="M3 7h6l2 2h10v10H3z" /> },
-    { href: '#como-funciona', label: 'Sobre', d: <><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></> },
   ];
 
   return (
@@ -129,7 +128,6 @@ export const CvHero: React.FC = () => {
             { label: 'Início', href: '#inicio', x1: 405, y1: 38, x2: 478, y2: 80 },
             { label: 'Serviços', href: '#servicos', x1: 522, y1: 38, x2: 620, y2: 80 },
             { label: 'Projetos', href: '#servicos', x1: 660, y1: 38, x2: 756, y2: 80 },
-            { label: 'Sobre', href: '#como-funciona', x1: 798, y1: 38, x2: 870, y2: 80 },
             { label: 'Vamos conversar no WhatsApp', href: WPP, x1: 1330, y1: 27, x2: 1620, y2: 88 },
             { label: 'Quero meu projeto', href: WPP, x1: 66, y1: 694, x2: 418, y2: 766 },
             { label: 'Conheça nossos serviços', href: '#servicos', x1: 452, y1: 708, x2: 684, y2: 750 },
