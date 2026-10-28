@@ -52,12 +52,12 @@ export const ProcessSection: React.FC = () => (
     </div>
 
     <div className="cvp-arte cvp-desk">
-      <img src="/cv/processo-desktop-v3.webp" alt="" width={2576} height={1438} loading="lazy" />
+      <img src="/cv/processo-desktop-v4.webp" alt="" width={2576} height={1438} loading="lazy" />
       
     </div>
 
     <div className="cvp-arte cvp-mob">
-      <img src="/cv/processo-mobile-v4.webp" alt="" width={1080} height={1874} loading="lazy" />
+      <img src="/cv/processo-mobile-v5.webp" alt="" width={1080} height={1874} loading="lazy" />
       
     </div>
   </section>

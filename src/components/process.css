@@ -4,7 +4,7 @@
    as laterais mostram a própria arte bem desfocada, para não aparecer faixa lisa */
 .cvp::before {
   content: ""; position: absolute; inset: -60px;
-  background: url('/cv/processo-desktop-v3.webp') center / cover no-repeat;
+  background: url('/cv/processo-desktop-v4.webp') center / cover no-repeat;
   filter: blur(40px) saturate(1.1); opacity: .9;
 }
 .cvp-desk { max-width: 1600px; margin: 0 auto; }

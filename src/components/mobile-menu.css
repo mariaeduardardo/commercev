@@ -18,7 +18,7 @@
 .mm-ic{flex:none;width:38px;height:38px;border-radius:12px;background:#fff6c2;color:var(--cv-blue);display:grid;place-items:center}
 .mm-ic svg,.mm-seta{width:20px;height:20px}
 .mm-seta{margin-left:auto;opacity:.6}
-.mm-cta{margin-top:auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:#fff;background:var(--cv-blue);border-radius:999px;padding:16px 20px;font:700 16px var(--font-text);text-transform:uppercase;box-shadow:0 6px 0 var(--cv-blue-d),0 14px 24px rgba(0,64,255,.35)}
+.mm-cta{margin-top:auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:#fff;background:var(--cv-blue);border-radius:999px;padding:16px 20px;font: 600 16px var(--font-text);text-transform:uppercase;box-shadow:0 6px 0 var(--cv-blue-d),0 14px 24px rgba(0,64,255,.35)}
 .mm-cta svg{width:22px;height:22px}
 .mm-mascote{position:absolute;right:-26px;bottom:78px;width:140px;transform:rotate(-12deg);pointer-events:none;filter:drop-shadow(0 12px 14px rgba(150,110,0,.3))}
 .img-menu :focus-visible{outline:3px solid var(--cv-orange);outline-offset:3px}

@@ -6,7 +6,7 @@
    --font-text      Montserrat ........ textos, botões, menus, links
    --font-display   Fredoka ........... títulos feitos em código (combina com o 3D das artes)
    --font-condensed Roboto Condensed .. só nas perguntas do FAQ (igual à arte aprovada)
-   Pesos: 400 texto longo · 500 texto padrão · 600 links/destaques · 700 títulos, selos e botões */
+   Pesos: 400 texto longo · 500 texto padrão · 600 títulos, destaques, selos e botões (sem 700+) */
 :root {
   /* Paleta oficial (kit de identidade): */
   --cv-blue: #0040FF;      /* azul elétrico */
@@ -34,6 +34,8 @@
 
   /* campos e botões herdam a fonte da marca (o navegador usa outra por padrão) */
   button, input, textarea, select { font: inherit; letter-spacing: inherit; }
+  /* a marca não usa negrito pesado: destaques e títulos em semibold (600) */
+  b, strong, th, h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
   body {
     background:
