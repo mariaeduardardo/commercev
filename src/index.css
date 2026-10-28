@@ -23,6 +23,9 @@
     box-sizing: border-box;
   }
 
+  /* nada pode criar rolagem lateral no celular */
+  html, body { overflow-x: clip; }
+
   /* campos e botões herdam a fonte da marca (o navegador usa outra por padrão) */
   button, input, textarea, select { font: inherit; letter-spacing: inherit; }
 
