@@ -1,0 +1,25 @@
+/* Seção "Processo transparente" — arte + textos em HTML por cima */
+.cvp { position: relative; background: #e6f0ff; }
+.cvp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.cvp-arte { position: relative; container-type: inline-size; line-height: 0; }
+.cvp-arte > img { display: block; width: 100%; height: auto; }
+
+.cvp-lista { list-style: none; margin: 0; padding: 0; }
+.cvp-card { position: absolute; line-height: 1.25; color: #0a1840; font-family: 'Montserrat', system-ui, sans-serif; }
+.cvp-card h3 { margin: 0 0 0.6em; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; text-wrap: balance; }
+.cvp-card p { margin: 0; font-weight: 500; letter-spacing: -0.01em; }
+
+/* Computador: arte larga */
+.cvp-desk .cvp-card h3 { font-size: 1.75cqw; }
+.cvp-desk .cvp-card p { font-size: 1.12cqw; line-height: 1.38; }
+
+/* Celular e tablet: arte vertical */
+.cvp-mob { display: none; }
+.cvp-mob .cvp-card h3 { font-size: 3.6cqw; margin-bottom: 0.4em; }
+.cvp-mob .cvp-card p { font-size: 2.55cqw; line-height: 1.32; }
+
+@media (max-width: 1024px) {
+  .cvp-desk { display: none; }
+  .cvp-mob { display: block; }
+}
