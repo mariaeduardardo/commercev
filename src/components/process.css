@@ -7,8 +7,8 @@
   background: url('/cv/processo-desktop.webp') center / cover no-repeat;
   filter: blur(40px) saturate(1.1); opacity: .9;
 }
-.cvp-desk { max-width: 1446px; margin: 0 auto; }
-@media (min-width: 1480px) {
+.cvp-desk { max-width: 1920px; margin: 0 auto; }
+@media (min-width: 1960px) {
   .cvp-desk > img { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
 }
 .cvp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -23,7 +23,7 @@
 
 /* Computador: arte larga */
 .cvp-desk .cvp-card h3 { font-size: 1.75cqw; }
-.cvp-desk .cvp-card p { font-size: 1.12cqw; line-height: 1.38; }
+.cvp-desk .cvp-card p { font-family: 'Roboto Condensed', 'Montserrat', system-ui, sans-serif; font-size: 1.26cqw; line-height: 1.2; letter-spacing: 0; color: #101a3d; }
 
 /* Celular e tablet: arte vertical */
 .cvp-mob { display: none; }

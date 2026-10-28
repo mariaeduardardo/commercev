@@ -14,7 +14,7 @@ type Etapa = { titulo: string; texto: string };
 const ETAPAS: Etapa[] = [
   {
     titulo: 'Briefing & Diagnóstico',
-    texto: 'Entendemos o seu modelo de negócio, seus diferenciais e o comportamento de compra do seu cliente ideal para desenhar a estratégia mais eficiente.',
+    texto: 'Entendemos o seu negócio, seus diferenciais e o seu cliente ideal para desenhar a estratégia mais eficiente.',
   },
   {
     titulo: 'Design de Alta Fidelidade',
@@ -32,10 +32,10 @@ const ETAPAS: Etapa[] = [
 
 /* Posição de cada card na arte: left, top e width em % da largura/altura da imagem */
 const POS_DESKTOP = [
-  { l: 8.6, t: 63.6, w: 15.6 },
-  { l: 27.9, t: 63.6, w: 15.6 },
-  { l: 47.15, t: 63.6, w: 15.8 },
-  { l: 66.5, t: 63.6, w: 12.4 },
+  { l: 10.25, t: 73.6, w: 17.6 },
+  { l: 31.15, t: 73.6, w: 17.6 },
+  { l: 52.25, t: 73.6, w: 17.6 },
+  { l: 73.4, t: 73.6, w: 17.0 },
 ];
 const POS_MOBILE = [
   { l: 39.1, t: 29.9, w: 43.5 },
@@ -44,7 +44,7 @@ const POS_MOBILE = [
   { l: 39.1, t: 79.7, w: 31.5 },
 ];
 
-const Cards: React.FC<{ pos: typeof POS_DESKTOP }> = ({ pos }) => (
+const Cards: React.FC<{ pos: typeof POS_DESKTOP; tituloNaArte?: boolean }> = ({ pos, tituloNaArte }) => (
   <ol className="cvp-lista">
     {ETAPAS.map((e, i) => (
       <li
@@ -52,7 +52,8 @@ const Cards: React.FC<{ pos: typeof POS_DESKTOP }> = ({ pos }) => (
         className="cvp-card"
         style={{ left: `${pos[i].l}%`, top: `${pos[i].t}%`, width: `${pos[i].w}%` }}
       >
-        <h3>{e.titulo}</h3>
+        {/* no computador o título do card já está na arte; aqui fica só para leitores e Google */}
+        <h3 className={tituloNaArte ? 'cvp-sr' : undefined}>{e.titulo}</h3>
         <p>{e.texto}</p>
       </li>
     ))}
@@ -69,8 +70,8 @@ export const ProcessSection: React.FC = () => (
     </div>
 
     <div className="cvp-arte cvp-desk">
-      <img src="/cv/processo-desktop.webp" alt="" width={2400} height={1792} loading="lazy" />
-      <Cards pos={POS_DESKTOP} />
+      <img src="/cv/processo-desktop.webp" alt="" width={2576} height={1438} loading="lazy" />
+      <Cards pos={POS_DESKTOP} tituloNaArte />
     </div>
 
     <div className="cvp-arte cvp-mob">
