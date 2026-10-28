@@ -51,7 +51,7 @@ const Parte: React.FC<{ src: string; w: number; h: number; items?: Hotspot[] }> 
 );
 
 export const Footer: React.FC = () => (
-  <footer className="bg-[#fdf3b0]">
+  <footer id="contato" className="bg-[#fdf3b0]">
     {/* Texto real para Google e leitores de tela (a arte é imagem) */}
     <div className="sr-only">
       <p>Commerce Visual — Sites, sistemas e segurança digital para o seu negócio.</p>
