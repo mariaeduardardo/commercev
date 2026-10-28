@@ -1,8 +1,15 @@
 /* Perguntas frequentes — arte no topo/fundo + cards em HTML (desenho igual ao aprovado) */
-.cvf2 { position: relative; container-type: inline-size; background: #fde96a; font-family: 'Montserrat', system-ui, sans-serif; }
+.cvf2 { position: relative; overflow: hidden; background: #fde96a; font-family: 'Montserrat', system-ui, sans-serif; }
 .cvf2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .cvf2-topo { line-height: 0; }
 .cvf2-topo img { display: block; width: 100%; height: auto; }
+
+/* largura máxima de 1600 px; nas laterais, a arte desfocada */
+.cvf2::before { content: ""; position: absolute; inset: -80px; background: url('/cv/faq2-topo.webp') center top / cover no-repeat, url('/cv/faq2-fundo.webp') center bottom / cover no-repeat; filter: blur(42px) saturate(1.1); }
+.cvf2-in { position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; container-type: inline-size; }
+@media (min-width: 1640px) {
+  .cvf2-in { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%); }
+}
 
 /* fundo: continuação da arte abaixo do título */
 .cvf2-corpo {

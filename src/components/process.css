@@ -7,8 +7,8 @@
   background: url('/cv/processo-desktop-v2.webp') center / cover no-repeat;
   filter: blur(40px) saturate(1.1); opacity: .9;
 }
-.cvp-desk { max-width: 1920px; margin: 0 auto; }
-@media (min-width: 1960px) {
+.cvp-desk { max-width: 1600px; margin: 0 auto; }
+@media (min-width: 1640px) {
   .cvp-desk > img { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
 }
 .cvp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

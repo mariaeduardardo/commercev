@@ -16,6 +16,7 @@ export const FAQSection: React.FC = () => {
 
   return (
     <section id="faq" className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
+      <div className="cvf2-in">
       <div className="cvf2-topo">
         <img src="/cv/faq2-topo.webp" alt="" width={2576} height={464} loading="lazy" />
         <div className="cvf2-sr">
@@ -56,6 +57,7 @@ export const FAQSection: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

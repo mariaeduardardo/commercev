@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './mobile-menu.css';
+import './cap.css';
 import { SITE_CONFIG } from '../data/siteData';
 
 /*
@@ -123,16 +124,20 @@ export const CvHero: React.FC = () => {
 
       {/* Desktop (acima de 760px) */}
       <div className="hidden min-[761px]:block">
-        <Arte src="/cv/hero-desktop.webp" alt={ALT_HERO} w={1672} h={940} eager>
-          <Hotspots w={1672} h={940} items={[
-            { label: 'Início', href: '#inicio', x1: 405, y1: 38, x2: 478, y2: 80 },
-            { label: 'Serviços', href: '#servicos', x1: 522, y1: 38, x2: 620, y2: 80 },
-            { label: 'Projetos', href: '#servicos', x1: 660, y1: 38, x2: 756, y2: 80 },
-            { label: 'Vamos conversar no WhatsApp', href: WPP, x1: 1330, y1: 27, x2: 1620, y2: 88 },
-            { label: 'Quero meu projeto', href: WPP, x1: 66, y1: 694, x2: 418, y2: 766 },
-            { label: 'Conheça nossos serviços', href: '#servicos', x1: 452, y1: 708, x2: 684, y2: 750 },
-          ]} />
-        </Arte>
+        <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/hero-desktop.webp')" }}>
+          <div className="cv-cap-in">
+            <Arte src="/cv/hero-desktop.webp" alt={ALT_HERO} w={1672} h={940} eager>
+              <Hotspots w={1672} h={940} items={[
+                { label: 'Início', href: '#inicio', x1: 405, y1: 38, x2: 478, y2: 80 },
+                { label: 'Serviços', href: '#servicos', x1: 522, y1: 38, x2: 620, y2: 80 },
+                { label: 'Projetos', href: '#servicos', x1: 660, y1: 38, x2: 756, y2: 80 },
+                { label: 'Vamos conversar no WhatsApp', href: WPP, x1: 1330, y1: 27, x2: 1620, y2: 88 },
+                { label: 'Quero meu projeto', href: WPP, x1: 66, y1: 694, x2: 418, y2: 766 },
+                { label: 'Conheça nossos serviços', href: '#servicos', x1: 452, y1: 708, x2: 684, y2: 750 },
+              ]} />
+            </Arte>
+          </div>
+        </div>
       </div>
 
       {/* Celular (até 760px) */}
@@ -182,13 +187,17 @@ export const CvSolucoes: React.FC = () => (
     </div>
 
     <div className="hidden min-[761px]:block">
-      <Arte src="/cv/servicos-desktop.webp" alt={ALT_SERV} w={1672} h={941}>
-        <Hotspots w={1672} h={941} items={[
-          { label: 'Vamos criar seu projeto', href: WPP, x1: 122, y1: 559, x2: 498, y2: 615 },
-          { label: 'Conheça as possibilidades de sites', href: WPP, x1: 128, y1: 858, x2: 350, y2: 902 },
-          { label: 'Conheça as possibilidades de sistemas', href: WPP, x1: 869, y1: 858, x2: 1110, y2: 902 },
-        ]} />
-      </Arte>
+      <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/servicos-desktop.webp')" }}>
+        <div className="cv-cap-in">
+          <Arte src="/cv/servicos-desktop.webp" alt={ALT_SERV} w={1672} h={941}>
+            <Hotspots w={1672} h={941} items={[
+              { label: 'Vamos criar seu projeto', href: WPP, x1: 122, y1: 559, x2: 498, y2: 615 },
+              { label: 'Conheça as possibilidades de sites', href: WPP, x1: 128, y1: 858, x2: 350, y2: 902 },
+              { label: 'Conheça as possibilidades de sistemas', href: WPP, x1: 869, y1: 858, x2: 1110, y2: 902 },
+            ]} />
+          </Arte>
+        </div>
+      </div>
     </div>
 
     <div className="min-[761px]:hidden">

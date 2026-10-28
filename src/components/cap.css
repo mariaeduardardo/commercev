@@ -1,0 +1,18 @@
+/*
+  Limite de largura das artes no computador (máx. 1600 px).
+  Em telas maiores, a arte fica centralizada e as laterais mostram a própria arte desfocada.
+  Uso: div.cv-cap (com a variável --cap-bg apontando para a arte) > div.cv-cap-in > arte
+*/
+.cv-cap { position: relative; overflow: hidden; }
+.cv-cap::before {
+  content: ""; position: absolute; inset: -80px;
+  background: var(--cap-bg) center / cover no-repeat;
+  filter: blur(42px) saturate(1.1);
+}
+.cv-cap-in { position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; }
+@media (min-width: 1640px) {
+  .cv-cap-in > div > img, .cv-cap-in > img {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+  }
+}

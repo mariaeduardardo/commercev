@@ -1,5 +1,6 @@
 import React from 'react';
 import './footer-mobile.css';
+import './cap.css';
 
 /*
   Rodapé idêntico ao design aprovado (arte única em public/cv/rodape-v3.webp).
@@ -62,8 +63,10 @@ export const Footer: React.FC = () => (
     </div>
     {/* Arte única: as 3 partes do design unidas, sem cortes */}
     {/* largura máxima de 1240px para não ocupar espaço demais em telas grandes */}
-    <nav aria-label="Rodapé" className="cvf-desk">
-      <Parte src="/cv/rodape-v3.webp" w={2576} h={1093} items={LINKS} />
+    <nav aria-label="Rodapé" className="cvf-desk cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/rodape-v3.webp')" }}>
+      <div className="cv-cap-in">
+        <Parte src="/cv/rodape-v3.webp" w={2576} h={1093} items={LINKS} />
+      </div>
     </nav>
 
     {/* Versão celular (até 760px), feita em código */}
