@@ -212,9 +212,9 @@ export const CvSolucoes: React.FC = () => (
     </div>
 
     <div className="hidden min-[761px]:block">
-      <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/servicos-desktop.webp')" }}>
+      <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/servicos-desktop-v2.webp')" }}>
         <div className="cv-cap-in">
-          <Arte only="desk" src="/cv/servicos-desktop.webp" srcSet="/cv/servicos-desktop-1000.webp 1000w, /cv/servicos-desktop.webp 1600w" alt={ALT_SERV} w={1672} h={941}>
+          <Arte only="desk" src="/cv/servicos-desktop-v2.webp" srcSet="/cv/servicos-desktop-v2-1000.webp 1000w, /cv/servicos-desktop-v2.webp 1600w" alt={ALT_SERV} w={1672} h={941}>
             <Hotspots w={1672} h={941} items={[
               { label: 'Vamos criar seu projeto', href: WPP, x1: 122, y1: 559, x2: 498, y2: 615 },
               { label: 'Conheça as possibilidades de sites', href: WPP, x1: 128, y1: 858, x2: 350, y2: 902 },
@@ -226,7 +226,7 @@ export const CvSolucoes: React.FC = () => (
     </div>
 
     <div className="min-[761px]:hidden">
-      <Arte only="mob" src="/cv/servicos-mobile.webp" alt={ALT_SERV} w={727} h={2164}>
+      <Arte only="mob" src="/cv/servicos-mobile-v2.webp" alt={ALT_SERV} w={727} h={2164}>
         <Hotspots w={727} h={2164} items={[
           { label: 'Vamos criar seu projeto', href: WPP, x1: 54, y1: 930, x2: 506, y2: 990 },
           { label: 'Conheça as possibilidades de sites', href: WPP, x1: 64, y1: 1596, x2: 280, y2: 1656 },
