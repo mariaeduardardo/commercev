@@ -2,7 +2,6 @@ import React from 'react';
 import { CvHero, CvSolucoes } from './components/CvHome';
 import { ProcessSection } from './components/ProcessSection';
 import { FAQSection } from './components/FAQSection';
-import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { LanguageProvider } from './i18n';
 
@@ -15,7 +14,6 @@ export const App: React.FC = () => {
           <CvSolucoes />
           <ProcessSection />
           <FAQSection />
-          <CTASection />
         </main>
 
         <Footer />
