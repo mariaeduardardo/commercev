@@ -38,9 +38,32 @@ const Hotspots: React.FC<{ w: number; h: number; items: Hotspot[] }> = ({ w, h, 
   </>
 );
 
-const Arte: React.FC<{ src: string; alt: string; w: number; h: number; eager?: boolean; children?: React.ReactNode }> = ({ src, alt, w, h, eager, children }) => (
+/* GIF transparente de 1x1: a versão escondida (celular ou computador) não baixa a imagem */
+const VAZIO = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+const SIZES = '(max-width: 1600px) 100vw, 1600px';
+
+const Arte: React.FC<{
+  src: string; alt: string; w: number; h: number; eager?: boolean; children?: React.ReactNode;
+  /* 'desk' = só aparece acima de 760px; 'mob' = só até 760px */
+  only: 'desk' | 'mob';
+  srcSet?: string;
+}> = ({ src, alt, w, h, eager, children, only, srcSet }) => (
   <div className="relative leading-[0]">
-    <img src={src} alt={alt} width={w} height={h} loading={eager ? 'eager' : 'lazy'} className="block h-auto w-full" />
+    <picture>
+      <source media={only === 'desk' ? '(max-width: 760px)' : '(min-width: 761px)'} srcSet={VAZIO} />
+      <img
+        src={src}
+        srcSet={srcSet}
+        sizes={srcSet ? SIZES : undefined}
+        alt={alt}
+        width={w}
+        height={h}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding={eager ? 'sync' : 'async'}
+        {...(eager ? { fetchpriority: 'high' } : {})}
+        className="block h-auto w-full"
+      />
+    </picture>
     {children}
   </div>
 );
@@ -126,7 +149,7 @@ export const CvHero: React.FC = () => {
       <div className="hidden min-[761px]:block">
         <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/hero-desktop.webp')" }}>
           <div className="cv-cap-in">
-            <Arte src="/cv/hero-desktop.webp" alt={ALT_HERO} w={1672} h={940} eager>
+            <Arte only="desk" src="/cv/hero-desktop.webp" srcSet="/cv/hero-desktop-1000.webp 1000w, /cv/hero-desktop.webp 1600w" alt={ALT_HERO} w={1672} h={940} eager>
               <Hotspots w={1672} h={940} items={[
                 { label: 'Início', href: '#inicio', x1: 405, y1: 38, x2: 478, y2: 80 },
                 { label: 'Serviços', href: '#servicos', x1: 522, y1: 38, x2: 620, y2: 80 },
@@ -142,7 +165,7 @@ export const CvHero: React.FC = () => {
 
       {/* Celular (até 760px) */}
       <div className="min-[761px]:hidden">
-        <Arte src="/cv/hero-mobile.webp" alt={ALT_HERO} w={863} h={1823} eager>
+        <Arte only="mob" src="/cv/hero-mobile.webp" alt={ALT_HERO} w={863} h={1823} eager>
           <Hotspots w={863} h={1823} items={[
             { label: 'Quero meu projeto', href: WPP, x1: 50, y1: 938, x2: 575, y2: 1038 },
             { label: 'Conheça nossos serviços', href: '#servicos', x1: 56, y1: 1058, x2: 386, y2: 1110 },
@@ -189,7 +212,7 @@ export const CvSolucoes: React.FC = () => (
     <div className="hidden min-[761px]:block">
       <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/servicos-desktop.webp')" }}>
         <div className="cv-cap-in">
-          <Arte src="/cv/servicos-desktop.webp" alt={ALT_SERV} w={1672} h={941}>
+          <Arte only="desk" src="/cv/servicos-desktop.webp" srcSet="/cv/servicos-desktop-1000.webp 1000w, /cv/servicos-desktop.webp 1600w" alt={ALT_SERV} w={1672} h={941}>
             <Hotspots w={1672} h={941} items={[
               { label: 'Vamos criar seu projeto', href: WPP, x1: 122, y1: 559, x2: 498, y2: 615 },
               { label: 'Conheça as possibilidades de sites', href: WPP, x1: 128, y1: 858, x2: 350, y2: 902 },
@@ -201,7 +224,7 @@ export const CvSolucoes: React.FC = () => (
     </div>
 
     <div className="min-[761px]:hidden">
-      <Arte src="/cv/servicos-mobile.webp" alt={ALT_SERV} w={727} h={2164}>
+      <Arte only="mob" src="/cv/servicos-mobile.webp" alt={ALT_SERV} w={727} h={2164}>
         <Hotspots w={727} h={2164} items={[
           { label: 'Vamos criar seu projeto', href: WPP, x1: 54, y1: 930, x2: 506, y2: 990 },
           { label: 'Conheça as possibilidades de sites', href: WPP, x1: 64, y1: 1596, x2: 280, y2: 1656 },
