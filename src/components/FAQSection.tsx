@@ -11,6 +11,19 @@ import './faq.css';
 
 const PERGUNTAS = FAQS.slice(0, 6);
 
+/* imagens dos cards: [fechado, aberto] */
+const IMG: [string, string][] = [
+  ['/cv/faq/q1.webp', '/cv/faq/q1-aberta.webp'],
+  ['/cv/faq/q2.webp', '/cv/faq/q2-aberta.webp'],
+  ['/cv/faq/q3.webp', '/cv/faq/q3-aberta.webp'],
+  ['/cv/faq/q4.webp', '/cv/faq/q4-aberta.webp'],
+  ['/cv/faq/q5.webp', '/cv/faq/q5-aberta.webp'],
+  ['/cv/faq/q6.webp', '/cv/faq/q6-aberta.webp'],
+];
+
+/* tamanho (largura x altura) das imagens dos cards: fechado e aberto */
+const TAM: [number, number][][] = [[[924, 377], [924, 741]], [[924, 377], [924, 791]], [[924, 377], [924, 791]], [[924, 377], [924, 791]], [[924, 377], [924, 741]], [[924, 377], [924, 691]]];
+
 export const FAQSection: React.FC = () => {
   const [aberta, setAberta] = useState<number | null>(null);
 
@@ -32,7 +45,7 @@ export const FAQSection: React.FC = () => {
               {PERGUNTAS.map((f, i) => ({ f, i })).filter(({ i }) => i % 3 === col).map(({ f, i }) => {
                 const open = aberta === i;
                 return (
-                  <div key={f.question} className={`cvf2-card${open ? ' aberto' : ''}`}>
+                  <div key={f.question} className="cvf2-card">
                     <h3>
                       <button
                         type="button"
@@ -41,14 +54,21 @@ export const FAQSection: React.FC = () => {
                         aria-controls={`cvf2-r${i}`}
                         id={`cvf2-p${i}`}
                         onClick={() => setAberta(open ? null : i)}
+                        onPointerEnter={() => { new Image().src = IMG[i][1]; }}
                       >
-                        <span>{f.question}</span>
-                        <span className="cvf2-seta" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                        </span>
+                        {/* o card é uma imagem (fica igual em qualquer navegador, mesmo com "modo escuro forçado") */}
+                        <img
+                          src={IMG[i][open ? 1 : 0]}
+                          alt=""
+                          width={TAM[i][open ? 1 : 0][0]}
+                          height={TAM[i][open ? 1 : 0][1]}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className="cvf2-sr">{f.question}</span>
                       </button>
                     </h3>
-                    <div className="cvf2-resposta" id={`cvf2-r${i}`} role="region" aria-labelledby={`cvf2-p${i}`} hidden={!open}>
+                    <div className="cvf2-sr" id={`cvf2-r${i}`} role="region" aria-labelledby={`cvf2-p${i}`}>
                       <p>{f.answer}</p>
                     </div>
                   </div>

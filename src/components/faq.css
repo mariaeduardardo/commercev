@@ -14,68 +14,39 @@
 /* fundo: continuação da arte abaixo do título */
 .cvf2-corpo {
   box-sizing: border-box;
-  background: #f8eeb4 url('/cv/faq3-fundo.webp') center top / 100% auto no-repeat;
+  /* só imagem (sem cor sólida): o 'modo escuro forçado' dos navegadores não escurece imagens */
+  background: url('/cv/faq3-fundo.webp') center top / 100% 100% no-repeat;
   min-height: 24.4cqw;
   padding: 1.05cqw 10.2cqw 3cqw;
 }
 
 /* com uma pergunta aberta a seção cresce: a arte esmaece no fim para emendar com a cor de fundo */
-.cvf2.expandida .cvf2-corpo {
-  background:
-    linear-gradient(180deg, rgba(248,238,180,0) calc(24.4cqw - 7cqw), #f8eeb4 24.4cqw),
-    url('/cv/faq3-fundo.webp') center top / 100% auto no-repeat,
-    #f8eeb4;
-}
 
 /* grade 2 x 2 nas mesmas posições dos cards da arte (cada coluna cresce sozinha ao abrir) */
 .cvf2-grade { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4cqw; align-items: start; }
 .cvf2-col { display: flex; flex-direction: column; gap: 1.25cqw; }
 
-.cvf2-card {
-  background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(240,246,255,.86));
-  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 1.4cqw;
-  box-shadow: 0 1cqw 2.2cqw rgba(30, 70, 160, .12);
-  overflow: hidden;
-  transition: box-shadow .25s;
-}
-.cvf2-card:hover { box-shadow: 0 1.4cqw 3cqw rgba(30, 70, 160, .2); }
+/* cards: imagem 820 px de largura útil + 52 px de margem (sombra) de cada lado */
 .cvf2-card h3 { margin: 0; }
-
 .cvf2-pergunta {
-  width: 100%; min-height: 7.95cqw;
-  display: flex; align-items: center; justify-content: space-between; gap: 1.6cqw;
-  padding: 1cqw 1.6cqw;
-  background: none; border: 0; cursor: pointer; text-align: left;
-  font: 600 1.6cqw/1.22 var(--font-text); color: var(--cv-ink); letter-spacing: -.005em;
+  display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer;
+  border-radius: 1.4cqw; line-height: 0;
 }
-.cvf2-seta {
-  flex: none; width: 2.3cqw; height: 2.3cqw; border-radius: 50%;
-  display: grid; place-items: center; background: var(--cv-blue); color: #fff;
-  box-shadow: 0 .5cqw 1cqw rgba(10, 61, 240, .35);
-  transition: transform .3s;
+.cvf2-pergunta img {
+  display: block; height: auto;
+  width: calc(100% * 924 / 820); margin: calc(-100% * 52 / 820);
+  transition: transform .2s;
 }
-.cvf2-seta svg { width: 45%; height: 45%; }
-.cvf2-card.aberto .cvf2-seta { transform: rotate(180deg); }
-.cvf2-pergunta:focus-visible { outline: 3px solid var(--cv-orange); outline-offset: -3px; border-radius: 1.5cqw; }
+.cvf2-pergunta:hover img { transform: translateY(-2px); }
+.cvf2-pergunta:focus-visible { outline: 3px solid var(--cv-orange); outline-offset: 2px; }
 
-.cvf2-resposta { padding: 0 1.6cqw 1.4cqw; }
-.cvf2-resposta p { margin: 0; font-size: 1.05cqw; line-height: 1.55; color: #26345e; font-weight: 500; }
-
-/* Tablet e celular: uma coluna, tamanhos em px */
+/* Tablet e celular: uma coluna */
 @media (max-width: 900px) {
-  .cvf2-corpo, .cvf2.expandida .cvf2-corpo { min-height: 0; background: #f8eeb4 url('/cv/faq3-fundo.webp') center top / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); background-size: cover; }
-  .cvf2-grade { grid-template-columns: 1fr; gap: 10px; }
-  .cvf2-col { gap: 10px; }
-  .cvf2-card { border-radius: 16px; box-shadow: 0 8px 22px rgba(30,70,160,.12); }
-  .cvf2-pergunta { min-height: 52px; padding: 12px 14px 12px 16px; gap: 12px; font-size: 16px; line-height: 1.2; }
-  .cvf2-seta { width: 34px; height: 34px; }
-  .cvf2-resposta { padding: 0 16px 14px; }
-  .cvf2-resposta p { font-size: 14px; line-height: 1.5; }
-  .cvf2-pergunta:focus-visible { border-radius: 16px; }
-  /* título da arte maior no celular: amplia a faixa do topo e corta só as bordas decorativas */
+  .cvf2-corpo { min-height: 0; background: url('/cv/faq3-fundo.webp') center / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
+  .cvf2-grade { grid-template-columns: 1fr; gap: 8px; }
+  .cvf2-col { gap: 8px; }
+  .cvf2-pergunta { border-radius: 16px; }
   .cvf2-topo { overflow: hidden; }
   .cvf2-topo img { width: 145%; max-width: none; margin-left: -22.5%; }
 }
-@media (prefers-reduced-motion: reduce) { .cvf2-seta, .cvf2-card { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cvf2-pergunta img { transition: none; } }
