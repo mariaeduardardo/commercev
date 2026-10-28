@@ -7,3 +7,7 @@ dist/
 .DS_Store
 coverage/
 *.tsbuildinfo
+
+# gerados automaticamente pelo "npm run build" (tsc -b)
+vite.config.js
+vite.config.d.ts

@@ -45,7 +45,7 @@ const Arte: React.FC<{ src: string; alt: string; w: number; h: number; eager?: b
 );
 
 const ALT_HERO = 'Seu negócio sem limites. Criação de sites e sistemas. Ideias criativas. Soluções digitais feitas para o seu negócio.';
-const ALT_SERV = 'Sites profissionais, sistemas sob medida, lojas virtuais e design responsivo. Suas ideias em experiências reais.';
+const ALT_SERV = 'Soluções digitais para suas ideias: sites profissionais, sistemas sob medida, lojas virtuais e design responsivo. Suas ideias em experiências reais. Sites que valorizam sua marca. Sistemas que organizam seu negócio.';
 
 const Ic: React.FC<{ d: React.ReactNode }> = ({ d }) => (
   <span className="mm-ic">
@@ -119,7 +119,7 @@ export const CvHero: React.FC = () => {
   return (
     <header id="inicio" className="bg-[#ffe94d]">
       {/* Texto para Google e leitores de tela (a arte é imagem) */}
-      <h1 className="sr-only">Commerce Visual — Seu negócio sem limites. Criação de sites e sistemas em Belo Horizonte.</h1>
+      <h1 className="sr-only">Commerce Visual — Seu negócio sem limites. Criação de sites, lojas virtuais e sistemas sob medida.</h1>
 
       {/* Desktop (acima de 760px) */}
       <div className="hidden min-[761px]:block">
@@ -162,7 +162,24 @@ export const CvHero: React.FC = () => {
 
 export const CvSolucoes: React.FC = () => (
   <section id="servicos" className="bg-[#eaf2ff]">
-    <h2 className="sr-only">Serviços: sites profissionais, sistemas sob medida, lojas virtuais e design responsivo</h2>
+    {/* Texto das artes em HTML (o visitante vê a arte; Google, IAs e leitores de tela leem este texto) */}
+    <div className="sr-only">
+      <h2>Soluções digitais para suas ideias</h2>
+      <ul>
+        <li><a href="/sites-profissionais">Sites profissionais</a>: presença digital com a sua identidade.</li>
+        <li><a href="/sistemas-sob-medida">Sistemas sob medida</a>: soluções para a rotina do seu negócio.</li>
+        <li><a href="/lojas-virtuais">Lojas virtuais</a>: seu catálogo em uma experiência de compra.</li>
+        <li>Design responsivo: experiências para diferentes telas.</li>
+        <li><a href="/seguranca-digital">Segurança digital</a>: proteção para o site e os dados da sua empresa.</li>
+      </ul>
+      <h3>Suas ideias. Em experiências reais.</h3>
+      <p>Criamos sites e sistemas que conectam sua marca ao digital.</p>
+      <h3>Sites que valorizam sua marca</h3>
+      <p>Design estratégico para atrair, engajar e converter.</p>
+      <h3>Sistemas que organizam seu negócio</h3>
+      <p>Mais controle, organização e produtividade no seu dia a dia.</p>
+      <p><a href="/quanto-custa-um-site">Quanto custa um site profissional</a></p>
+    </div>
 
     <div className="hidden min-[761px]:block">
       <Arte src="/cv/servicos-desktop.webp" alt={ALT_SERV} w={1672} h={941}>
