@@ -1,8 +1,19 @@
 /* Seção "Processo transparente" — arte + textos em HTML por cima */
-.cvp { position: relative; background: #e6f0ff; }
+.cvp { position: relative; overflow: hidden; background: #e6f0ff; }
+/* em telas largas a arte fica com no máximo 1446 px (≈1080 px de altura, igual às outras seções);
+   as laterais mostram a própria arte bem desfocada, para não aparecer faixa lisa */
+.cvp::before {
+  content: ""; position: absolute; inset: -60px;
+  background: url('/cv/processo-desktop.webp') center / cover no-repeat;
+  filter: blur(40px) saturate(1.1); opacity: .9;
+}
+.cvp-desk { max-width: 1446px; margin: 0 auto; }
+@media (min-width: 1480px) {
+  .cvp-desk > img { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+}
 .cvp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-.cvp-arte { position: relative; container-type: inline-size; line-height: 0; }
+.cvp-arte { position: relative; z-index: 1; container-type: inline-size; line-height: 0; }
 .cvp-arte > img { display: block; width: 100%; height: auto; }
 
 .cvp-lista { list-style: none; margin: 0; padding: 0; }
@@ -20,6 +31,7 @@
 .cvp-mob .cvp-card p { font-size: 2.55cqw; line-height: 1.32; }
 
 @media (max-width: 1024px) {
+  .cvp::before { display: none; }
   .cvp-desk { display: none; }
   .cvp-mob { display: block; }
 }

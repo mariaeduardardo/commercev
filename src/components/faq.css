@@ -44,7 +44,7 @@
   font: 700 2cqw/1.32 'Montserrat', system-ui, sans-serif; color: #0b1638; letter-spacing: -.01em;
 }
 .cvf2-seta {
-  flex: none; width: 3.6cqw; height: 3.6cqw; border-radius: 50%;
+  flex: none; width: 2.9cqw; height: 2.9cqw; border-radius: 50%;
   display: grid; place-items: center; background: #0a3df0; color: #fff;
   box-shadow: 0 .5cqw 1cqw rgba(10, 61, 240, .35);
   transition: transform .3s;

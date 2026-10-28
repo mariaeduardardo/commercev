@@ -1,71 +1,26 @@
 import React from 'react';
-import { MessageCircle, ArrowUpRight, CheckCircle2, Shield, Zap } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteData';
-import { useLanguage } from '../i18n';
+import './cta.css';
 
-export const CTASection: React.FC = () => {
-  const { copy } = useLanguage();
+/*
+  Chamada final no padrão das outras seções:
+  selo + título 3D + subtítulo + um botão de 60 px (máx. 360 px de largura).
+*/
+export const CTASection: React.FC = () => (
+  <section className="cvc2" aria-labelledby="cvc2-titulo">
+    <div className="cvc2-in">
+      <p className="cvc2-selo">Vamos conversar</p>
+      <h2 id="cvc2-titulo" className="cvc2-titulo">
+        Pronto para tirar seu <span>projeto do papel?</span>
+      </h2>
+      <p className="cvc2-sub">Orçamento gratuito e sem compromisso pelo WhatsApp.</p>
+      <a className="cvc2-btn" href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.36A9.9 9.9 0 1 0 12.04 2Zm4.5 11.96c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.03 4.75 4.75 0 0 0 1 2.52 10.9 10.9 0 0 0 4.17 3.68c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z" /></svg>
+        Falar no WhatsApp
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+);
 
-  return (
-    <section className="relative overflow-hidden bg-[#0241ff] py-16 sm:py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Main High-Contrast White CTA Box inside #0241ff */}
-        <div className="relative overflow-hidden rounded-[32px] bg-white p-5 text-slate-950 shadow-2xl shadow-[#002187]/60 ring-8 ring-white/20 sm:p-8 lg:p-12">
-          
-          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-            
-            {/* Top Pill */}
-            <div className="inline-flex min-h-[44px] items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-black text-[#0241ff] shadow-sm">
-              <span>{copy.cta.badge}</span>
-            </div>
-
-            {/* Main CTA Heading */}
-            <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-5xl xl:text-[3.5rem]">
-              {copy.cta.title}
-            </h2>
-
-            {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-medium">
-              {copy.cta.description}{' '}
-              <strong className="text-[#0241ff] font-black">{copy.cta.emphasis}</strong>.
-            </p>
-
-            {/* Action Button Container */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={SITE_CONFIG.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-brand-whatsapp to-emerald-500 px-6 py-3.5 text-base font-black text-white shadow-glow-whatsapp transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_22px_60px_rgba(16,185,129,0.35)] active:scale-[0.96] sm:w-auto sm:px-10 sm:py-5 sm:text-lg"
-              >
-                <MessageCircle className="w-6 h-6 text-white" />
-                <span>{copy.cta.button}</span>
-                <ArrowUpRight className="w-5 h-5 text-emerald-200 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </div>
-
-            {/* Guarantee Points */}
-            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-700 font-bold">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>{copy.cta.points[0]}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[#0241ff]" />
-                <span>{copy.cta.points[1]}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-amber-500" />
-                <span>{copy.cta.points[2]}</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  );
-};
+export default CTASection;
