@@ -18,7 +18,7 @@ export const FAQSection: React.FC = () => {
     <section id="faq" className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
       <div className="cvf2-in">
       <div className="cvf2-topo">
-        <img src="/cv/faq2-topo.webp" alt="" width={2576} height={464} loading="lazy" />
+        <img src="/cv/faq3-topo.webp" alt="" width={2576} height={464} loading="lazy" />
         <div className="cvf2-sr">
           <h2 id="cvf2-titulo">Perguntas frequentes</h2>
           <p>Transparência absoluta do início ao fim. Veja as respostas para as principais dúvidas dos nossos clientes.</p>

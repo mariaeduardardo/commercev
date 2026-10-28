@@ -5,7 +5,7 @@
 .cvf2-topo img { display: block; width: 100%; height: auto; }
 
 /* largura máxima de 1600 px; nas laterais, a arte desfocada */
-.cvf2::before { content: ""; position: absolute; inset: -80px; background: url('/cv/faq2-topo.webp') center top / cover no-repeat, url('/cv/faq2-fundo.webp') center bottom / cover no-repeat; filter: blur(42px) saturate(1.1); }
+.cvf2::before { content: ""; position: absolute; inset: -80px; background: url('/cv/faq3-topo.webp') center top / cover no-repeat, url('/cv/faq3-fundo.webp') center bottom / cover no-repeat; filter: blur(42px) saturate(1.1); }
 .cvf2-in { position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; container-type: inline-size; }
 @media (min-width: 1640px) {
   .cvf2-in { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%); }
@@ -14,7 +14,7 @@
 /* fundo: continuação da arte abaixo do título */
 .cvf2-corpo {
   box-sizing: border-box;
-  background: #f8eeb4 url('/cv/faq2-fundo.webp') center top / 100% auto no-repeat;
+  background: #f8eeb4 url('/cv/faq3-fundo.webp') center top / 100% auto no-repeat;
   min-height: 24.4cqw;
   padding: 1.05cqw 10.2cqw 3cqw;
 }
@@ -23,7 +23,7 @@
 .cvf2.expandida .cvf2-corpo {
   background:
     linear-gradient(180deg, rgba(248,238,180,0) calc(24.4cqw - 7cqw), #f8eeb4 24.4cqw),
-    url('/cv/faq2-fundo.webp') center top / 100% auto no-repeat,
+    url('/cv/faq3-fundo.webp') center top / 100% auto no-repeat,
     #f8eeb4;
 }
 
@@ -65,7 +65,7 @@
 
 /* Tablet e celular: uma coluna, tamanhos em px */
 @media (max-width: 900px) {
-  .cvf2-corpo, .cvf2.expandida .cvf2-corpo { min-height: 0; background: #f8eeb4 url('/cv/faq2-fundo.webp') center top / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); background-size: cover; }
+  .cvf2-corpo, .cvf2.expandida .cvf2-corpo { min-height: 0; background: #f8eeb4 url('/cv/faq3-fundo.webp') center top / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); background-size: cover; }
   .cvf2-grade { grid-template-columns: 1fr; gap: 10px; }
   .cvf2-col { gap: 10px; }
   .cvf2-card { border-radius: 16px; box-shadow: 0 8px 22px rgba(30,70,160,.12); }
