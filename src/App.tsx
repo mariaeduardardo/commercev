@@ -4,7 +4,6 @@ import { ProcessSection } from './components/ProcessSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
-import { FloatingAssistant } from './components/FloatingAssistant';
 import { LanguageProvider } from './i18n';
 
 export const App: React.FC = () => {
@@ -20,7 +19,6 @@ export const App: React.FC = () => {
         </main>
 
         <Footer />
-        <FloatingAssistant />
       </div>
     </LanguageProvider>
   );
