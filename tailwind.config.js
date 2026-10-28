@@ -25,7 +25,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        display: ['Fredoka', 'Montserrat', 'system-ui', 'sans-serif'],
+        condensed: ['"Roboto Condensed"', '"Arial Narrow"', 'Montserrat', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'glow-white': '0 0 35px -5px rgba(255, 255, 255, 0.35)',

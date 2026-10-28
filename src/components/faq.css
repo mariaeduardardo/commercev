@@ -1,5 +1,5 @@
 /* Perguntas frequentes — arte no topo/fundo + cards em HTML (desenho igual ao aprovado) */
-.cvf2 { position: relative; overflow: hidden; background: #fde96a; font-family: 'Montserrat', system-ui, sans-serif; }
+.cvf2 { position: relative; overflow: hidden; background: #fde96a; font-family: var(--font-text); }
 .cvf2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .cvf2-topo { line-height: 0; }
 .cvf2-topo img { display: block; width: 100%; height: auto; }
@@ -48,7 +48,7 @@
   display: flex; align-items: center; justify-content: space-between; gap: 1.6cqw;
   padding: 1cqw 1.6cqw;
   background: none; border: 0; cursor: pointer; text-align: left;
-  font: 700 1.78cqw/1.08 'Roboto Condensed', 'Arial Narrow', 'Liberation Sans Narrow', 'Montserrat', system-ui, sans-serif; color: #0b1638; letter-spacing: -.005em;
+  font: 700 1.78cqw/1.08 var(--font-condensed); color: #0b1638; letter-spacing: -.005em;
 }
 .cvf2-seta {
   flex: none; width: 2.3cqw; height: 2.3cqw; border-radius: 50%;
