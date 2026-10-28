@@ -1,0 +1,71 @@
+/* Perguntas frequentes — arte no topo/fundo + cards em HTML (desenho igual ao aprovado) */
+.cvf2 { position: relative; container-type: inline-size; background: #fde96a; font-family: 'Montserrat', system-ui, sans-serif; }
+.cvf2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cvf2-topo { line-height: 0; }
+.cvf2-topo img { display: block; width: 100%; height: auto; }
+
+/* fundo: continuação da arte abaixo do título */
+.cvf2-corpo {
+  box-sizing: border-box;
+  background: #f8eeb4 url('/cv/faq-fundo.webp') center top / 100% auto no-repeat;
+  min-height: 33.3cqw;
+  padding: 1.1cqw 13.2cqw 4.2cqw;
+}
+
+/* com uma pergunta aberta a seção cresce: a arte esmaece no fim para emendar com a cor de fundo */
+.cvf2.expandida .cvf2-corpo {
+  background:
+    linear-gradient(180deg, rgba(248,238,180,0) calc(33.3cqw - 9cqw), #f8eeb4 33.3cqw),
+    url('/cv/faq-fundo.webp') center top / 100% auto no-repeat,
+    #f8eeb4;
+}
+
+/* grade 2 x 2 nas mesmas posições dos cards da arte (cada coluna cresce sozinha ao abrir) */
+.cvf2-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 1.85cqw; align-items: start; }
+.cvf2-col { display: flex; flex-direction: column; gap: 1.6cqw; }
+
+.cvf2-card {
+  background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(240,246,255,.86));
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 1.5cqw;
+  box-shadow: 0 1.2cqw 2.6cqw rgba(30, 70, 160, .12);
+  overflow: hidden;
+  transition: box-shadow .25s;
+}
+.cvf2-card:hover { box-shadow: 0 1.4cqw 3cqw rgba(30, 70, 160, .2); }
+.cvf2-card h3 { margin: 0; }
+
+.cvf2-pergunta {
+  width: 100%; min-height: 12.5cqw;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.6cqw;
+  padding: 1.6cqw 2.4cqw;
+  background: none; border: 0; cursor: pointer; text-align: left;
+  font: 700 2cqw/1.32 'Montserrat', system-ui, sans-serif; color: #0b1638; letter-spacing: -.01em;
+}
+.cvf2-seta {
+  flex: none; width: 3.6cqw; height: 3.6cqw; border-radius: 50%;
+  display: grid; place-items: center; background: #0a3df0; color: #fff;
+  box-shadow: 0 .5cqw 1cqw rgba(10, 61, 240, .35);
+  transition: transform .3s;
+}
+.cvf2-seta svg { width: 45%; height: 45%; }
+.cvf2-card.aberto .cvf2-seta { transform: rotate(180deg); }
+.cvf2-pergunta:focus-visible { outline: 3px solid #ff861a; outline-offset: -3px; border-radius: 1.5cqw; }
+
+.cvf2-resposta { padding: 0 2.4cqw 2cqw; }
+.cvf2-resposta p { margin: 0; font-size: 1.3cqw; line-height: 1.55; color: #26345e; font-weight: 500; }
+
+/* Tablet e celular: uma coluna, tamanhos em px */
+@media (max-width: 900px) {
+  .cvf2-corpo, .cvf2.expandida .cvf2-corpo { min-height: 0; background: #f8eeb4 url('/cv/faq-fundo.webp') center top / cover no-repeat; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); background-size: cover; }
+  .cvf2-grade { grid-template-columns: 1fr; gap: 12px; }
+  .cvf2-col { gap: 12px; }
+  .cvf2-card { border-radius: 20px; box-shadow: 0 8px 22px rgba(30,70,160,.12); }
+  .cvf2-pergunta { min-height: 0; padding: 18px 18px 18px 20px; gap: 14px; font-size: 16px; }
+  .cvf2-seta { width: 40px; height: 40px; }
+  .cvf2-resposta { padding: 0 20px 18px; }
+  .cvf2-resposta p { font-size: 14.5px; }
+  .cvf2-pergunta:focus-visible { border-radius: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .cvf2-seta, .cvf2-card { transition: none; } }

@@ -1,95 +1,65 @@
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle, ArrowRight } from 'lucide-react';
-import { SITE_CONFIG } from '../data/siteData';
-import { useLanguage } from '../i18n';
+import { FAQS } from '../data/siteData';
+import './faq.css';
+
+/*
+  Seção "Perguntas frequentes" no design aprovado.
+  - Topo (selo, título 3D e subtítulo) e fundo vêm da arte em public/cv/.
+  - Os cards são HTML: abrem e fecham ao clicar, e o texto é lido pelo Google e pelas IAs.
+  - As perguntas e respostas ficam em src/data/siteData.ts (FAQS). Aqui aparecem as 4 primeiras.
+*/
+
+const PERGUNTAS = FAQS.slice(0, 4);
 
 export const FAQSection: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const { copy } = useLanguage();
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [aberta, setAberta] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#0241ff] py-16 sm:py-24 lg:py-32">
-      <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true" />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header */}
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/30 text-xs font-bold text-white mb-4 backdrop-blur-md">
-            <span>{copy.faq.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white tracking-tight break-words">
-            {copy.faq.title}
-          </h2>
-          <p className="mt-4 text-sm sm:text-base lg:text-lg text-blue-100">
-            {copy.faq.description}
-          </p>
+    <section id="faq" className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
+      <div className="cvf2-topo">
+        <img src="/cv/faq-topo.webp" alt="" width={2576} height={580} loading="lazy" />
+        <div className="cvf2-sr">
+          <p>Tira-dúvidas</p>
+          <h2 id="cvf2-titulo">Perguntas frequentes</h2>
+          <p>Transparência absoluta do início ao fim. Veja as respostas para as principais dúvidas dos nossos clientes.</p>
         </div>
+      </div>
 
-        {/* Accordion list */}
-        <div className="space-y-3 sm:space-y-4">
-          {copy.faqData.map((faq, index) => {
-            const isOpen = openIndex === index;
-
-            return (
-              <div
-                key={index}
-                className={`rounded-[28px] border shadow-[0_18px_48px_rgba(7,20,86,0.16)] transition-all duration-200 ${
-                  isOpen
-                    ? 'border-white/50 bg-blue-900/40 shadow-2xl backdrop-blur-2xl'
-                    : 'border-white/15 bg-blue-900/25 backdrop-blur-xl hover:border-white/35 hover:shadow-[0_22px_60px_rgba(3,17,78,0.28)]'
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between rounded-[28px] px-4 py-4 text-left transition-transform duration-200 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-5"
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-base sm:text-lg font-black text-white pr-4">
-                    {faq.question}
-                  </span>
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 shadow-md ${
-                    isOpen
-                      ? 'bg-white text-[#0241ff] rotate-180'
-                      : 'bg-white/20 text-white'
-                  }`}>
-                    <ChevronDown className="w-5 h-5" />
+      <div className="cvf2-corpo">
+        <div className="cvf2-grade">
+          {[0, 1].map((col) => (
+            <div className="cvf2-col" key={col}>
+              {PERGUNTAS.map((f, i) => ({ f, i })).filter(({ i }) => i % 2 === col).map(({ f, i }) => {
+                const open = aberta === i;
+                return (
+                  <div key={f.question} className={`cvf2-card${open ? ' aberto' : ''}`}>
+                    <h3>
+                      <button
+                        type="button"
+                        className="cvf2-pergunta"
+                        aria-expanded={open}
+                        aria-controls={`cvf2-r${i}`}
+                        id={`cvf2-p${i}`}
+                        onClick={() => setAberta(open ? null : i)}
+                      >
+                        <span>{f.question}</span>
+                        <span className="cvf2-seta" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                        </span>
+                      </button>
+                    </h3>
+                    <div className="cvf2-resposta" id={`cvf2-r${i}`} role="region" aria-labelledby={`cvf2-p${i}`} hidden={!open}>
+                      <p>{f.answer}</p>
+                    </div>
                   </div>
-                </button>
-
-                {isOpen && (
-                  <div className="px-6 pb-6 text-sm sm:text-base text-blue-50 leading-relaxed border-t border-white/20 pt-4 animate-in fade-in duration-200 font-medium">
-                    <p>{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          ))}
         </div>
-
-        {/* Objection solver CTA */}
-        <div className="mt-8 rounded-[28px] border border-white/25 bg-blue-900/35 p-4 text-center shadow-[0_22px_60px_rgba(4,19,89,0.28)] backdrop-blur-xl sm:mt-10 sm:p-6 lg:p-8">
-          <p className="text-base font-bold text-white">
-            {copy.faq.objection}
-          </p>
-          <a
-            href={SITE_CONFIG.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 text-sm font-black text-[#0241ff] shadow-md transition-all duration-200 hover:bg-blue-50 active:scale-[0.96] sm:w-auto"
-          >
-            <MessageCircle className="w-4 h-4 text-emerald-600" />
-            <span>{copy.faq.cta}</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-
       </div>
     </section>
   );
 };
+
+export default FAQSection;
