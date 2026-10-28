@@ -106,7 +106,6 @@ const MenuCelular: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     { href: '#servicos', label: 'Serviços', d: <><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></> },
     { href: '#como-funciona', label: 'Processo', d: <><circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><path d="M8 6h6a4 4 0 0 1 0 8h-4a4 4 0 0 0 0 8" /></> },
     { href: '#faq', label: 'Dúvidas', d: <><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7" /><path d="M12 17h.01" /></> },
-    { href: '#contato', label: 'Contato', d: <path d="M4 5h16v11H8l-4 4z" /> },
   ];
 
   return (
@@ -149,15 +148,14 @@ export const CvHero: React.FC = () => {
 
       {/* Desktop (acima de 760px) */}
       <div className="hidden min-[761px]:block">
-        <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/hero-desktop-v2.webp')" }}>
+        <div className="cv-cap" style={{ ['--cap-bg' as string]: "url('/cv/hero-desktop-v3.webp')" }}>
           <div className="cv-cap-in">
-            <Arte only="desk" src="/cv/hero-desktop-v2.webp" srcSet="/cv/hero-desktop-v2-1000.webp 1000w, /cv/hero-desktop-v2.webp 1600w" alt={ALT_HERO} w={1672} h={940} eager>
+            <Arte only="desk" src="/cv/hero-desktop-v3.webp" srcSet="/cv/hero-desktop-v3-1000.webp 1000w, /cv/hero-desktop-v3.webp 1600w" alt={ALT_HERO} w={1672} h={940} eager>
               <Hotspots w={1672} h={940} items={[
                 { label: 'Início', href: '#inicio', x1: 402, y1: 37, x2: 486, y2: 80 },
                 { label: 'Serviços', href: '#servicos', x1: 509, y1: 37, x2: 627, y2: 80 },
                 { label: 'Processo', href: '#como-funciona', x1: 650, y1: 37, x2: 776, y2: 80 },
                 { label: 'Dúvidas', href: '#faq', x1: 799, y1: 37, x2: 915, y2: 80 },
-                { label: 'Contato', href: '#contato', x1: 938, y1: 37, x2: 1051, y2: 80 },
                 { label: 'Vamos conversar no WhatsApp', href: WPP, x1: 1330, y1: 27, x2: 1620, y2: 88 },
                 { label: 'Quero meu projeto', href: WPP, x1: 66, y1: 694, x2: 418, y2: 766 },
                 { label: 'Conheça nossos serviços', href: '#servicos', x1: 452, y1: 708, x2: 684, y2: 750 },
