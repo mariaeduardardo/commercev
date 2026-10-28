@@ -96,3 +96,19 @@
   }
 }
 
+/* ===== Continuidade entre seções =====
+   Cada seção (a partir da 2ª) sobe um pouco sobre a anterior e começa transparente,
+   misturando as duas artes em vez de mostrar uma linha de corte. */
+#servicos, #como-funciona, #faq, #contato {
+  position: relative; z-index: 1;
+  margin-top: -64px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 64px);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 64px);
+}
+@media (max-width: 760px) {
+  #servicos, #como-funciona, #faq, #contato {
+    margin-top: -40px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
+  }
+}
