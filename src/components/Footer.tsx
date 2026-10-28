@@ -2,7 +2,7 @@ import React from 'react';
 import './footer-mobile.css';
 
 /*
-  Rodapé idêntico ao design aprovado (arte única em public/cv/rodape.webp).
+  Rodapé idêntico ao design aprovado (arte única em public/cv/rodape-v2.webp).
   Os links são áreas clicáveis invisíveis posicionadas em % sobre a arte.
   "Preferências de cookies" leva à seção de cookies da Política de Privacidade.
 */
@@ -12,19 +12,15 @@ const WPP = 'https://wa.me/554197580656';
 type Hotspot = { label: string; href: string; x1: number; y1: number; x2: number; y2: number };
 
 const LINKS: Hotspot[] = [
-    { label: "Falar no WhatsApp", href: WPP, x1: 94, y1: 427, x2: 633, y2: 537 },
-    { label: "Sites profissionais", href: "/sites-profissionais", x1: 1267, y1: 195, x2: 1726, y2: 266 },
-    { label: "Lojas virtuais", href: "/lojas-virtuais", x1: 1267, y1: 284, x2: 1726, y2: 353 },
-    { label: "Sistemas sob medida", href: "/sistemas-sob-medida", x1: 1267, y1: 369, x2: 1726, y2: 436 },
-    { label: "Segurança digital", href: "/seguranca-digital", x1: 1267, y1: 454, x2: 1726, y2: 521 },
-    { label: "Manutenção e suporte", href: "#servicos", x1: 1267, y1: 541, x2: 1726, y2: 610 },
-    { label: "Projetos", href: "#servicos", x1: 223, y1: 841, x2: 369, y2: 889 },
-    { label: "Política de Privacidade", href: "/politica-de-privacidade", x1: 223, y1: 908, x2: 602, y2: 959 },
-    { label: "Termos de Uso", href: "/termos-de-uso", x1: 223, y1: 977, x2: 478, y2: 1027 },
-    { label: "Preferências de cookies", href: "/politica-de-privacidade#cookies", x1: 223, y1: 1044, x2: 613, y2: 1096 },
-    { label: "WhatsApp: +55 (41) 9758-0656", href: WPP, x1: 1069, y1: 819, x2: 1487, y2: 903 },
-    { label: "E-mail: commercevisual@hotmail.com", href: "mailto:commercevisual@hotmail.com", x1: 1069, y1: 920, x2: 1661, y2: 1003 },
-    { label: "Instagram: @commercevisual", href: "https://www.instagram.com/commercevisual/", x1: 1069, y1: 1019, x2: 1460, y2: 1107 },
+  { label: "Commerce Visual — página inicial", href: "/", x1: 247, y1: 245, x2: 824, y2: 435 },
+  { label: "Fale com a gente no WhatsApp", href: WPP, x1: 247, y1: 629, x2: 750, y2: 737 },
+  { label: "Projetos", href: "/#servicos", x1: 917, y1: 461, x2: 1064, y2: 511 },
+  { label: "Política de Privacidade", href: "/politica-de-privacidade", x1: 917, y1: 532, x2: 1296, y2: 582 },
+  { label: "Termos de Uso", href: "/termos-de-uso", x1: 917, y1: 603, x2: 1167, y2: 653 },
+  { label: "Preferências de cookies", href: "/politica-de-privacidade#cookies", x1: 917, y1: 674, x2: 1311, y2: 724 },
+  { label: "WhatsApp: +55 (41) 9758-0656", href: WPP, x1: 1360, y1: 471, x2: 1757, y2: 563 },
+  { label: "E-mail: commercevisual@hotmail.com", href: "mailto:commercevisual@hotmail.com", x1: 1360, y1: 585, x2: 1950, y2: 675 },
+  { label: "Instagram: @commercevisual", href: "https://www.instagram.com/commercevisual/", x1: 1360, y1: 699, x2: 1757, y2: 791 },
 ];
 
 const Parte: React.FC<{ src: string; w: number; h: number; items?: Hotspot[] }> = ({ src, w, h, items = [] }) => (
@@ -54,7 +50,7 @@ const Parte: React.FC<{ src: string; w: number; h: number; items?: Hotspot[] }> 
 );
 
 export const Footer: React.FC = () => (
-  <footer className="bg-[#fdea1c]">
+  <footer className="bg-[#fdf3b0]">
     {/* Texto real para Google e leitores de tela (a arte é imagem) */}
     <div className="sr-only">
       <p>Commerce Visual — Sites, sistemas e segurança digital para o seu negócio.</p>
@@ -66,8 +62,8 @@ export const Footer: React.FC = () => (
     </div>
     {/* Arte única: as 3 partes do design unidas, sem cortes */}
     {/* largura máxima de 1240px para não ocupar espaço demais em telas grandes */}
-    <nav aria-label="Rodapé" className="cvf-desk mx-auto max-w-[1240px]">
-      <Parte src="/cv/rodape.webp" w={2170} h={1587} items={LINKS} />
+    <nav aria-label="Rodapé" className="cvf-desk">
+      <Parte src="/cv/rodape-v2.webp" w={2576} h={1093} items={LINKS} />
     </nav>
 
     {/* Versão celular (até 760px), feita em código */}
