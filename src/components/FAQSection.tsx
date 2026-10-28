@@ -12,6 +12,15 @@ import './faq.css';
 const PERGUNTAS = FAQS.slice(0, 6);
 
 /* imagens dos cards: [fechado, aberto] */
+const IMG_MOB: [string, string][] = [
+  ['/cv/faq/m1.webp', '/cv/faq/m1-aberta.webp'],
+  ['/cv/faq/m2.webp', '/cv/faq/m2-aberta.webp'],
+  ['/cv/faq/m3.webp', '/cv/faq/m3-aberta.webp'],
+  ['/cv/faq/m4.webp', '/cv/faq/m4-aberta.webp'],
+  ['/cv/faq/m5.webp', '/cv/faq/m5-aberta.webp'],
+  ['/cv/faq/m6.webp', '/cv/faq/m6-aberta.webp'],
+];
+
 const IMG: [string, string][] = [
   ['/cv/faq/q1.webp', '/cv/faq/q1-aberta.webp'],
   ['/cv/faq/q2.webp', '/cv/faq/q2-aberta.webp'],
@@ -45,7 +54,7 @@ export const FAQSection: React.FC = () => {
               {PERGUNTAS.map((f, i) => ({ f, i })).filter(({ i }) => i % 3 === col).map(({ f, i }) => {
                 const open = aberta === i;
                 return (
-                  <div key={f.question} className="cvf2-card">
+                  <div key={f.question} className="cvf2-card" style={{ order: i }}>
                     <h3>
                       <button
                         type="button"
@@ -54,17 +63,20 @@ export const FAQSection: React.FC = () => {
                         aria-controls={`cvf2-r${i}`}
                         id={`cvf2-p${i}`}
                         onClick={() => setAberta(open ? null : i)}
-                        onPointerEnter={() => { new Image().src = IMG[i][1]; }}
+                        onPointerEnter={() => { new Image().src = window.matchMedia('(max-width: 900px)').matches ? IMG_MOB[i][1] : IMG[i][1]; }}
                       >
                         {/* o card é uma imagem (fica igual em qualquer navegador, mesmo com "modo escuro forçado") */}
-                        <img
-                          src={IMG[i][open ? 1 : 0]}
-                          alt=""
-                          width={TAM[i][open ? 1 : 0][0]}
-                          height={TAM[i][open ? 1 : 0][1]}
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <picture>
+                          <source media="(max-width: 900px)" srcSet={IMG_MOB[i][open ? 1 : 0]} />
+                          <img
+                            src={IMG[i][open ? 1 : 0]}
+                            alt=""
+                            width={TAM[i][open ? 1 : 0][0]}
+                            height={TAM[i][open ? 1 : 0][1]}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                         <span className="cvf2-sr">{f.question}</span>
                       </button>
                     </h3>

@@ -33,7 +33,7 @@
   border-radius: 1.4cqw; line-height: 0;
 }
 .cvf2-pergunta img {
-  display: block; height: auto;
+  display: block; height: auto; max-width: none;
   width: calc(100% * 924 / 820); margin: calc(-100% * 52 / 820);
   transition: transform .2s;
 }
@@ -44,8 +44,10 @@
 @media (max-width: 900px) {
   .cvf2-corpo { min-height: 0; background: url('/cv/faq3-fundo.webp') center / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
   .cvf2-grade { grid-template-columns: 1fr; gap: 8px; }
-  .cvf2-col { gap: 8px; }
-  .cvf2-pergunta { border-radius: 16px; }
+  .cvf2-col { display: contents; } /* no celular, as 6 perguntas em ordem (1 a 6) */
+  .cvf2-pergunta { border-radius: 18px; }
+  /* imagens do celular: 1074 px úteis + 42 px de sombra de cada lado */
+  .cvf2-pergunta img { width: calc(100% * 1158 / 1074); margin: calc(-100% * 42 / 1074); }
   .cvf2-topo { overflow: hidden; }
   .cvf2-topo img { width: 145%; max-width: none; margin-left: -22.5%; }
 }
