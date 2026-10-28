@@ -57,7 +57,7 @@ export const ProcessSection: React.FC = () => (
     </div>
 
     <div className="cvp-arte cvp-mob">
-      <img src="/cv/processo-mobile-v2.webp" alt="" width={1438} height={2576} loading="lazy" />
+      <img src="/cv/processo-mobile-v3.webp" alt="" width={1080} height={1874} loading="lazy" />
       
     </div>
   </section>
