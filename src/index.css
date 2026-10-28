@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: only light; /* impede o "modo escuro forçado" do navegador de escurecer o site */
   }
 
   * {
