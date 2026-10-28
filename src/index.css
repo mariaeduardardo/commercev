@@ -8,6 +8,12 @@
    --font-condensed Roboto Condensed .. só nas perguntas do FAQ (igual à arte aprovada)
    Pesos: 400 texto longo · 500 texto padrão · 600 links/destaques · 700 títulos, selos e botões */
 :root {
+  /* Paleta oficial (kit de identidade): */
+  --cv-blue: #0040FF;      /* azul elétrico */
+  --cv-blue-d: #0030C4;    /* azul do hover/sombra */
+  --cv-yellow: #FFE000;    /* amarelo */
+  --cv-ink: #071947;       /* azul-escuro para texto */
+  --cv-orange: #FF861A;    /* laranja do mascote / foco */
   --font-text: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Fredoka', 'Montserrat', system-ui, sans-serif;
   --font-condensed: 'Roboto Condensed', 'Arial Narrow', 'Montserrat', system-ui, sans-serif;
