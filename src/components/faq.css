@@ -40,15 +40,17 @@
 .cvf2-pergunta:hover img { transform: translateY(-2px); }
 .cvf2-pergunta:focus-visible { outline: 3px solid var(--cv-orange); outline-offset: 2px; }
 
-/* Tablet e celular: uma coluna */
-@media (max-width: 900px) {
-  .cvf2-corpo { min-height: 0; background: url('/cv/faq3-fundo.webp') center / cover no-repeat; padding: 4px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
-  .cvf2-grade { grid-template-columns: 1fr; gap: 8px; }
-  .cvf2-col { display: contents; } /* no celular, as 6 perguntas em ordem (1 a 6) */
-  .cvf2-pergunta { border-radius: 18px; }
-  /* imagens do celular: 1074 px úteis + 42 px de sombra de cada lado */
-  .cvf2-pergunta img { width: calc(100% * 1158 / 1074); margin: calc(-100% * 42 / 1074); }
-  .cvf2-topo { overflow: hidden; }
-  .cvf2-topo img { width: 145%; max-width: none; margin-left: -22.5%; }
-}
 @media (prefers-reduced-motion: reduce) { .cvf2-pergunta img { transition: none; } }
+
+/* ===== Celular: arte vertical aprovada ===== */
+.cvf2-m { display: none; }
+@media (max-width: 900px) {
+  .cvf2::before, .cvf2-desk { display: none; }
+  .cvf2 { background: none; }
+  .cvf2-m { display: block; line-height: 0; }
+  .cvf2-m-s { position: relative; }
+  .cvf2-m-s > img, .cvf2-m-r { display: block; width: 100%; height: auto; }
+  .cvf2-m-hot { position: absolute; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 16px; }
+  .cvf2-m-hot:focus-visible { outline: 3px solid var(--cv-orange); outline-offset: 2px; }
+  .cvf2-m-seta { position: absolute; height: auto; pointer-events: none; }
+}

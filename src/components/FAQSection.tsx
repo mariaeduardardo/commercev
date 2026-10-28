@@ -12,15 +12,6 @@ import './faq.css';
 const PERGUNTAS = FAQS.slice(0, 6);
 
 /* imagens dos cards: [fechado, aberto] */
-const IMG_MOB: [string, string][] = [
-  ['/cv/faq/m1.webp', '/cv/faq/m1-aberta.webp'],
-  ['/cv/faq/m2.webp', '/cv/faq/m2-aberta.webp'],
-  ['/cv/faq/m3.webp', '/cv/faq/m3-aberta.webp'],
-  ['/cv/faq/m4.webp', '/cv/faq/m4-aberta.webp'],
-  ['/cv/faq/m5.webp', '/cv/faq/m5-aberta.webp'],
-  ['/cv/faq/m6.webp', '/cv/faq/m6-aberta.webp'],
-];
-
 const IMG: [string, string][] = [
   ['/cv/faq/q1.webp', '/cv/faq/q1-aberta.webp'],
   ['/cv/faq/q2.webp', '/cv/faq/q2-aberta.webp'],
@@ -33,12 +24,15 @@ const IMG: [string, string][] = [
 /* tamanho (largura x altura) das imagens dos cards: fechado e aberto */
 const TAM: [number, number][][] = [[[924, 377], [924, 741]], [[924, 377], [924, 791]], [[924, 377], [924, 791]], [[924, 377], [924, 791]], [[924, 377], [924, 741]], [[924, 377], [924, 691]]];
 
+/* Celular: a arte vertical aprovada, fatiada por card. Ao tocar, a resposta aparece logo abaixo do card. */
+const MOB = [{"s": "/cv/faqm/s1.webp", "sw": 1438, "sh": 1011, "r": "/cv/faqm/r1.webp", "rw": 1438, "rh": 519, "q": 0, "hot": [18.369, 73.029, 63.172, 25.49], "seta": [73.134, 81.719, 5.702]}, {"s": "/cv/faqm/s2.webp", "sw": 1438, "sh": 270, "r": "/cv/faqm/r2.webp", "rw": 1438, "rh": 519, "q": 3, "hot": [18.369, 5.911, 63.172, 88.288], "seta": [73.134, 34.87, 5.702]}, {"s": "/cv/faqm/s3.webp", "sw": 1438, "sh": 291, "r": "/cv/faqm/r3.webp", "rw": 1438, "rh": 519, "q": 1, "hot": [18.369, 5.245, 63.172, 89.444], "seta": [73.134, 35.877, 5.702]}, {"s": "/cv/faqm/s4.webp", "sw": 1438, "sh": 293, "r": "/cv/faqm/r4.webp", "rw": 1438, "rh": 461, "q": 4, "hot": [18.369, 5.28, 63.172, 89.274], "seta": [73.134, 35.923, 5.702]}, {"s": "/cv/faqm/s5.webp", "sw": 1438, "sh": 289, "r": "/cv/faqm/r5.webp", "rw": 1438, "rh": 519, "q": 2, "hot": [18.369, 5.179, 63.172, 89.618], "seta": [73.134, 35.8, 5.702]}, {"s": "/cv/faqm/s6.webp", "sw": 1438, "sh": 422, "r": "/cv/faqm/r6.webp", "rw": 1438, "rh": 461, "q": 5, "hot": [18.369, 4.07, 63.172, 59.541], "seta": [73.134, 24.125, 5.702]}];
+
 export const FAQSection: React.FC = () => {
   const [aberta, setAberta] = useState<number | null>(null);
 
   return (
     <section id="faq" className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
-      <div className="cvf2-in">
+      <div className="cvf2-in cvf2-desk">
       <div className="cvf2-topo">
         <img src="/cv/faq3-topo.webp" alt="" width={2576} height={464} loading="lazy" decoding="async" />
         <div className="cvf2-sr">
@@ -63,11 +57,10 @@ export const FAQSection: React.FC = () => {
                         aria-controls={`cvf2-r${i}`}
                         id={`cvf2-p${i}`}
                         onClick={() => setAberta(open ? null : i)}
-                        onPointerEnter={() => { new Image().src = window.matchMedia('(max-width: 900px)').matches ? IMG_MOB[i][1] : IMG[i][1]; }}
+                        onPointerEnter={() => { new Image().src = IMG[i][1]; }}
                       >
                         {/* o card é uma imagem (fica igual em qualquer navegador, mesmo com "modo escuro forçado") */}
                         <picture>
-                          <source media="(max-width: 900px)" srcSet={IMG_MOB[i][open ? 1 : 0]} />
                           <img
                             src={IMG[i][open ? 1 : 0]}
                             alt=""
@@ -90,6 +83,35 @@ export const FAQSection: React.FC = () => {
           ))}
         </div>
       </div>
+      </div>
+
+      {/* Versão celular (até 900 px) */}
+      <div className="cvf2-m">
+        {MOB.map((s, n) => {
+          const open = aberta === s.q;
+          return (
+            <React.Fragment key={n}>
+              <div className="cvf2-m-s">
+                <img src={s.s} alt="" width={s.sw} height={s.sh} loading="lazy" decoding="async" />
+                <button
+                  type="button"
+                  className="cvf2-m-hot"
+                  aria-expanded={open}
+                  aria-controls={`cvf2-r${s.q}`}
+                  style={{ left: `${s.hot[0]}%`, top: `${s.hot[1]}%`, width: `${s.hot[2]}%`, height: `${s.hot[3]}%` }}
+                  onClick={() => setAberta(open ? null : s.q)}
+                  onPointerEnter={() => { new Image().src = s.r; }}
+                >
+                  <span className="cvf2-sr">{PERGUNTAS[s.q].question}</span>
+                </button>
+                {open && (
+                  <img className="cvf2-m-seta" src="/cv/faqm/seta-cima.webp" alt="" style={{ left: `${s.seta[0]}%`, top: `${s.seta[1]}%`, width: `${s.seta[2]}%` }} />
+                )}
+              </div>
+              {open && <img className="cvf2-m-r" src={s.r} alt="" width={s.rw} height={s.rh} />}
+            </React.Fragment>
+          );
+        })}
       </div>
     </section>
   );
