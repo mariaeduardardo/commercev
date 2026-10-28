@@ -41,6 +41,6 @@ export const FAQS = [
   {
     question: "Quais são as formas de pagamento disponíveis?",
     answer:
-      "Trabalhamos com condições transparentes: 50% de entrada para iniciarmos o projeto e os 50% restantes na conclusão e aprovação final. Aceitamos PIX e cartões de crédito (com opção de parcelamento).",
+      "Trabalhamos com condições transparentes: 50% de entrada para iniciarmos o projeto e os 50% restantes na conclusão e aprovação final. Aceitamos PIX e cartão de crédito.",
   },
 ];

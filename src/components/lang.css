@@ -1,0 +1,42 @@
+/* Seletor de idioma (pílulas só com texto, na identidade da marca) */
+.cv-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 14px rgba(7, 25, 71, 0.16);
+  font-family: var(--font-text);
+  line-height: 1;
+}
+.cv-lang a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 0.75em;
+  border-radius: 999px;
+  color: var(--cv-ink, #071947);
+  font-weight: 600;
+  font-size: inherit;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.cv-lang a:hover { background: #fff3a6; }
+.cv-lang a[aria-current='true'] { background: var(--cv-blue, #0040ff); color: #fff; }
+.cv-lang a:focus-visible { outline: 3px solid var(--cv-orange, #ff861a); outline-offset: 2px; }
+
+/* No topo do computador: sobre a arte, entre o menu e o botão "Vamos conversar" */
+.cv-lang--hero {
+  position: absolute;
+  top: 3.3%;
+  left: 62.4%;
+  font-size: clamp(10px, 0.82vw, 13px);
+}
+.cv-lang--hero a { min-height: clamp(24px, 2.1vw, 32px); }
+
+/* No menu do celular */
+.cv-lang--menu { font-size: 14px; margin: 4px 0 18px; align-self: flex-start; }
+.cv-lang--menu a { min-height: 40px; padding: 0 16px; }

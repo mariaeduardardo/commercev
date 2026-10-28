@@ -34,6 +34,16 @@ const securityHeadersPlugin = {
 export default defineConfig({
   base: './',
   plugins: [react(), securityHeadersPlugin],
+  /* 3 páginas iniciais: PT-BR (raiz), EN (/en/) e PT-PT (/pt-pt/) */
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        en: 'en/index.html',
+        ptpt: 'pt-pt/index.html',
+      },
+    },
+  },
   server: {
     host: '0.0.0.0',
     port: 3000,
