@@ -58,7 +58,7 @@ const Arte: React.FC<{
         width={w}
         height={h}
         loading={eager ? 'eager' : 'lazy'}
-        decoding={eager ? 'sync' : 'async'}
+        decoding="async"
         {...(eager ? { fetchpriority: 'high' } : {})}
         className="block h-auto w-full"
       />
@@ -109,7 +109,7 @@ const MenuCelular: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className="mm-fundo" onClick={onClose} />
       <nav className="mm-painel" aria-label={t.menuAria} ref={painel}>
         <div className="mm-topo">
-          <img src="/cv/logo.webp" alt="Commerce Visual" width={520} height={165} />
+          <img src="/cv/logo.webp" alt="Commerce Visual" width={380} height={121} />
           <button type="button" className="mm-fechar" aria-label={t.fecharMenu} onClick={onClose} ref={fechar}>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
           </button>
@@ -160,7 +160,7 @@ export const CvHero: React.FC = () => {
 
       {/* Celular (até 760px) */}
       <div className="min-[761px]:hidden">
-        <Arte only="mob" src={ARTE.heroMob} alt={t.altHero} w={863} h={1823} eager>
+        <Arte only="mob" src={ARTE.heroMob} alt={t.altHero} w={750} h={1584} eager>
           <Hotspots w={863} h={1823} items={[
             { label: t.querProjeto, href: WPP, x1: 50, y1: 938, x2: 575, y2: 1038 },
             { label: t.conhecaServicos, href: '#servicos', ...HERO_HS.linkMob },

@@ -31,7 +31,7 @@ export const ProcessSection: React.FC = () => (
     </div>
 
     <div className="cvp-arte cvp-mob">
-      <img src={ARTE.procMob} alt="" width={1080} height={1874} loading="lazy" decoding="async" />
+      <img src={ARTE.procMob} alt="" width={750} height={1302} loading="lazy" decoding="async" />
     </div>
   </section>
 );

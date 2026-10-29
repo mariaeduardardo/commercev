@@ -9,11 +9,13 @@
 
   var doc = document, html = doc.documentElement;
   var LANG = 'pt-br';
+  var googleFonts = doc.getElementById('google-fonts');
+  if (googleFonts) googleFonts.rel = 'stylesheet';
 
   function ler(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function gravar(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* navegação privada */ } }
 
-  var PRIV = { 'pt-br': '/politica-de-privacidade' };
+  var PRIV = { 'pt-br': '/politica-de-privacidade/' };
 
   var T = {
     'pt-br': {

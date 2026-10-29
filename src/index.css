@@ -45,6 +45,7 @@
     color: #ffffff;
     min-height: 100vh;
     font-family: var(--font-text);
+    line-height: 1.5;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

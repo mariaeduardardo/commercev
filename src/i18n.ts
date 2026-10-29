@@ -11,13 +11,13 @@ export const LANG: Lang = 'pt-br';
 /* Endereço de cada página nos 3 idiomas (o seletor de idioma usa esta tabela) */
 export const ROTAS: Record<string, Record<Lang, string>> = {
   home: { 'pt-br': '/' },
-  sites: { 'pt-br': '/sites-profissionais' },
-  lojas: { 'pt-br': '/lojas-virtuais' },
-  sistemas: { 'pt-br': '/sistemas-sob-medida' },
-  seguranca: { 'pt-br': '/seguranca-digital' },
-  custo: { 'pt-br': '/quanto-custa-um-site' },
-  privacidade: { 'pt-br': '/politica-de-privacidade' },
-  termos: { 'pt-br': '/termos-de-uso' },
+  sites: { 'pt-br': '/sites-profissionais/' },
+  lojas: { 'pt-br': '/lojas-virtuais/' },
+  sistemas: { 'pt-br': '/sistemas-sob-medida/' },
+  seguranca: { 'pt-br': '/seguranca-digital/' },
+  custo: { 'pt-br': '/quanto-custa-um-site/' },
+  privacidade: { 'pt-br': '/politica-de-privacidade/' },
+  termos: { 'pt-br': '/termos-de-uso/' },
 };
 export const rota = (k: keyof typeof ROTAS) => ROTAS[k][LANG];
 

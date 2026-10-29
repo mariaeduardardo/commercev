@@ -1,4 +1,6 @@
-import { defineConfig } from 'vite';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
+import { defineConfig, transformWithEsbuild } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const securityHeadersPlugin = {
@@ -7,7 +9,7 @@ const securityHeadersPlugin = {
     server.middlewares.use((_req: any, res: any, next: any) => {
       res.setHeader(
         'Content-Security-Policy',
-        "default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests;"
+        "default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests;"
       );
       res.setHeader('X-Frame-Options', 'SAMEORIGIN');
       res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -20,7 +22,7 @@ const securityHeadersPlugin = {
     server.middlewares.use((_req: any, res: any, next: any) => {
       res.setHeader(
         'Content-Security-Policy',
-        "default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests;"
+        "default-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests;"
       );
       res.setHeader('X-Frame-Options', 'SAMEORIGIN');
       res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -31,12 +33,114 @@ const securityHeadersPlugin = {
   },
 };
 
-export default defineConfig({
+const inlineEntryCssPlugin = {
+  name: 'inline-entry-css',
+  apply: 'build' as const,
+  enforce: 'post' as const,
+  generateBundle: {
+    order: 'post' as const,
+    handler(_options: unknown, bundle: Record<string, any>) {
+      let html: any;
+      for (const fileName in bundle) {
+        const asset = bundle[fileName];
+        if (asset.type === 'asset' && asset.fileName.endsWith('.html')) {
+          html = asset;
+          break;
+        }
+      }
+      if (!html) return;
+
+      const inlinedCss: string[] = [];
+      html.source = String(html.source).replace(/<link\b(?=[^>]*\brel="stylesheet")[^>]*>/g, (link) => {
+        const href = link.match(/\bhref="([^"]+\.css)"/)?.[1];
+        if (!href) return link;
+
+        const fileName = href.replace(/^(\.\/|\/)/, '');
+        let asset: any;
+        for (const bundleFileName in bundle) {
+          const entry = bundle[bundleFileName];
+          if (entry.type === 'asset' && entry.fileName === fileName) {
+            asset = entry;
+            break;
+          }
+        }
+        if (!asset) return link;
+
+        inlinedCss.push(fileName);
+        return `<style>${String(asset.source)}</style>`;
+      });
+
+      for (const fileName of inlinedCss) delete bundle[fileName];
+    },
+  },
+};
+
+const minifyCopiedAssetsPlugin = {
+  name: 'minify-copied-assets',
+  apply: 'build' as const,
+  async writeBundle(outputOptions: { dir?: string }) {
+    const outputDir = resolve(outputOptions.dir || 'dist');
+    const siteScriptPath = join(outputDir, 'site.js');
+    const siteScript = await readFile(siteScriptPath, 'utf8');
+    const minifiedScript = await transformWithEsbuild(siteScript, siteScriptPath, {
+      loader: 'js',
+      minify: true,
+      target: 'es2020',
+      legalComments: 'none',
+    });
+    await writeFile(siteScriptPath, minifiedScript.code);
+
+    const htmlFiles: string[] = [];
+    const collectHtmlFiles = async (directory: string): Promise<void> => {
+      for (const entry of await readdir(directory, { withFileTypes: true })) {
+        const filePath = join(directory, entry.name);
+        if (entry.isDirectory()) await collectHtmlFiles(filePath);
+        else if (entry.isFile() && entry.name.endsWith('.html')) htmlFiles.push(filePath);
+      }
+    };
+
+    await collectHtmlFiles(outputDir);
+    for (const filePath of htmlFiles) {
+      const html = await readFile(filePath, 'utf8');
+      const styleTag = /<style\b([^>]*)>([\s\S]*?)<\/style>/gi;
+      const matches: RegExpExecArray[] = [];
+      let match: RegExpExecArray | null;
+      while ((match = styleTag.exec(html)) !== null) matches.push(match);
+
+      let minifiedHtml = html;
+      for (const [fullTag, attributes, css] of matches) {
+        const minifiedCss = await transformWithEsbuild(css, `${filePath}.css`, {
+          loader: 'css',
+          minify: true,
+          target: 'es2020',
+        });
+        minifiedHtml = minifiedHtml.replace(fullTag, `<style${attributes}>${minifiedCss.code}</style>`);
+      }
+
+      if (minifiedHtml !== html) await writeFile(filePath, minifiedHtml);
+    }
+  },
+};
+
+export default defineConfig(({ command }) => ({
   base: './',
-  plugins: [react(), securityHeadersPlugin],
+  plugins: [react(), securityHeadersPlugin, inlineEntryCssPlugin, minifyCopiedAssetsPlugin],
+  ...(command === 'build' ? { esbuild: { drop: ['console', 'debugger'] } } : {}),
+  resolve: command === 'build' ? {
+    alias: [
+      { find: /^react-dom\/test-utils$/, replacement: 'preact/test-utils' },
+      { find: /^react-dom\/client$/, replacement: 'preact/compat/client' },
+      { find: /^react\/jsx-runtime$/, replacement: 'preact/jsx-runtime' },
+      { find: /^react-dom$/, replacement: 'preact/compat' },
+      { find: /^react$/, replacement: 'preact/compat' },
+    ],
+  } : undefined,
   /* página inicial PT-BR (raiz) */
   build: {
+    minify: 'esbuild',
+    cssMinify: true,
     rollupOptions: {
+      treeshake: true,
       input: {
         main: 'index.html',
       },
@@ -52,4 +156,4 @@ export default defineConfig({
     port: 4173,
     open: false,
   },
-});
+}));

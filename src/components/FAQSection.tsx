@@ -17,13 +17,21 @@ const TAM: [number, number][][] = FAQ_IMG.map(([, , h]) => [[924, 377], [924, h]
 
 /* Celular: a arte vertical aprovada, fatiada por card. Ao tocar, a resposta aparece logo abaixo do card. */
 const MOB_BASE = [{"s": "/cv/faqm/s1.webp", "sw": 1438, "sh": 1011, "r": "/cv/faqm/r1.webp", "rw": 1438, "rh": 519, "q": 0, "hot": [18.369, 73.029, 63.172, 25.49], "seta": [73.134, 81.719, 5.702]}, {"s": "/cv/faqm/s2.webp", "sw": 1438, "sh": 270, "r": "/cv/faqm/r2.webp", "rw": 1438, "rh": 519, "q": 3, "hot": [18.369, 5.911, 63.172, 88.288], "seta": [73.134, 34.87, 5.702]}, {"s": "/cv/faqm/s3.webp", "sw": 1438, "sh": 291, "r": "/cv/faqm/r3.webp", "rw": 1438, "rh": 519, "q": 1, "hot": [18.369, 5.245, 63.172, 89.444], "seta": [73.134, 35.877, 5.702]}, {"s": "/cv/faqm/s4.webp", "sw": 1438, "sh": 293, "r": "/cv/faqm/r4.webp", "rw": 1438, "rh": 461, "q": 4, "hot": [18.369, 5.28, 63.172, 89.274], "seta": [73.134, 35.923, 5.702]}, {"s": "/cv/faqm/s5.webp", "sw": 1438, "sh": 289, "r": "/cv/faqm/r5.webp", "rw": 1438, "rh": 519, "q": 2, "hot": [18.369, 5.179, 63.172, 89.618], "seta": [73.134, 35.8, 5.702]}, {"s": "/cv/faqm/s6.webp", "sw": 1438, "sh": 422, "r": "/cv/faqm/r6.webp", "rw": 1438, "rh": 461, "q": 5, "hot": [18.369, 4.07, 63.172, 59.541], "seta": [73.134, 24.125, 5.702]}];
-const MOB = MOB_BASE.map((m, i) => ({ ...m, s: FAQM[i].s, r: FAQM[i].r, rh: FAQM[i].rh }));
+const MOB = MOB_BASE.map((m, i) => ({
+  ...m,
+  sw: 750,
+  sh: Math.round((m.sh * 750) / m.sw),
+  rw: 750,
+  rh: Math.round((FAQM[i].rh * 750) / 1438),
+  s: FAQM[i].s,
+  r: FAQM[i].r,
+}));
 
 export const FAQSection: React.FC = () => {
   const [aberta, setAberta] = useState<number | null>(null);
 
   return (
-    <section id="faq" className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
+    <section className={`cvf2${aberta !== null ? ' expandida' : ''}`} aria-labelledby="cvf2-titulo">
       <div className="cvf2-in cvf2-desk">
       <div className="cvf2-topo">
         <img src={ARTE.faqTopo} alt="" width={2576} height={464} loading="lazy" decoding="async" />
