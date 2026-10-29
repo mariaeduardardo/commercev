@@ -1,8 +1,6 @@
 /*
-  Commerce Visual — scripts comuns a todas as páginas (PT-BR e EN)
+  Commerce Visual — scripts comuns a todas as páginas (PT-BR)
   1. Banner de cookies (LGPD) no idioma da página, versão clara com a identidade do site
-  2. Barra discreta sugerindo o idioma do navegador (nunca redireciona sozinho)
-  3. Guarda a escolha de idioma do visitante (localStorage, sempre com try/catch)
   Hoje o site não usa cookies de análise nem de marketing: o banner só registra a escolha.
   Se um dia forem instalados, coloque o código dentro de carregarAnalise() / carregarMarketing().
 */
@@ -10,13 +8,12 @@
   'use strict';
 
   var doc = document, html = doc.documentElement;
-  var LANG = (html.lang || 'pt-BR').toLowerCase();
-  LANG = LANG.indexOf('en') === 0 ? 'en' : 'pt-br';
+  var LANG = 'pt-br';
 
   function ler(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function gravar(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* navegação privada */ } }
 
-  var PRIV = { 'pt-br': '/politica-de-privacidade', en: '/en/privacy-policy' };
+  var PRIV = { 'pt-br': '/politica-de-privacidade' };
 
   var T = {
     'pt-br': {
@@ -29,17 +26,6 @@
       ana: 'Análise', anaTxt: 'Ajudariam a entender como o site é usado, de forma agregada (ex.: Google Analytics). Não usados hoje.',
       mkt: 'Marketing', mktTxt: 'Permitiriam anúncios e conteúdos personalizados em redes sociais (ex.: Meta Pixel). Não usados hoje.',
       sugestao: 'Esta página está disponível em português do Brasil', ir: 'Ver em PT-BR', dispensar: 'Dispensar sugestão de idioma'
-    },
-    en: {
-      titulo: 'Your privacy matters',
-      texto: 'We only use essential features to run the website and remember your choices. We do not use analytics or marketing cookies; if that ever changes, they will only be turned on with your permission.',
-      politica: 'Privacy Policy', aceitar: 'Accept all', recusar: 'Reject optional', personalizar: 'Customize',
-      modal: 'Cookie preferences', modalTxt: 'Choose which cookies you allow. You can change this at any time through the "Cookie preferences" link in the footer.',
-      saiba: 'Learn more', fechar: 'Close cookie preferences', salvar: 'Save preferences',
-      nec: 'Strictly necessary', sempre: 'Always on', necTxt: 'Needed for the website to work and to remember your language and privacy choices. They cannot be turned off.',
-      ana: 'Analytics', anaTxt: 'Would help us understand how the website is used, in aggregate (e.g. Google Analytics). Not used today.',
-      mkt: 'Marketing', mktTxt: 'Would allow personalized ads and content on social networks (e.g. Meta Pixel). Not used today.',
-      sugestao: 'This page is available in English', ir: 'View in English', dispensar: 'Dismiss language suggestion'
     }
   };
   var t = T[LANG];
@@ -168,40 +154,7 @@
     e.preventDefault(); abrirModal();
   });
 
-  /* ---------------- 2 e 3. idioma ---------------- */
-  doc.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[hreflang]'); if (!a) return;
-    var h = (a.getAttribute('hreflang') || '').toLowerCase();
-    var l = h.indexOf('en') === 0 ? 'en' : (h === 'pt-br' ? 'pt-br' : null);
-    if (l) gravar('cv-lang', l);
-  });
-
-  function idiomaNavegador() {
-    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-    for (var i = 0; i < ls.length; i++) {
-      var x = String(ls[i]).toLowerCase();
-      if (x.indexOf('pt') === 0) return 'pt-br';
-      if (x.indexOf('en') === 0) return 'en';
-    }
-    return null;
-  }
-  function sugerir() {
-    if (ler('cv-lang')) return;                 // o visitante já escolheu: respeita
-    var alvo = idiomaNavegador();
-    if (!alvo || alvo === LANG) return;
-    var hl = { 'pt-br': 'pt-BR', en: 'en' }[alvo];
-    var link = doc.querySelector('link[rel="alternate"][hreflang="' + hl + '"]');
-    if (!link) return;
-    var s = T[alvo];
-    var href = link.getAttribute('href').replace(/^https:\/\/www\.commercevisual\.com\.br/, '') || '/';
-    var bar = el('<div class="cv-sug" role="region" aria-label="' + s.sugestao + '" lang="' + hl + '"><span>' + s.sugestao + '</span>' +
-      '<a href="' + href + '" hreflang="' + hl + '">' + s.ir + ' &rarr;</a><button type="button" aria-label="' + s.dispensar + '">×</button></div>');
-    bar.querySelector('button').addEventListener('click', function () { gravar('cv-lang', LANG); bar.remove(); });
-    doc.body.insertBefore(bar, doc.body.firstChild);
-  }
-
   function iniciar() {
-    sugerir();
     var c = lerConsent();
     if (c) aplicar(c); else mostrarBanner();
   }

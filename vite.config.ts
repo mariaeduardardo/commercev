@@ -34,12 +34,11 @@ const securityHeadersPlugin = {
 export default defineConfig({
   base: './',
   plugins: [react(), securityHeadersPlugin],
-  /* 2 páginas iniciais: PT-BR (raiz) e EN (/en/) */
+  /* página inicial PT-BR (raiz) */
   build: {
     rollupOptions: {
       input: {
         main: 'index.html',
-        en: 'en/index.html',
       },
     },
   },
