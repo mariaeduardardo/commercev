@@ -69,8 +69,6 @@ export const FAQM: { s: string; r: string; rh: number }[] = (() => {
 
 type Hs = { x1: number; y1: number; x2: number; y2: number };
 /* Áreas clicáveis do topo (computador, escala 1672x940) e do celular (escala 863x1823) */
-const k = 1672 / 1600;
-const esc = (a: number[]): Hs => ({ x1: Math.round(a[0] * k), y1: 37, x2: Math.round(a[2] * k), y2: 80 });
 export const HERO_HS: { menu: Hs[]; link: Hs; linkMob: Hs } =
   {
           menu: [
