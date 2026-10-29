@@ -2,10 +2,9 @@ import React from 'react';
 import { LANG, ROTAS, lembrarIdioma, t, type Lang } from '../i18n';
 import './lang.css';
 
-/* Seletor de idioma: só texto (PT-BR | PT-PT | EN). Leva para a mesma página no outro idioma. */
+/* Seletor de idioma: só texto (PT-BR | EN). Leva para a mesma página no outro idioma. */
 const OPCOES: { l: Lang; rotulo: string; nome: string; hreflang: string }[] = [
   { l: 'pt-br', rotulo: 'PT-BR', nome: 'Português (Brasil)', hreflang: 'pt-BR' },
-  { l: 'pt-pt', rotulo: 'PT-PT', nome: 'Português (Portugal)', hreflang: 'pt-PT' },
   { l: 'en', rotulo: 'EN', nome: 'English', hreflang: 'en' },
 ];
 

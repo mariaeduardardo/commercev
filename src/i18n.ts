@@ -1,15 +1,14 @@
 /*
-  Idiomas do site: PT-BR (principal, na raiz), EN (/en/) e PT-PT (/pt-pt/).
+  Idiomas do site: PT-BR (principal, na raiz) e EN (/en/). O PT-PT foi retirado: a tradução era igual ao PT-BR.
   O idioma de cada página vem do <html lang="..."> do index.html correspondente.
-  Para mudar um texto, edite aqui. As artes de cada idioma ficam em public/cv/, public/cv/en/ e public/cv/pt-pt/.
+  Para mudar um texto, edite aqui. As artes de cada idioma ficam em public/cv/ e public/cv/en/.
 */
 
-export type Lang = 'pt-br' | 'en' | 'pt-pt';
+export type Lang = 'pt-br' | 'en';
 
 const detect = (): Lang => {
   const l = (typeof document !== 'undefined' ? document.documentElement.lang : 'pt-BR').toLowerCase();
   if (l.startsWith('en')) return 'en';
-  if (l === 'pt-pt') return 'pt-pt';
   return 'pt-br';
 };
 
@@ -17,21 +16,20 @@ export const LANG: Lang = detect();
 
 /* Endereço de cada página nos 3 idiomas (o seletor de idioma usa esta tabela) */
 export const ROTAS: Record<string, Record<Lang, string>> = {
-  home: { 'pt-br': '/', en: '/en/', 'pt-pt': '/pt-pt/' },
-  sites: { 'pt-br': '/sites-profissionais', en: '/en/professional-websites', 'pt-pt': '/pt-pt/websites-profissionais' },
-  lojas: { 'pt-br': '/lojas-virtuais', en: '/en/online-stores', 'pt-pt': '/pt-pt/lojas-online' },
-  sistemas: { 'pt-br': '/sistemas-sob-medida', en: '/en/custom-systems', 'pt-pt': '/pt-pt/sistemas-a-medida' },
-  seguranca: { 'pt-br': '/seguranca-digital', en: '/en/digital-security', 'pt-pt': '/pt-pt/seguranca-digital' },
-  custo: { 'pt-br': '/quanto-custa-um-site', en: '/en/website-cost', 'pt-pt': '/pt-pt/quanto-custa-um-website' },
-  privacidade: { 'pt-br': '/politica-de-privacidade', en: '/en/privacy-policy', 'pt-pt': '/pt-pt/politica-de-privacidade' },
-  termos: { 'pt-br': '/termos-de-uso', en: '/en/terms', 'pt-pt': '/pt-pt/termos-de-utilizacao' },
+  home: { 'pt-br': '/', en: '/en/' },
+  sites: { 'pt-br': '/sites-profissionais', en: '/en/professional-websites' },
+  lojas: { 'pt-br': '/lojas-virtuais', en: '/en/online-stores' },
+  sistemas: { 'pt-br': '/sistemas-sob-medida', en: '/en/custom-systems' },
+  seguranca: { 'pt-br': '/seguranca-digital', en: '/en/digital-security' },
+  custo: { 'pt-br': '/quanto-custa-um-site', en: '/en/website-cost' },
+  privacidade: { 'pt-br': '/politica-de-privacidade', en: '/en/privacy-policy' },
+  termos: { 'pt-br': '/termos-de-uso', en: '/en/terms' },
 };
 export const rota = (k: keyof typeof ROTAS) => ROTAS[k][LANG];
 
 const MSG: Record<Lang, string> = {
   'pt-br': 'Olá! Vim pelo site e quero um orçamento.',
   en: "Hi! I found you on your website and I'd like a quote.",
-  'pt-pt': 'Olá! Encontrei o vosso website e gostaria de um orçamento.',
 };
 export const WPP = `https://wa.me/5541997580656?text=${encodeURIComponent(MSG[LANG])}`;
 
@@ -58,7 +56,6 @@ export const FAQ_IMG: [string, string, number][] = (() => {
   const alt: Record<Lang, number[]> = {
     'pt-br': [741, 791, 791, 791, 741, 641],
     en: [741, 691, 691, 741, 641, 691],
-    'pt-pt': [741, 741, 741, 791, 691, 691],
   };
   return [1, 2, 3, 4, 5, 6].map((n, i) => {
     const nome = LANG === 'pt-br' && n === 6 ? 'q6-v2' : `q${n}`;
@@ -71,7 +68,6 @@ export const FAQM: { s: string; r: string; rh: number }[] = (() => {
   const alt: Record<Lang, number[]> = {
     'pt-br': [519, 519, 519, 461, 519, 403],
     en: [461, 461, 461, 345, 403, 403],
-    'pt-pt': [461, 577, 519, 461, 519, 461],
   };
   return [1, 2, 3, 4, 5, 6].map((n, i) => ({
     s: `/cv${P}/faqm/s${n}.webp`,
@@ -91,13 +87,7 @@ export const HERO_HS: { menu: Hs[]; link: Hs; linkMob: Hs } =
         link: { x1: Math.round(426 * k), y1: 708, x2: Math.round(624 * k), y2: 750 },
         linkMob: { x1: 50, y1: 1056, x2: 324, y2: 1112 },
       }
-    : LANG === 'pt-pt'
-      ? {
-          menu: [[385, 26, 465, 79], [487, 26, 600, 79], [622, 26, 743, 79], [765, 26, 875, 79]].map(esc),
-          link: { x1: Math.round(426 * k), y1: 708, x2: Math.round(694 * k), y2: 750 },
-          linkMob: { x1: 50, y1: 1056, x2: 421, y2: 1112 },
-        }
-      : {
+    : {
           menu: [
             { x1: 402, y1: 37, x2: 486, y2: 80 }, { x1: 509, y1: 37, x2: 627, y2: 80 },
             { x1: 650, y1: 37, x2: 776, y2: 80 }, { x1: 799, y1: 37, x2: 915, y2: 80 },
@@ -110,9 +100,7 @@ export const HERO_HS: { menu: Hs[]; link: Hs; linkMob: Hs } =
 export const RODAPE_LINKS: Hs[] =
   LANG === 'en'
     ? [[914, 452, 1078, 516], [914, 523, 1174, 587], [914, 594, 1160, 659], [914, 666, 1268, 730]].map(([x1, y1, x2, y2]) => ({ x1, y1, x2, y2 }))
-    : LANG === 'pt-pt'
-      ? [[914, 452, 1079, 516], [914, 523, 1329, 587], [914, 594, 1295, 659], [914, 666, 1344, 730]].map(([x1, y1, x2, y2]) => ({ x1, y1, x2, y2 }))
-      : [
+    : [
           { x1: 917, y1: 461, x2: 1064, y2: 511 }, { x1: 917, y1: 532, x2: 1296, y2: 582 },
           { x1: 917, y1: 603, x2: 1167, y2: 653 }, { x1: 917, y1: 674, x2: 1311, y2: 724 },
         ];
@@ -176,7 +164,7 @@ export const T: Record<Lang, Txt> = {
     rod: {
       inicio: 'Commerce Visual — página inicial', fale: 'Fale com a gente no WhatsApp', projetos: 'Projetos', privacidade: 'Política de Privacidade',
       termos: 'Termos de Uso', cookies: 'Preferências de cookies', slogan: 'Sites, sistemas e segurança digital para o seu negócio.',
-      empresa: 'Empresa', contato: 'Contato', area: 'Área de atendimento', areaTxt: 'Atendimento 100% online para todo o Brasil, Estados Unidos e Europa.',
+      empresa: 'Empresa', contato: 'Contato', area: 'Área de atendimento', areaTxt: 'Atendimento 100% online para todo o Brasil.',
       horario: 'Horário', horarioTxt: 'Segunda a sexta, 9h às 18h (horário de Brasília)', direitos: 'Todos os direitos reservados.',
       cnpj: 'CNPJ: 68.961.224/0001-01', seguro: 'Site seguro (SSL)', nav: 'Rodapé',
     },
@@ -229,56 +217,6 @@ export const T: Record<Lang, Txt> = {
       empresa: 'Company', contato: 'Contact', area: 'Service area', areaTxt: '100% remote. Serving clients in the US, Europe and Brazil.',
       horario: 'Hours', horarioTxt: 'Mon–Fri, 9am–6pm Brasília time (UTC-3)', direitos: 'All rights reserved.',
       cnpj: 'Brazilian company · CNPJ: 68.961.224/0001-01', seguro: 'Secure site (SSL)', nav: 'Footer',
-    },
-  },
-  'pt-pt': {
-    h1: 'Commerce Visual — O seu negócio sem limites. Criação de websites, lojas online e sistemas à medida.',
-    altHero: 'O seu negócio sem limites. Criação de websites e sistemas. Ideias criativas. Soluções digitais feitas para o seu negócio.',
-    altServ: 'Soluções digitais para as suas ideias: websites profissionais, sistemas à medida, lojas online e design responsivo. As suas ideias em experiências reais. Websites que valorizam a sua marca. Sistemas que organizam o seu negócio.',
-    menu: ['Início', 'Serviços', 'Processo', 'Dúvidas'], menuAria: 'Menu principal', abrirMenu: 'Abrir menu', fecharMenu: 'Fechar menu',
-    conversar: 'Vamos conversar', querProjeto: 'Quero o meu projeto', conhecaServicos: 'Conheça os nossos serviços', idioma: 'Idioma',
-    serv: {
-      h2: 'Soluções digitais para as suas ideias',
-      itens: [
-        ['Websites profissionais', 'sites', 'presença digital com a sua identidade.'],
-        ['Sistemas à medida', 'sistemas', 'soluções para a rotina do seu negócio.'],
-        ['Lojas online', 'lojas', 'o seu catálogo numa experiência de compra.'],
-        ['Design responsivo', null, 'experiências para diferentes ecrãs.'],
-        ['Segurança digital', 'seguranca', 'proteção para o website e os dados da sua empresa.'],
-      ],
-      h3a: 'As suas ideias. Em experiências reais.', pa: 'Criamos websites e sistemas que ligam a sua marca ao digital.',
-      h3b: 'Websites que valorizam a sua marca', pb: 'Design estratégico para atrair, envolver e converter.',
-      h3c: 'Sistemas que organizam o seu negócio', pc: 'Mais controlo, organização e produtividade no seu dia a dia.',
-      custo: 'Quanto custa um website profissional', criar: 'Vamos criar o seu projeto',
-      possSites: 'Conheça as possibilidades de websites', possSist: 'Conheça as possibilidades de sistemas',
-    },
-    proc: {
-      selo: 'Processo transparente', h2: 'Como tiramos a sua ideia do papel em 4 etapas ágeis',
-      p: 'Metodologia sem rodeios. Acompanha cada passo com alinhamento contínuo e previsão exata de entrega.',
-      etapas: [
-        ['Briefing & Diagnóstico', 'Compreendemos o seu modelo de negócio, os seus diferenciais e o comportamento de compra do seu cliente ideal para desenhar a estratégia mais eficiente.'],
-        ['Design de Alta Fidelidade', 'Criamos a interface visual com base em neurodesign corporativo, paleta sofisticada e hierarquia clara para conduzir o olhar até ao botão de contacto.'],
-        ['Desenvolvimento & Desempenho', 'Programamos o projeto com as tecnologias mais modernas do mercado, com foco mobile-first, segurança e velocidade máxima de carregamento.'],
-        ['Lançamento & Código 100% Seu', 'Colocamos a sua solução online, realizamos testes rigorosos e entregamos o acesso completo, sem dependência de mensalidades da agência.'],
-      ],
-    },
-    faq: {
-      h2: 'Perguntas frequentes', p: 'Transparência absoluta do início ao fim. Veja as respostas às principais dúvidas dos nossos clientes.',
-      qa: [
-        ['Não preciso mesmo de pagar mensalidades à Commerce Visual?', 'Exatamente. O projeto é 100% seu, com pagamento único de desenvolvimento e sem mensalidades obrigatórias. Tem total autonomia, mas também pode optar por pacotes de suporte e manutenção, caso queira a nossa ajuda contínua.'],
-        ['Qual é o prazo médio de entrega de uma landing page ou website?', 'Para landing pages de alta conversão, o prazo médio de entrega é de 5 a 10 dias úteis após a aprovação do briefing e o alinhamento do conteúdo. Para sistemas à medida, o calendário é definido de acordo com a complexidade técnica acordada.'],
-        ['O website funciona na perfeição em telemóveis e tablets?', 'Sim, seguimos uma abordagem estritamente mobile-first. A maioria dos cliques vindos de campanhas chega através de smartphones, por isso cada botão, texto e elemento é ajustado ao pormenor para uma experiência tátil rápida.'],
-        ['Como é que o website é integrado com o meu WhatsApp?', "Configuramos botões inteligentes com mensagens pré-definidas. Quando o visitante clica no botão do website, o WhatsApp abre com um texto personalizado (ex.: 'Olá, encontrei o vosso website e gostaria de um orçamento'), o que facilita o início imediato do atendimento pela sua equipa."],
-        ['Ajudam na escolha do alojamento e do domínio?', 'Sim, damos todo o acompanhamento consultivo para que registe o seu próprio domínio e contrate o alojamento mais rápido e económico para a sua necessidade, mantendo tudo 100% em seu nome.'],
-        ['Quais são as formas de pagamento disponíveis?', 'Trabalhamos com condições transparentes: 50% de adjudicação para iniciarmos o projeto e os restantes 50% na conclusão e aprovação final. As formas de pagamento são indicadas na sua proposta.'],
-      ],
-    },
-    rod: {
-      inicio: 'Commerce Visual — página inicial', fale: 'Fale connosco no WhatsApp', projetos: 'Projetos', privacidade: 'Política de Privacidade',
-      termos: 'Termos de Utilização', cookies: 'Preferências de cookies', slogan: 'Websites, sistemas e segurança digital para o seu negócio.',
-      empresa: 'Empresa', contato: 'Contacto', area: 'Área de atendimento', areaTxt: 'Atendimento 100% online para Portugal, Europa, Brasil e Estados Unidos.',
-      horario: 'Horário', horarioTxt: 'Segunda a sexta, 9h–18h (hora de Brasília, UTC-3)', direitos: 'Todos os direitos reservados.',
-      cnpj: 'CNPJ: 68.961.224/0001-01', seguro: 'Website seguro (SSL)', nav: 'Rodapé',
     },
   },
 };

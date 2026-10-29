@@ -1,6 +1,6 @@
 # Commerce Visual
 
-> Empresa brasileira (MEI, CNPJ 68.961.224/0001-01) de criação de sites profissionais, lojas virtuais, sistemas sob medida e soluções de segurança digital para pequenas empresas e profissionais liberais. Atendimento 100% online para todo o Brasil, Estados Unidos e Europa, em português e inglês.
+> Empresa brasileira (MEI, CNPJ 68.961.224/0001-01) de criação de sites profissionais, lojas virtuais, sistemas sob medida e soluções de segurança digital para pequenas empresas e profissionais liberais. Atendimento 100% online para todo o Brasil, em português e inglês.
 
 ## Serviços
 - [Sites profissionais](https://www.commercevisual.com.br/sites-profissionais): sites institucionais responsivos, com WhatsApp, SEO técnico e HTTPS.
@@ -30,4 +30,3 @@ Orçamento gratuito pelo WhatsApp, proposta por escrito com escopo, prazo e valo
 
 ## Other languages
 - English: https://www.commercevisual.com.br/en/ (100% remote, serving clients in the US, Europe and Brazil)
-- Português de Portugal: https://www.commercevisual.com.br/pt-pt/

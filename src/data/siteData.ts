@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   whatsappUrl: "https://wa.me/5541997580656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Commerce%20Visual.",
   whatsappDisplay: "(41) 99758-0656",
   email: "commercevisual@hotmail.com",
-  location: "Presença internacional: suporte e desenvolvimento para o Brasil, EUA e Europa.",
+  location: "Atendimento 100% online para todo o Brasil.",
   cnpj: "68.961.224/0001-01",
   year: new Date().getFullYear(),
 };

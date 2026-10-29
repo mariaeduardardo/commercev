@@ -1,6 +1,6 @@
 /*
-  Commerce Visual — scripts comuns a todas as páginas (PT-BR, EN e PT-PT)
-  1. Banner de cookies (LGPD / GDPR / RGPD) no idioma da página
+  Commerce Visual — scripts comuns a todas as páginas (PT-BR e EN)
+  1. Banner de cookies (LGPD) no idioma da página, versão clara com a identidade do site
   2. Barra discreta sugerindo o idioma do navegador (nunca redireciona sozinho)
   3. Guarda a escolha de idioma do visitante (localStorage, sempre com try/catch)
   Hoje o site não usa cookies de análise nem de marketing: o banner só registra a escolha.
@@ -11,12 +11,12 @@
 
   var doc = document, html = doc.documentElement;
   var LANG = (html.lang || 'pt-BR').toLowerCase();
-  LANG = LANG.indexOf('en') === 0 ? 'en' : (LANG === 'pt-pt' ? 'pt-pt' : 'pt-br');
+  LANG = LANG.indexOf('en') === 0 ? 'en' : 'pt-br';
 
   function ler(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function gravar(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* navegação privada */ } }
 
-  var PRIV = { 'pt-br': '/politica-de-privacidade', en: '/en/privacy-policy', 'pt-pt': '/pt-pt/politica-de-privacidade' };
+  var PRIV = { 'pt-br': '/politica-de-privacidade', en: '/en/privacy-policy' };
 
   var T = {
     'pt-br': {
@@ -40,54 +40,45 @@
       ana: 'Analytics', anaTxt: 'Would help us understand how the website is used, in aggregate (e.g. Google Analytics). Not used today.',
       mkt: 'Marketing', mktTxt: 'Would allow personalized ads and content on social networks (e.g. Meta Pixel). Not used today.',
       sugestao: 'This page is available in English', ir: 'View in English', dispensar: 'Dismiss language suggestion'
-    },
-    'pt-pt': {
-      titulo: 'A sua privacidade é importante',
-      texto: 'Usamos apenas recursos essenciais para o website funcionar e guardar as suas escolhas. Não usamos cookies de análise nem de marketing; se isso mudar, só serão ativados com a sua autorização.',
-      politica: 'Política de Privacidade', aceitar: 'Aceitar todos', recusar: 'Recusar opcionais', personalizar: 'Personalizar',
-      modal: 'Preferências de cookies', modalTxt: 'Escolha os cookies que autoriza. Pode alterar a sua escolha a qualquer momento através da ligação "Preferências de cookies" no rodapé.',
-      saiba: 'Saber mais', fechar: 'Fechar preferências de cookies', salvar: 'Guardar preferências',
-      nec: 'Estritamente necessários', sempre: 'Sempre ativos', necTxt: 'Essenciais para o website funcionar e para guardar as suas escolhas de idioma e de privacidade. Não podem ser desativados.',
-      ana: 'Análise', anaTxt: 'Ajudariam a perceber como o website é usado, de forma agregada (ex.: Google Analytics). Não utilizados atualmente.',
-      mkt: 'Marketing', mktTxt: 'Permitiriam anúncios e conteúdos personalizados nas redes sociais (ex.: Meta Pixel). Não utilizados atualmente.',
-      sugestao: 'Esta página está disponível em português de Portugal', ir: 'Ver em PT-PT', dispensar: 'Dispensar sugestão de idioma'
     }
   };
   var t = T[LANG];
 
-  /* ---------------- estilos (identidade Commerce Visual) ---------------- */
+  /* ---------------- estilos (identidade Commerce Visual, sempre em modo claro) ---------------- */
   var css = '' +
-    '.cvc,.cvc-modal{--cvc-cream:#fdf8df;--cvc-blue:#0040ff;--cvc-blue-d:#0030c4;--cvc-sky:#cfe2ff;--cvc-ink:#0b2a8a;--cvc-orange:#ff861a;font-family:Montserrat,"Segoe UI",system-ui,sans-serif;color:var(--cvc-ink);line-height:1.45}' +
+    '.cvc,.cvc-modal{--cvc-yel:#ffdf00;--cvc-cream:#fffbe0;--cvc-blue:#0040ff;--cvc-blue-d:#0030c4;--cvc-sky:#dce8ff;--cvc-ink:#0b2a8a;--cvc-orange:#ff861a;color-scheme:light;font-family:Montserrat,"Segoe UI",system-ui,sans-serif;color:var(--cvc-ink);line-height:1.45;forced-color-adjust:none}' +
     '.cvc *,.cvc-modal *{box-sizing:border-box}' +
-    '.cvc{position:fixed;z-index:9998;left:50%;transform:translateX(-50%);bottom:max(20px,env(safe-area-inset-bottom,0px));width:min(1240px,calc(100vw - 40px));display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px;background:var(--cvc-cream);border-radius:24px;padding:24px 28px;box-shadow:0 18px 40px rgba(150,110,0,.22),0 2px 0 rgba(255,255,255,.8) inset;animation:cvc-sobe .55s cubic-bezier(.16,1,.3,1) both}' +
+    '.cvc{position:fixed;z-index:9998;left:50%;transform:translateX(-50%);bottom:max(20px,env(safe-area-inset-bottom,0px));width:min(1240px,calc(100vw - 40px));display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px;background:var(--cvc-cream);border:3px solid var(--cvc-yel);border-radius:24px;padding:22px 28px;box-shadow:0 18px 40px rgba(0,64,255,.2),0 2px 0 #fff inset;animation:cvc-sobe .55s cubic-bezier(.16,1,.3,1) both}' +
     '.cvc[hidden],.cvc-overlay[hidden]{display:none}' +
     '@keyframes cvc-sobe{from{opacity:0;transform:translate(-50%,48px)}to{opacity:1;transform:translate(-50%,0)}}' +
     '.cvc-title{margin:0 0 6px;color:var(--cvc-blue);font-family:Fredoka,Montserrat,system-ui,sans-serif;font-size:28px;font-weight:600;line-height:1.1}' +
-    '.cvc-text{margin:0;font-size:14.5px;font-weight:500;max-width:62ch}' +
-    '.cvc-text a,.cvc-modal a{display:inline-block;margin-top:6px;color:var(--cvc-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+    '.cvc-text{margin:0;font-size:14.5px;font-weight:500;max-width:62ch;color:var(--cvc-ink)}' +
+    '.cvc-text a,.cvc-modal a{display:inline-block;margin-top:6px;color:var(--cvc-blue);font-weight:700;text-decoration:underline;text-underline-offset:3px}' +
     '.cvc-actions{display:grid;grid-template-columns:repeat(3,190px);gap:12px}' +
-    '.cvc-btn{font-family:Fredoka,Montserrat,system-ui,sans-serif;font-size:17px;font-weight:600;min-height:52px;padding:10px 18px;border-radius:999px;cursor:pointer;background:transparent;color:var(--cvc-blue);border:2px solid var(--cvc-blue);transition:background .2s,transform .15s}' +
-    '.cvc-btn:hover{background:#eef3ff}.cvc-btn:active{transform:scale(.97)}' +
+    '.cvc-btn{font-family:Fredoka,Montserrat,system-ui,sans-serif;font-size:17px;font-weight:600;min-height:52px;padding:10px 18px;border-radius:999px;cursor:pointer;background:#fff;color:var(--cvc-blue);border:2px solid var(--cvc-blue);transition:background .2s,transform .15s}' +
+    '.cvc-btn:hover{background:var(--cvc-sky)}.cvc-btn:active{transform:scale(.97)}' +
     '.cvc-btn-primary{background:linear-gradient(180deg,#2a62ff,var(--cvc-blue) 60%,var(--cvc-blue-d));border-color:var(--cvc-blue-d);color:#fff;box-shadow:0 8px 18px rgba(0,64,255,.35)}' +
-    '.cvc-btn-primary:hover{background:var(--cvc-blue-d)}' +
-    '.cvc-btn-soft{background:var(--cvc-sky);border-color:var(--cvc-sky)}.cvc-btn-soft:hover{background:#b9d4ff;border-color:#b9d4ff}' +
-    '.cvc :focus-visible,.cvc-modal :focus-visible,.cv-sug :focus-visible{outline:3px solid var(--cvc-orange,#ff861a);outline-offset:3px}' +
-    '.cvc-overlay{position:fixed;inset:0;z-index:9999;background:rgba(7,25,71,.5);display:grid;place-items:center;padding:20px 16px}' +
-    '.cvc-modal{position:relative;width:min(580px,100%);max-height:calc(100vh - 40px);overflow-y:auto;background:var(--cvc-cream);border-radius:24px;padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.3)}' +
+    '.cvc-btn-primary:hover{background:var(--cvc-blue-d);color:#fff}' +
+    '.cvc-btn-yel{background:var(--cvc-yel);border-color:var(--cvc-yel);color:var(--cvc-ink);box-shadow:0 6px 14px rgba(255,190,0,.35)}' +
+    '.cvc-btn-yel:hover{background:#ffcc00;border-color:#ffcc00}' +
+    '.cvc :focus-visible,.cvc-modal :focus-visible,.cv-sug :focus-visible{outline:3px solid var(--cvc-orange);outline-offset:3px}' +
+    '.cvc-overlay{position:fixed;inset:0;z-index:9999;background:rgba(11,42,138,.45);display:grid;place-items:center;padding:20px 16px}' +
+    '.cvc-modal{position:relative;width:min(580px,100%);max-height:calc(100vh - 40px);overflow-y:auto;background:var(--cvc-cream);border:3px solid var(--cvc-yel);border-radius:24px;padding:28px;box-shadow:0 30px 70px rgba(11,42,138,.3)}' +
     '.cvc-modal h2{margin:0 0 8px;padding-right:48px;color:var(--cvc-blue);font-family:Fredoka,Montserrat,system-ui,sans-serif;font-size:26px;font-weight:600;line-height:1.1}' +
-    '.cvc-modal>p{margin:0 0 18px;font-size:14px}' +
-    '.cvc-close{position:absolute;top:18px;right:18px;width:40px;height:40px;border-radius:50%;border:2px solid var(--cvc-blue);background:transparent;color:var(--cvc-blue);font-size:24px;font-weight:600;line-height:1;cursor:pointer}' +
-    '.cvc-cat{background:#fff;border:2px solid #e6ecff;border-radius:18px;padding:14px 18px;margin-bottom:10px}' +
+    '.cvc-modal>p{margin:0 0 18px;font-size:14px;color:var(--cvc-ink)}' +
+    '.cvc-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:2px solid var(--cvc-blue);background:#fff;color:var(--cvc-blue);font-size:24px;font-weight:600;line-height:1;cursor:pointer}' +
+    '.cvc-close:hover{background:var(--cvc-sky)}' +
+    '.cvc-cat{background:#fff;border:2px solid #ffe680;border-radius:18px;padding:14px 18px;margin-bottom:10px}' +
     '.cvc-cat-head{display:flex;align-items:center;justify-content:space-between;gap:16px}' +
-    '.cvc-cat-head label{color:var(--cvc-ink);font-weight:600;font-size:15px;cursor:pointer}' +
+    '.cvc-cat-head label{color:var(--cvc-ink);font-weight:700;font-size:15px;cursor:pointer}' +
     '.cvc-cat p{margin:6px 0 0;font-size:13px;color:#3c4a75}' +
-    '.cvc-tag{display:inline-block;margin-left:6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cvc-blue);background:var(--cvc-sky);padding:3px 8px;border-radius:999px;vertical-align:middle}' +
+    '.cvc-tag{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cvc-ink);background:var(--cvc-yel);padding:3px 8px;border-radius:999px;vertical-align:middle}' +
     '.cvc-switch{position:relative;flex:none;width:52px;height:30px}' +
     '.cvc-switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}' +
     '.cvc-switch span{position:absolute;inset:0;border-radius:999px;background:#c5d0ee;transition:background .2s;pointer-events:none}' +
     '.cvc-switch span::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .2s}' +
     '.cvc-switch input:checked+span{background:var(--cvc-blue)}.cvc-switch input:checked+span::after{transform:translateX(22px)}' +
-    '.cvc-switch input:disabled+span{opacity:.55}' +
+    '.cvc-switch input:disabled+span{background:var(--cvc-blue);opacity:.5}' +
     '.cvc-switch input:focus-visible+span{outline:3px solid var(--cvc-orange);outline-offset:3px}' +
     '.cvc-modal-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}' +
     '.cvc-modal-actions .cvc-btn{font-size:15px;min-height:48px;padding:8px 10px}' +
@@ -96,10 +87,10 @@
     '@media (prefers-reduced-motion:reduce){.cvc{animation:none}}' +
     '@media print{.cvc,.cvc-overlay,.cv-sug{display:none!important}}' +
     /* barra de sugestão de idioma */
-    '.cv-sug{position:relative;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:8px 52px 8px 16px;background:#fdf8df;color:#0b2a8a;font:500 14px/1.4 Montserrat,system-ui,sans-serif;border-bottom:1px solid #f3e3a0;text-align:center}' +
-    '.cv-sug a{color:#0040ff;font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+    '.cv-sug{position:relative;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:8px 52px 8px 16px;background:var(--cvc-yel,#ffdf00);color:#0b2a8a;color-scheme:light;font:600 14px/1.4 Montserrat,system-ui,sans-serif;text-align:center}' +
+    '.cv-sug a{color:#0b2a8a;font-weight:700;text-decoration:underline;text-underline-offset:3px}' +
     '.cv-sug button{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:transparent;color:#0b2a8a;font-size:22px;line-height:1;cursor:pointer}' +
-    '.cv-sug button:hover{background:#f6edb8}' +
+    '.cv-sug button:hover{background:#ffcc00}' +
     '@media (max-width:640px){.cv-sug{font-size:13px;gap:2px 10px;padding:6px 46px 6px 12px}}';
   var st = doc.createElement('style'); st.textContent = css; doc.head.appendChild(st);
 
@@ -121,8 +112,8 @@
     banner = el('<section class="cvc" role="dialog" aria-modal="false" aria-labelledby="cvc-titulo" aria-describedby="cvc-desc" hidden>' +
       '<div><h2 class="cvc-title" id="cvc-titulo">' + t.titulo + '</h2><p class="cvc-text" id="cvc-desc">' + t.texto + '<br><a href="' + PRIV[LANG] + '">' + t.politica + '</a></p></div>' +
       '<div class="cvc-actions"><button type="button" class="cvc-btn cvc-btn-primary" data-cvc="aceitar">' + t.aceitar + '</button>' +
-      '<button type="button" class="cvc-btn" data-cvc="recusar">' + t.recusar + '</button>' +
-      '<button type="button" class="cvc-btn cvc-btn-soft" data-cvc="personalizar">' + t.personalizar + '</button></div></section>');
+      '<button type="button" class="cvc-btn cvc-btn-yel" data-cvc="recusar">' + t.recusar + '</button>' +
+      '<button type="button" class="cvc-btn" data-cvc="personalizar">' + t.personalizar + '</button></div></section>');
     function cat(id, nome, txt, tag, fixo) {
       return '<div class="cvc-cat"><div class="cvc-cat-head"><label for="cvc-' + id + '">' + nome + (tag ? ' <span class="cvc-tag">' + tag + '</span>' : '') + '</label>' +
         '<span class="cvc-switch"><input type="checkbox" id="cvc-' + id + '"' + (fixo ? ' checked disabled' : ' role="switch"') + ' aria-describedby="cvc-' + id + '-d"><span></span></span></div>' +
@@ -133,7 +124,7 @@
       '<h2 id="cvc-mt">' + t.modal + '</h2><p>' + t.modalTxt + ' <a href="' + PRIV[LANG] + '#cookies">' + t.saiba + '</a></p>' +
       cat('nec', t.nec, t.necTxt, t.sempre, true) + cat('analise', t.ana, t.anaTxt) + cat('marketing', t.mkt, t.mktTxt) +
       '<div class="cvc-modal-actions"><button type="button" class="cvc-btn cvc-btn-primary" data-cvc="salvar">' + t.salvar + '</button>' +
-      '<button type="button" class="cvc-btn" data-cvc="aceitar">' + t.aceitar + '</button>' +
+      '<button type="button" class="cvc-btn cvc-btn-yel" data-cvc="aceitar">' + t.aceitar + '</button>' +
       '<button type="button" class="cvc-btn" data-cvc="recusar">' + t.recusar + '</button></div></div></div>');
     doc.body.appendChild(banner); doc.body.appendChild(overlay);
     doc.addEventListener('click', function (e) {
@@ -181,7 +172,7 @@
   doc.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[hreflang]'); if (!a) return;
     var h = (a.getAttribute('hreflang') || '').toLowerCase();
-    var l = h.indexOf('en') === 0 ? 'en' : (h === 'pt-pt' ? 'pt-pt' : (h === 'pt-br' ? 'pt-br' : null));
+    var l = h.indexOf('en') === 0 ? 'en' : (h === 'pt-br' ? 'pt-br' : null);
     if (l) gravar('cv-lang', l);
   });
 
@@ -189,7 +180,6 @@
     var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
     for (var i = 0; i < ls.length; i++) {
       var x = String(ls[i]).toLowerCase();
-      if (x.indexOf('pt-pt') === 0 || x === 'pt-ao' || x === 'pt-mz') return 'pt-pt';
       if (x.indexOf('pt') === 0) return 'pt-br';
       if (x.indexOf('en') === 0) return 'en';
     }
@@ -199,7 +189,7 @@
     if (ler('cv-lang')) return;                 // o visitante já escolheu: respeita
     var alvo = idiomaNavegador();
     if (!alvo || alvo === LANG) return;
-    var hl = { 'pt-br': 'pt-BR', en: 'en', 'pt-pt': 'pt-PT' }[alvo];
+    var hl = { 'pt-br': 'pt-BR', en: 'en' }[alvo];
     var link = doc.querySelector('link[rel="alternate"][hreflang="' + hl + '"]');
     if (!link) return;
     var s = T[alvo];
