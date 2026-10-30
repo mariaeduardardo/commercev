@@ -123,6 +123,7 @@ const MenuCelular: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </li>
           ))}
         </ul>
+        <a href="https://www.instagram.com/commercevisual/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Commerce Visual" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, margin: '12px 0 0 4px', fontWeight: 600 }}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /></svg>Instagram @commercevisual</a>
         <img className="mm-mascote" src="/cv/mascote.webp" alt="" aria-hidden="true" width={432} height={405} loading="lazy" decoding="async" />
         <a className="mm-cta" href={WPP} target="_blank" rel="noopener noreferrer">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.36A9.9 9.9 0 1 0 12.04 2Zm4.5 11.96c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.03 4.75 4.75 0 0 0 1 2.52 10.9 10.9 0 0 0 4.17 3.68c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z" /></svg>
