@@ -161,7 +161,7 @@ export const CvHero: React.FC = () => {
 
       {/* Celular (até 760px) */}
       <div className="min-[761px]:hidden">
-        <Arte only="mob" src={ARTE.heroMob} alt={t.altHero} w={750} h={1584} eager>
+        <Arte only="mob" src={ARTE.heroMob} alt={t.altHero} w={863} h={1823} eager>
           <Hotspots w={863} h={1823} items={[
             { label: t.querProjeto, href: WPP, x1: 50, y1: 938, x2: 575, y2: 1038 },
             { label: t.conhecaServicos, href: '#servicos', ...HERO_HS.linkMob },
