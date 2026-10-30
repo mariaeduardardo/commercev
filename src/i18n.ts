@@ -102,7 +102,7 @@ type Txt = {
 
 export const T: Record<Lang, Txt> = {
   'pt-br': {
-    h1: 'Criação de sites e lojas virtuais para o seu negócio. Commerce Visual.',
+    h1: 'Sites, lojas virtuais e sistemas sob medida, com segurança digital e LGPD',
     altHero: 'Seu negócio sem limites. Criação de sites e sistemas. Ideias criativas. Soluções digitais feitas para o seu negócio.',
     altServ: 'Soluções digitais para suas ideias: sites profissionais, sistemas sob medida, lojas virtuais, design responsivo, manutenção e suporte. Suas ideias em experiências reais. Sites que valorizam sua marca. Sistemas que organizam seu negócio.',
     menu: ['Início', 'Serviços', 'Processo', 'Dúvidas'], menuAria: 'Menu principal', abrirMenu: 'Abrir menu', fecharMenu: 'Fechar menu',
