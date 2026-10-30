@@ -16,7 +16,7 @@ const r = t.rod;
 const LINKS: Hotspot[] = [
   { label: r.inicio, href: rota('home'), x1: 247, y1: 245, x2: 824, y2: 435 },
   { label: r.fale, href: WPP, x1: 247, y1: 629, x2: 750, y2: 737 },
-  { label: r.projetos, href: '#servicos', ...RODAPE_LINKS[0] },
+  { label: r.projetos, href: '#projetos-titulo', ...RODAPE_LINKS[0] },
   { label: r.privacidade, href: rota('privacidade'), ...RODAPE_LINKS[1] },
   { label: r.termos, href: rota('termos'), ...RODAPE_LINKS[2] },
   { label: r.cookies, href: `${rota('privacidade')}#cookies`, ...RODAPE_LINKS[3] },
@@ -79,7 +79,7 @@ export const Footer: React.FC = () => (
 
       <h3>{r.empresa}</h3>
       <ul>
-        <li><a href="#servicos">{r.projetos}</a></li>
+        <li><a href="#projetos-titulo">{r.projetos}</a></li>
         <li><a href={rota('privacidade')}>{r.privacidade}</a></li>
         <li><a href={rota('termos')}>{r.termos}</a></li>
         <li><a href={`${rota('privacidade')}#cookies`} data-cvc-open="">{r.cookies}</a></li>

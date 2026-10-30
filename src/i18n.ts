@@ -102,9 +102,9 @@ type Txt = {
 
 export const T: Record<Lang, Txt> = {
   'pt-br': {
-    h1: 'Commerce Visual — Seu negócio sem limites. Criação de sites, lojas virtuais e sistemas sob medida.',
+    h1: 'Criação de sites e lojas virtuais para o seu negócio. Commerce Visual.',
     altHero: 'Seu negócio sem limites. Criação de sites e sistemas. Ideias criativas. Soluções digitais feitas para o seu negócio.',
-    altServ: 'Soluções digitais para suas ideias: sites profissionais, sistemas sob medida, lojas virtuais e design responsivo. Suas ideias em experiências reais. Sites que valorizam sua marca. Sistemas que organizam seu negócio.',
+    altServ: 'Soluções digitais para suas ideias: sites profissionais, sistemas sob medida, lojas virtuais, design responsivo, manutenção e suporte. Suas ideias em experiências reais. Sites que valorizam sua marca. Sistemas que organizam seu negócio.',
     menu: ['Início', 'Serviços', 'Processo', 'Dúvidas'], menuAria: 'Menu principal', abrirMenu: 'Abrir menu', fecharMenu: 'Fechar menu',
     conversar: 'Vamos conversar', querProjeto: 'Quero meu projeto', conhecaServicos: 'Conheça nossos serviços', idioma: 'Idioma',
     serv: {
@@ -113,7 +113,7 @@ export const T: Record<Lang, Txt> = {
         ['Sites profissionais', 'sites', 'presença digital com a sua identidade.'],
         ['Sistemas sob medida', 'sistemas', 'soluções para a rotina do seu negócio.'],
         ['Lojas virtuais', 'lojas', 'seu catálogo em uma experiência de compra.'],
-        ['Design responsivo', null, 'experiências para diferentes telas.'],
+        ['Design responsivo, manutenção e suporte', null, 'Seu site se adapta a celulares, tablets e computadores. Também podemos cuidar de atualizações e suporte técnico.'],
         ['Segurança digital', 'seguranca', 'proteção para o site e os dados da sua empresa.'],
       ],
       h3a: 'Suas ideias. Em experiências reais.', pa: 'Criamos sites e sistemas que conectam sua marca ao digital.',
@@ -123,13 +123,14 @@ export const T: Record<Lang, Txt> = {
       possSites: 'Conheça as possibilidades de sites', possSist: 'Conheça as possibilidades de sistemas',
     },
     proc: {
-      selo: 'Processo transparente', h2: 'Como tiramos sua ideia do papel em 4 etapas ágeis',
+      selo: 'Processo transparente', h2: 'Como tiramos sua ideia do papel em 5 etapas',
       p: 'Metodologia sem enrolação. Você acompanha cada passo com alinhamento contínuo e previsão de entrega.',
       etapas: [
-        ['Briefing & Diagnóstico', 'Entendemos o seu modelo de negócio, seus diferenciais e o comportamento de compra do seu cliente ideal para desenhar a estratégia mais eficiente.'],
-        ['Design de Alta Fidelidade', 'Criamos a interface visual com base em neurodesign corporativo, paleta sofisticada e hierarquia perfeita para conduzir o olhar até o botão de contato.'],
-        ['Desenvolvimento & Performance', 'Codificamos o projeto com as tecnologias mais modernas do mercado, garantindo fluidez mobile-first, segurança e velocidade máxima no carregamento.'],
-        ['Lançamento & Código 100% Seu', 'Colocamos sua solução no ar, realizamos testes de ponta e entregamos o acesso completo, sem dependência de mensalidades da agência.'],
+        ['Briefing', 'Entendemos o negócio, o público e os objetivos do projeto.'],
+        ['Proposta', 'Organizamos o escopo, as entregas e os prazos para sua avaliação.'],
+        ['Criação', 'Desenvolvemos o site ou sistema conforme o que foi combinado.'],
+        ['Revisão', 'Você confere o projeto e aponta os ajustes previstos no escopo.'],
+        ['Entrega', 'Publicamos a solução e orientamos você sobre os próximos passos.'],
       ],
     },
     faq: {
@@ -140,7 +141,7 @@ export const T: Record<Lang, Txt> = {
         ['O site funciona com total perfeição em celulares e tablets?', 'Sim, aplicamos a abordagem estrita Mobile-First. Mais de 85% dos cliques vindos de campanhas chegam através de smartphones, por isso cada botão, texto e elemento é ajustado com precisão milimétrica para uma experiência tátil ultra-rápida.'],
         ['Como o site é integrado com o meu WhatsApp?', "Configuramos botões inteligentes com mensagens pré-formatadas. Quando o visitante clica no botão do site, ele já abre o WhatsApp com um texto personalizado (ex: 'Olá, vim pelo site e gostaria de um orçamento'), facilitando o início imediato do atendimento pela sua equipe."],
         ['Vocês auxiliam na escolha de hospedagem e domínio?', 'Sim, fornecemos todo o direcionamento consultivo para que você registre seu domínio próprio (.com.br) e contrate a hospedagem mais veloz e econômica para a sua necessidade, mantendo tudo 100% no seu nome.'],
-        ['Quais são as formas de pagamento disponíveis?', 'Trabalhamos com condições transparentes: 50% de entrada para iniciarmos o projeto e os 50% restantes na conclusão e aprovação final. Aceitamos PIX e cartão de crédito.'],
+        ['Quais são as formas de pagamento disponíveis?', 'Aceitamos PIX e cartão de crédito. As condições são informadas na proposta antes do início do projeto.'],
       ],
     },
     rod: {
