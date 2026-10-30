@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { CvHero, CvSolucoes } from './components/CvHome';
 import { ProcessSection } from './components/ProcessSection';
-import { ProjectsTestimonialsSection } from './components/ProjectsTestimonialsSection';
 
 const FAQSection = React.lazy(() => import('./components/FAQSection'));
 const Footer = React.lazy(() => import('./components/Footer'));
@@ -66,7 +65,6 @@ export const App: React.FC = () => (
       <CvHero />
       <CvSolucoes />
       <ProcessSection />
-        <ProjectsTestimonialsSection />
       <DeferredFAQ />
     </main>
     <DeferredFooter />
