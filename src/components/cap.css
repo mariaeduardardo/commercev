@@ -9,6 +9,9 @@
   background: var(--cap-bg) center / cover no-repeat;
   filter: blur(42px) saturate(1.1);
 }
+@media (max-width: 1440px) {
+  .cv-cap::before { background-image: var(--cap-bg-1440, var(--cap-bg)); }
+}
 .cv-cap-in { position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; }
 @media (min-width: 1640px) {
   .cv-cap-in > div > img, .cv-cap-in > img {

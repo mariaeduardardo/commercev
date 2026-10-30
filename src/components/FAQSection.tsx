@@ -105,10 +105,10 @@ export const FAQSection: React.FC = () => {
                   <span className="cvf2-sr">{PERGUNTAS[s.q].question}</span>
                 </button>
                 {open && (
-                  <img className="cvf2-m-seta" src="/cv/faqm/seta-cima.webp" alt="" style={{ left: `${s.seta[0]}%`, top: `${s.seta[1]}%`, width: `${s.seta[2]}%` }} />
+                  <img className="cvf2-m-seta" src="/cv/faqm/seta-cima.webp" alt="" width={82} height={82} loading="lazy" decoding="async" style={{ left: `${s.seta[0]}%`, top: `${s.seta[1]}%`, width: `${s.seta[2]}%` }} />
                 )}
               </div>
-              {open && <img className="cvf2-m-r" src={s.r} alt="" width={s.rw} height={s.rh} />}
+              {open && <img className="cvf2-m-r" src={s.r} alt="" width={s.rw} height={s.rh} loading="lazy" decoding="async" />}
             </React.Fragment>
           );
         })}

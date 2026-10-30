@@ -1,5 +1,6 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+import { readdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { extname, join, relative, resolve, sep } from 'node:path';
 import { defineConfig, transformWithEsbuild } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -118,6 +119,46 @@ const minifyCopiedAssetsPlugin = {
       }
 
       if (minifiedHtml !== html) await writeFile(filePath, minifiedHtml);
+    }
+
+    const outputFiles: string[] = [];
+    const collectOutputFiles = async (directory: string): Promise<void> => {
+      for (const entry of await readdir(directory, { withFileTypes: true })) {
+        const filePath = join(directory, entry.name);
+        if (entry.isDirectory()) await collectOutputFiles(filePath);
+        else if (entry.isFile()) outputFiles.push(filePath);
+      }
+    };
+    await collectOutputFiles(outputDir);
+
+    const hashedAssets: [string, string][] = [];
+    for (const filePath of outputFiles) {
+      const relativePath = relative(outputDir, filePath).split(sep).join('/');
+      if (relativePath.startsWith('assets/')) continue;
+      if (!/\.(?:png|jpe?g|gif|webp|svg|ico|woff2?|ttf|otf|js|css)$/i.test(relativePath)) continue;
+
+      const extension = extname(relativePath);
+      const baseName = relativePath.slice(0, -extension.length);
+      if (/\.[a-f0-9]{12}$/.test(baseName)) continue;
+
+      const content = await readFile(filePath);
+      const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
+      const hashedPath = `${baseName}.${hash}${extension}`;
+      await rename(filePath, join(outputDir, hashedPath));
+      hashedAssets.push([relativePath, hashedPath]);
+    }
+
+    const referenceFiles = outputFiles.filter((filePath) =>
+      /\.(?:html|js|css|xml|json|txt|webmanifest)$/i.test(filePath),
+    );
+    for (const filePath of referenceFiles) {
+      const original = await readFile(filePath, 'utf8').catch(() => null);
+      if (original === null) continue;
+      let updated = original;
+      for (const [source, hashed] of hashedAssets) {
+        updated = updated.replaceAll(source, hashed);
+      }
+      if (updated !== original) await writeFile(filePath, updated);
     }
   },
 };

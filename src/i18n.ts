@@ -32,13 +32,13 @@ const P = LANG === 'pt-br' ? '' : `/${LANG}`;
 export const ARTE =
   LANG === 'pt-br'
     ? {
-        heroDesk: '/cv/hero-desktop-v3.webp', heroDesk1000: '/cv/hero-desktop-v3-1000.webp', heroMob: '/cv/hero-mobile.webp',
+        heroDesk: '/cv/hero-desktop-v3.webp', heroDesk1440: '/cv/hero-desktop-v3-1440.webp', heroDesk1000: '/cv/hero-desktop-v3-1000.webp', heroMob: '/cv/hero-mobile.webp',
         servDesk: '/cv/servicos-desktop-v2.webp', servDesk1000: '/cv/servicos-desktop-v2-1000.webp', servMob: '/cv/servicos-mobile-v3.webp',
         procDesk: '/cv/processo-desktop-v4.webp', procMob: '/cv/processo-mobile-v5.webp',
         faqTopo: '/cv/faq3-topo.webp', rodape: '/cv/rodape-v5.webp',
       }
     : {
-        heroDesk: `/cv${P}/hero-desktop.webp`, heroDesk1000: `/cv${P}/hero-desktop-1000.webp`, heroMob: `/cv${P}/hero-mobile.webp`,
+        heroDesk: `/cv${P}/hero-desktop.webp`, heroDesk1440: `/cv${P}/hero-desktop-1440.webp`, heroDesk1000: `/cv${P}/hero-desktop-1000.webp`, heroMob: `/cv${P}/hero-mobile.webp`,
         servDesk: `/cv${P}/servicos-desktop.webp`, servDesk1000: `/cv${P}/servicos-desktop-1000.webp`, servMob: `/cv${P}/servicos-mobile.webp`,
         procDesk: `/cv${P}/processo-desktop.webp`, procMob: `/cv${P}/processo-mobile.webp`,
         faqTopo: `/cv${P}/faq3-topo.webp`, rodape: `/cv${P}/rodape.webp`,
@@ -46,25 +46,26 @@ export const ARTE =
 
 /* Cards do FAQ (computador): imagem fechada e aberta + altura da aberta */
 export const FAQ_IMG: [string, string, number][] = (() => {
-  const alt: Record<Lang, number[]> = {
-    'pt-br': [741, 791, 791, 791, 741, 641],
-  };
-  return [1, 2, 3, 4, 5, 6].map((n, i) => {
-    const nome = LANG === 'pt-br' && n === 6 ? 'q6-v2' : `q${n}`;
-    return [`/cv${P}/faq/${nome}.webp`, `/cv${P}/faq/${nome}-aberta.webp`, alt[LANG][i]];
-  });
+  return [
+    ['/cv/faq/q1.webp', '/cv/faq/q1-aberta.webp', 741],
+    ['/cv/faq/q2.webp', '/cv/faq/q2-aberta.webp', 791],
+    ['/cv/faq/q3.webp', '/cv/faq/q3-aberta.webp', 791],
+    ['/cv/faq/q4.webp', '/cv/faq/q4-aberta.webp', 791],
+    ['/cv/faq/q5.webp', '/cv/faq/q5-aberta.webp', 741],
+    ['/cv/faq/q6-v2.webp', '/cv/faq/q6-v2-aberta.webp', 641],
+  ];
 })();
 
 /* Respostas do FAQ (celular): imagem e altura, na ordem das fatias da arte */
 export const FAQM: { s: string; r: string; rh: number }[] = (() => {
-  const alt: Record<Lang, number[]> = {
-    'pt-br': [519, 519, 519, 461, 519, 403],
-  };
-  return [1, 2, 3, 4, 5, 6].map((n, i) => ({
-    s: `/cv${P}/faqm/s${n}.webp`,
-    r: LANG === 'pt-br' && n === 6 ? '/cv/faqm/r6-v2.webp' : `/cv${P}/faqm/r${n}.webp`,
-    rh: alt[LANG][i],
-  }));
+  return [
+    { s: '/cv/faqm/s1.webp', r: '/cv/faqm/r1.webp', rh: 519 },
+    { s: '/cv/faqm/s2.webp', r: '/cv/faqm/r2.webp', rh: 519 },
+    { s: '/cv/faqm/s3.webp', r: '/cv/faqm/r3.webp', rh: 519 },
+    { s: '/cv/faqm/s4.webp', r: '/cv/faqm/r4.webp', rh: 461 },
+    { s: '/cv/faqm/s5.webp', r: '/cv/faqm/r5.webp', rh: 519 },
+    { s: '/cv/faqm/s6.webp', r: '/cv/faqm/r6-v2.webp', rh: 403 },
+  ];
 })();
 
 type Hs = { x1: number; y1: number; x2: number; y2: number };

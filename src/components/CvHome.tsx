@@ -123,7 +123,7 @@ const MenuCelular: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </li>
           ))}
         </ul>
-        <img className="mm-mascote" src="/cv/mascote.webp" alt="" aria-hidden="true" />
+        <img className="mm-mascote" src="/cv/mascote.webp" alt="" aria-hidden="true" width={432} height={405} loading="lazy" decoding="async" />
         <a className="mm-cta" href={WPP} target="_blank" rel="noopener noreferrer">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.36A9.9 9.9 0 1 0 12.04 2Zm4.5 11.96c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.03 4.75 4.75 0 0 0 1 2.52 10.9 10.9 0 0 0 4.17 3.68c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z" /></svg>
           {t.conversar}
@@ -144,9 +144,9 @@ export const CvHero: React.FC = () => {
 
       {/* Desktop (acima de 760px) */}
       <div className="hidden min-[761px]:block">
-        <div className="cv-cap" style={{ ['--cap-bg' as string]: `url('${ARTE.heroDesk}')` }}>
+        <div className="cv-cap" style={{ ['--cap-bg' as string]: `url('${ARTE.heroDesk}')`, ['--cap-bg-1440' as string]: `url('${ARTE.heroDesk1440}')` }}>
           <div className="cv-cap-in">
-            <Arte only="desk" src={ARTE.heroDesk} srcSet={`${ARTE.heroDesk1000} 1000w, ${ARTE.heroDesk} 1600w`} alt={t.altHero} w={1672} h={940} eager>
+            <Arte only="desk" src={ARTE.heroDesk} srcSet={`${ARTE.heroDesk1000} 1000w, ${ARTE.heroDesk1440} 1440w, ${ARTE.heroDesk} 1600w`} alt={t.altHero} w={1672} h={940} eager>
               <Hotspots w={1672} h={940} items={[
                 ...HERO_HS.menu.map((h, i) => ({ label: t.menu[i], href: ['#inicio', '#servicos', '#como-funciona', '#faq'][i], ...h })),
                 { label: `${t.conversar} — WhatsApp`, href: WPP, x1: 1330, y1: 27, x2: 1620, y2: 88 },
